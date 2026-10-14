@@ -1,0 +1,182 @@
+name: Validate Confidence
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  changes:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      run_images: ${{ steps.image_scope.outputs.run_images }}
+    steps:
+      - name: Check out source and PR history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Check image-scope fail-closed cases
+        run: node --test scripts/ci-image-scope.test.mjs
+      - name: Decide whether image validation is required
+        id: image_scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # A PR can change its own classifier. Execute only the base commit's
+          # version; a missing base/version/diff must run both image checks.
+          run_images=true
+          if [ "$GITHUB_EVENT_NAME" = pull_request ] && [[ "$BASE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            scope_dir=$(mktemp -d)
+            if git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null \
+              && git show "$BASE_SHA:scripts/ci-image-scope.mjs" > "$scope_dir/ci-image-scope.mjs" 2>/dev/null \
+              && GITHUB_OUTPUT="$scope_dir/result" node "$scope_dir/ci-image-scope.mjs" \
+              && grep -qx 'run_images=false' "$scope_dir/result"; then
+              run_images=false
+            fi
+          fi
+          echo "run_images=$run_images" >> "$GITHUB_OUTPUT"
+  source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install and verify pinned Rust components
+        timeout-minutes: 10
+        run: |
+          rustup show active-toolchain
+          rustup component add rustfmt clippy
+          cargo fmt --version
+          cargo clippy --version
+      - name: Install wasm-pack
+        timeout-minutes: 5
+        run: bash scripts/install-wasm-pack-ci.sh
+      - name: Install Node dependencies
+        timeout-minutes: 10
+        run: npm ci
+      - name: Build, typecheck and run complete local source gate
+        timeout-minutes: 30
+        run: npm run test:local
+      - name: Verify clean public source export
+        run: node --test scripts/public-source.test.mjs
+      - name: Verify Weft Access adapter and isolated deployment configuration
+        timeout-minutes: 5
+        run: |
+          node --import tsx --test --test-concurrency=1 scripts/weft-access.test.mjs infra/weft-development/configure.test.ts
+          node node_modules/typescript/bin/tsc --noEmit -p infra/weft-development/tsconfig.json
+          node node_modules/typescript/bin/tsc --noEmit -p infra/test-weft/tsconfig.json
+          node node_modules/typescript/bin/tsc --noEmit -p infra/test-weft/tsconfig.runner.json
+      - name: Verify scoped discussion client and collaboration profile contracts
+        timeout-minutes: 5
+        run: |
+          node --test scripts/confidence-agent.test.mjs
+          node --import tsx --test packages/protocol/src/dependencies.test.ts packages/protocol/src/project-hub.test.ts
+          node node_modules/typescript/bin/tsc --noEmit -p infra/test-hub/tsconfig.json
+          node node_modules/typescript/bin/tsc --noEmit -p infra/test-weft/tsconfig.repository-profile.json
+      - name: Check Rust formatting
+        run: cargo fmt --check
+      - name: Lint Rust targets
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: Exercise owned Pi session
+        run: npm run test:pi
+      - name: Compare equal-budget workflow fixture
+        run: npm run compare:workflows
+      - name: Generate local demo receipt
+        run: npm run demo
+      - name: Verify demo checkpoint
+        run: npm run verify -- demo-output/receipt.json demo-output/trust.json demo-output/checkpoint.json
+      - name: Verify attested demo checkpoint
+        run: npm run verify -- demo-output/receipt.json demo-output/trust.json demo-output/checkpoint-attestation.json
+      - name: Upload sanitized runtime summaries
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: local-validation-${{ github.sha }}
+          retention-days: 7
+          if-no-files-found: warn
+          path: |
+            demo-output/authority-runtime.json
+            demo-output/project-catalog-runtime.json
+            demo-output/runner-runtime.json
+            demo-output/evaluator-runtime.json
+            demo-output/evaluator-stop-runtime.json
+            demo-output/auth-runtime.json
+            demo-output/collaboration-runtime.json
+            demo-output/collaboration-migration-v1.json
+            demo-output/projection-runtime.json
+            demo-output/projection-queue-bridge.json
+  images:
+    needs: changes
+    if: ${{ needs.changes.outputs.run_images == 'true' }}
+    runs-on: ubuntu-24.04
+    # The runner image smoke permits a 40-minute cold Docker build by itself.
+    timeout-minutes: 90
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install wasm-pack
+        timeout-minutes: 5
+        run: bash scripts/install-wasm-pack-ci.sh
+      - name: Install Node dependencies
+        timeout-minutes: 10
+        run: npm ci
+      - name: Build kernel for owned runner image check
+        timeout-minutes: 10
+        run: npm run build:kernel
+      - name: Check evaluator Docker image
+        timeout-minutes: 20
+        run: npm run test:container
+      - name: Check runner Docker image
+        timeout-minutes: 50
+        run: npm run test:runner-image
+      - name: Upload sanitized runner image summary
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: image-validation-${{ github.sha }}
+          retention-days: 7
+          if-no-files-found: warn
+          path: demo-output/runner-image-smoke.json
+  validate:
+    if: ${{ always() }}
+    needs: [changes, source, images]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require every gate to pass
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          RUN_IMAGES: ${{ needs.changes.outputs.run_images }}
+          SOURCE_RESULT: ${{ needs.source.result }}
+          IMAGE_RESULT: ${{ needs.images.result }}
+        run: |
+          test "$CHANGES_RESULT" = success
+          test "$SOURCE_RESULT" = success
+          if [ "$RUN_IMAGES" = true ]; then
+            test "$IMAGE_RESULT" = success
+          elif [ "$RUN_IMAGES" = false ] && [ "$EVENT_NAME" = pull_request ]; then
+            test "$IMAGE_RESULT" = skipped
+          else
+            exit 1
+          fi

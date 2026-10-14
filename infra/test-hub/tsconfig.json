@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["profile-runtime.ts", "profile-runtime.test.ts"],
+  "exclude": ["../../node_modules"]
+}

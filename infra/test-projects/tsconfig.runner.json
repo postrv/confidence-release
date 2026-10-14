@@ -1,0 +1,4 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../project-catalog-runtime-check.ts", "./fixtures.ts", "../../packages/project-model/src/**/*.ts"]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "confidence-interlinked-retained-biome-v1",
+  "sourcePath": "src/harness/check-engine/tool-runners/biome.ts",
+  "originalSha256": "f59082b0c760e7d8bf05166bee27a3b677478333e77bf790314b5924cf1c3e28",
+  "patchedSha256": "77e5ca008712dedf0eb67cb8b2d144a2936f3d6eb9ec70dbf457bc208349af51",
+  "reason": "Resolve the retained lockfile-pinned Biome Node entry from the CLI installation. Keep overlay arguments, working directory, timeout, output parser and cleanup unchanged.",
+  "replacements": [
+    {
+      "before": "import { randomUUID } from \"node:crypto\";\n",
+      "after": "import { randomUUID } from \"node:crypto\";\nimport { createRequire } from \"node:module\";\n"
+    },
+    {
+      "before": "spawnSync(\"npx\", [\"--no-install\", \"biome\", \"check\", \"--max-diagnostics=none\", tmpPath]",
+      "after": "spawnSync(process.execPath, [createRequire(import.meta.url).resolve(\"@biomejs/biome/bin/biome\"), \"check\", \"--max-diagnostics=none\", tmpPath]"
+    }
+  ]
+}

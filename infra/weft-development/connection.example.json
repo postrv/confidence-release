@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 2,
+  "workerName": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-weft",
+  "weftSourceRevision": "b1c5521bf28a0144203c55b3f056885dce3535ff",
+  "replicaAudience": "REPLACE_WITH_DISTINCT_REPLICA_ACCESS_APPLICATION_AUD",
+  "bindings": []
+}

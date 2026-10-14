@@ -1,0 +1,23 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "confidence-authority",
+  "main": "index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {"enabled": true, "traces": {"enabled": true, "persist": true}, "redact_query_string": true, "logs": {"enabled": true, "head_sampling_rate": 1, "invocation_logs": true, "persist": true}},
+  "durable_objects": { "bindings": [{ "name": "PROJECTS", "class_name": "ProjectAuthority" }, { "name": "PROJECT_DIRECTORY", "class_name": "ProjectDirectory" }] },
+  "exports": { "ProjectAuthority": { "type": "durable-object", "storage": "sqlite" }, "ProjectDirectory": { "type": "durable-object", "storage": "sqlite" } },
+  "artifacts": [{ "binding": "ARTIFACTS", "namespace": "confidence" }],
+  "r2_buckets": [{ "binding": "OBJECTS", "bucket_name": "confidence-objects" }],
+  "queues": { "producers": [{ "binding": "EVENTS", "queue": "confidence-events" }] },
+  "services": [{ "binding": "RUNNER", "service": "confidence-runner" }, { "binding": "EVALUATOR", "service": "confidence-evaluator" }],
+  "vars": {
+    "AUTH_TENANT_ID": "pilot", "BOOTSTRAP_SUBJECTS": "[]", "AUTHORITY_KEY_ID": "authority-v1", "ROOT_KEY_ID": "root-v1", "CHECKER_KEY_ID": "checker-v1",
+    "MAINTENANCE_MODE": "true", "CONDITIONAL_PUBLICATION_VERIFIED": "false",
+    "EVALUATION_IMAGE_DIGEST": "UNCONFIGURED", "CHECKER_IMPLEMENTATION_DIGEST": "UNCONFIGURED", "ARTIFACTS_GIT_HOST": "UNCONFIGURED"
+  },
+  "secrets": { "required": ["ROOT_SIGNING_KEY", "AUTHORITY_SIGNING_KEY", "CHECKER_PUBLIC_KEY", "APP_SERVICE_TOKEN", "RUNNER_SERVICE_TOKEN", "EVALUATOR_SERVICE_TOKEN", "PROJECTOR_SERVICE_TOKEN"] },
+  "rules": [{ "type": "CompiledWasm", "globs": ["**/*.wasm"], "fallthrough": true }]
+}

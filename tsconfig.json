@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "ESNext.Disposable"],
+    "types": ["node"], "strict": true,
+    "esModuleInterop": true, "skipLibCheck": true, "noEmit": true,
+    "allowImportingTsExtensions": true, "resolveJsonModule": true
+  },
+  "include": ["packages/protocol/src/**/*.ts", "services/**/*.ts", "scripts/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules", "packages/protocol/wasm"]
+}

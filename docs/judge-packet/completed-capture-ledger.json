@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "kind": "completed-narrated-local-demo",
+  "status": "FINISHED_VIDEO_CHECKED",
+  "checkedAt": "2026-10-12T17:45:19.344Z",
+  "source": {
+    "capturedCommit": "680a5ef373d1904d463b155d74a99190ec04ab8e",
+    "capturedTree": "42cfb0ebbfd502558164b0fcf6521f7b8c670c06",
+    "identicalReviewedMergeCommit": "4fd4a6cd32f60b17d7b5d8d0f1995490a0f28d8b",
+    "identicalReviewedMergeTree": "42cfb0ebbfd502558164b0fcf6521f7b8c670c06",
+    "workingChangesPresentAtCapture": false,
+    "capturedSourceAndAssetsSha256": "sha256:2457384175cae9f2d7714223dbeb0ec7978d77b3361842a45826e50c436b2f28",
+    "assetFiles": {
+      "apps/web/dist/_headers": "sha256:2f071330b8114057ffb2d998bb085146b07f999857d6dece8051b439fcafbcca",
+      "apps/web/dist/assets/confidence_protocol-BxiA5Q8u.js": "sha256:d00ba01bd7205d669842bcf3ab226b0593b9a0ec84e968274ed5c50a9c1fd0f2",
+      "apps/web/dist/assets/confidence_protocol_bg-Dhvqm75L.wasm": "sha256:7d38d07b30552eca19f079b06531ec1e21c8e0a800061833b43904254b55d904",
+      "apps/web/dist/assets/index-BJDSbkGw.css": "sha256:f3d4ac67ad0e7be13cbc294bbbc5f3b7c744db4c64dcafdf8f8f343987692489",
+      "apps/web/dist/assets/index-BOxChvqw.js": "sha256:152e2d9610e6b09e6efd0e0e8e64cb90c031daecf17ce5d3df6723ecfe5b4787",
+      "apps/web/dist/index.html": "sha256:3ed64787a52797b8f866752bc115098d45276e3d3a155ce0e3411a8bb7465ac2"
+    },
+    "scope": "Actual local application capture; not a new native deployment or final submission"
+  },
+  "recording": {
+    "file": "confidence-judge-demo-2026-10-12.mp4",
+    "sha256": "sha256:088d394dabd1805adc68dbb50ce4d285c533ac35e4c0f9f8b8cd7dd7461cb909",
+    "durationSeconds": 480,
+    "bytes": 26512551,
+    "width": 1600,
+    "height": 1000,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "fullDecode": "PASS",
+    "browserPlayback": "PASS",
+    "pixelChecks": "19/19 PASS",
+    "audioMeanDb": -22.8,
+    "audioPeakDb": -3.9,
+    "narration": "macOS installed Daniel voice; synthetic narration, not the entrant",
+    "externalDownloadUrl": null,
+    "uploadedCopyVerified": false,
+    "humanFullWatchClaimed": false
+  },
+  "capture": {
+    "startedAt": "2026-10-12T17:29:14.557Z",
+    "completedAt": "2026-10-12T17:37:14.782Z",
+    "capturedTimelineSeconds": 480.001710792,
+    "capturedShotCount": 22,
+    "uncutFootageRetainedPrivately": true,
+    "originalCaptureLedgerSha256": "sha256:0d2ae9753df05bed3b97a1247f536cc9f8bafcf9507e8031d5e1c9d118fb652e",
+    "shortFailedRecorderAttemptsRetained": 2,
+    "automatedApprovalActor": "synthetic local-sponsor via automated browser",
+    "runtime": "Fresh LocalPlatform, predetermined concurrent subprocesses, local Git and loopback HTTP under one trusted host OS identity"
+  },
+  "localProtectedChecks": {
+    "sourceCommit": "49c872edba8ce4b093b6ec7d2f5d166f504d42f3",
+    "contract": "retained-value-v1",
+    "required": 9,
+    "passed": 9,
+    "jobs": [
+      {
+        "name": "warm-read-write-read",
+        "status": "PASS"
+      },
+      {
+        "name": "repeated-reads",
+        "status": "PASS"
+      },
+      {
+        "name": "successive-writes",
+        "status": "PASS"
+      },
+      {
+        "name": "cold-write-then-warm-write",
+        "status": "PASS"
+      },
+      {
+        "name": "retained-cache-benefit",
+        "status": "PASS"
+      },
+      {
+        "name": "accessible-saved-value",
+        "status": "PASS"
+      },
+      {
+        "name": "audit-write-burst",
+        "status": "PASS"
+      },
+      {
+        "name": "audit-alternating-pages",
+        "status": "PASS"
+      },
+      {
+        "name": "overlapping-read-write",
+        "status": "PASS"
+      }
+    ]
+  },
+  "nativeVerifier": {
+    "outputSha256": "sha256:37a5c90b44df53edcd3c8d08f4efd0d6a82781e08c235b28085cc33107984207",
+    "sourceCommit": "ec00334c1c2c8e2156ae0c11baf0bade3cebde1c",
+    "receiptDigest": "sha256:c8354d78d883728c4a1a5d33dbe568ce2cc014296cc1b2ea7ab24df94f4df4f9",
+    "positiveFacets": [
+      "valid",
+      "integrity",
+      "authorization",
+      "publicationObservation",
+      "continuity",
+      "sourceVerified"
+    ],
+    "positive": "PASS",
+    "disposableTamperedSignature": {
+      "valid": false,
+      "exitCode": 1,
+      "error": "BAD_SIGNATURE"
+    },
+    "networkingDeniedByOs": true,
+    "selectedTrust": "Synthetic local public keys; not production enrollment"
+  },
+  "narration": {
+    "source": "docs/judge-packet/DEMO_SCRIPT.md",
+    "sourceSha256": "sha256:828adb09e3aeb37ecc53a82623d36258d639b05df11239499d371aa342f88333",
+    "voice": "Installed macOS Daniel voice",
+    "synthetic": true,
+    "entrantVoice": false
+  },
+  "annotations": [
+    {
+      "file": "timestamp-annotation.png",
+      "startSeconds": 70,
+      "endSeconds": 85,
+      "sha256": "sha256:be7fde990594b7a272b035c65c4faaf991a4deb0e87235e7ff60edec715ba3db",
+      "meaning": "Read-only hold of actual captured local timestamps; not fictitious live actions"
+    },
+    {
+      "file": "review-annotation.png",
+      "startSeconds": 220,
+      "endSeconds": 265,
+      "sha256": "sha256:d0d69cda2ac2ffd2d0b1220d079aeef04f440904a919f706213c0861be883d34",
+      "meaning": "Explicit actor boundary for the actual automated local review/publication segment"
+    }
+  ],
+  "automaticChecks": {
+    "fullFileDecode": "PASS",
+    "browserPlayback": {
+      "status": "PASS",
+      "sampleSeconds": [
+        1,
+        100,
+        250,
+        345,
+        400,
+        470
+      ]
+    },
+    "nonblankPixels": {
+      "status": "19/19 PASS",
+      "sampleSeconds": [
+        1,
+        20,
+        47,
+        76,
+        96,
+        170,
+        195,
+        235,
+        252,
+        280,
+        306,
+        325,
+        345,
+        362,
+        380,
+        418,
+        439,
+        451,
+        472
+      ]
+    },
+    "audio": {
+      "meanDb": -22.8,
+      "peakDb": -3.9
+    }
+  },
+  "privacy": {
+    "reviewedSampledFrames": 19,
+    "renderedPrivacyReview": "PASS",
+    "method": "Contact sheet and full-size representative local, retained-native, verifier, timestamp, actor-caption, comparison and packet frames; selected document inputs scanned",
+    "realEmailsAndProductionCredentialsUsed": false,
+    "privateKeysSessionsOperatorPathsAndRawModelRecordsIncluded": false,
+    "entireVideoHumanWatchClaimed": false
+  },
+  "recordingPreparation": {
+    "modelCalls": 0,
+    "cloudflareRequests": 0,
+    "remoteAuthenticatedSessionsUsed": false
+  },
+  "claimBoundaries": [
+    "Local approval is automated and synthetic, not an independent live human review",
+    "Original Cloudflare publication and original matched comparison are visibly labelled retained evidence",
+    "The original comparison's faster enabled coding and longer full workflow remain unchanged",
+    "Synthetic offline example keeps ec00334 provenance and explicitly selected local trust",
+    "Any fresh native confirmation is a separate companion, not another original control arm",
+    "No new live STALE_STATE rejection, account billing reconciliation, arbitrary-repository support or exhaustive security proof is implied"
+  ],
+  "submission": {
+    "confirmed": false,
+    "termsAcceptedByPacket": false,
+    "repositoryJudgeAccessVerified": false
+  }
+}

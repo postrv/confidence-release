@@ -1,0 +1,24 @@
+{
+  "schema": "weft.byte-profile-vector.v1",
+  "scope": "Synthetic protocol vector; not a deployment or approval for real repository files.",
+  "profile": {
+    "schema": "weft.repository-profile.v2",
+    "exceptions": [{ "path": "fixture.bundle", "hash": "06eb7d6a69ee19e5fbdf749018d3d2abfa04bcbd1365db312eb86dc7169389b8", "mode": 33188, "size": 2, "reason": "reviewed-binary-fixture" }]
+  },
+  "profileHash": "b97e74d3b1a541ab904b6c8687873df6677b91effe24f702400aa0acce0dfb58",
+  "files": {
+    "fixture.bundle": { "encoding": "base64", "content": "AP8=", "mode": 33188 },
+    "hello.txt": { "encoding": "utf8", "content": "hello\r\n", "mode": 33261 },
+    "empty": { "encoding": "utf8", "content": "", "mode": 33188 }
+  },
+  "manifest": {
+    "schema": "weft.manifest.v2",
+    "entries": {
+      "empty": { "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "size": 0, "mode": 33188, "encoding": "utf8" },
+      "fixture.bundle": { "hash": "06eb7d6a69ee19e5fbdf749018d3d2abfa04bcbd1365db312eb86dc7169389b8", "size": 2, "mode": 33188, "encoding": "base64" },
+      "hello.txt": { "hash": "cd2eca3535741f27a8ae40c31b0c41d4057a7a7b912b33b9aed86485d1c84676", "size": 7, "mode": 33261, "encoding": "utf8" }
+    },
+    "root": "210b4cffa5f8792ab2232e2b583cf0399864b1978b39e8a9029f48e8191c9c76",
+    "bytes": 9
+  }
+}

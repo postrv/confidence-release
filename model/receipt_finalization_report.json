@@ -1,0 +1,415 @@
+{
+  "assumptions": [
+    "Both possible observations refer to the same exact admitted N; only observation time differs.",
+    "Every local action has the documented atomicity; frozen payload and selected reference are durable.",
+    "Signing produces a valid role-authorized endorsement under its recorded issuance revision.",
+    "Rotation is routine retirement, not compromise; prior valid endorsements remain eligible.",
+    "Store means complete signed bytes durably saved and read-back verified; storage does not later lose them.",
+    "The logical predecessor, admission and immutable subject have already been verified.",
+    "History-monitor fields are unavailable to application guards."
+  ],
+  "bounds": {
+    "external_exports": 1,
+    "finalizers": 2,
+    "issuance_keyset_revisions": 2,
+    "possible_logical_payloads": 2,
+    "publications": 1,
+    "rotations": 1,
+    "signed_draft_per_finalizer": 1
+  },
+  "identity": {
+    "endorsement": "DSSE statement binds logical subject and authorized issuance keyset revision.",
+    "envelope": "Complete signed bytes have their own digest; a canonical stored reference is selected.",
+    "integer_ids": "Collision-free finite representatives, not an implementation of hashes or DSSE.",
+    "logical_payload": "Immutable observed facts and predecessor logical digest; chain subject."
+  },
+  "implementation_sha256": "60aa89f5f3b7ddd93f89342b95e7095d2e8285368d8e277c31beead5c76e3b1b",
+  "method": "Deterministic BFS of every reachable state in the explicit finite product",
+  "omissions": [
+    "No cryptography, DSSE bytes, actual hash collision, schema decoder, database or Cloudflare test.",
+    "No remote publication, revoked/compromised signer, rejected observation or stale authority restore.",
+    "No loss of stored bytes, explicit process-crash state, second publication, fairness or liveness proof.",
+    "The frozen logical payload represents, but does not compute, a receipt-chain link.",
+    "The existing publication model is independent and does not already cover these properties."
+  ],
+  "results": {
+    "mutable_logical_payload": {
+      "exploration_exhausted": true,
+      "explored_edges": 601,
+      "reachable_states": 352,
+      "variant": "mutable_logical_payload",
+      "violations": {
+        "exported_subject_matches_logical_chain_identity": {
+          "events": [
+            "freeze_0",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "freeze_1",
+            "finalize",
+            "export"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                -1
+              ],
+              "durable_envelopes": 1,
+              "exported_envelope": 0,
+              "finalized": true,
+              "frozen_by": 3,
+              "key_revision": 0,
+              "logical_payload": 1,
+              "selected_envelope": 0
+            }
+          }
+        },
+        "logical_payload_single_assignment": {
+          "events": [
+            "freeze_0",
+            "freeze_1"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": -1,
+            "local": {
+              "drafts": [
+                -1,
+                -1
+              ],
+              "durable_envelopes": 0,
+              "exported_envelope": -1,
+              "finalized": false,
+              "frozen_by": 3,
+              "key_revision": 0,
+              "logical_payload": 1,
+              "selected_envelope": -1
+            }
+          }
+        },
+        "selected_envelope_binds_frozen_payload": {
+          "events": [
+            "freeze_0",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "freeze_1"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                -1
+              ],
+              "durable_envelopes": 1,
+              "exported_envelope": -1,
+              "finalized": false,
+              "frozen_by": 3,
+              "key_revision": 0,
+              "logical_payload": 1,
+              "selected_envelope": 0
+            }
+          }
+        }
+      },
+      "witnesses": {
+        "two_issuance_revisions_endorse_one_exported_logical_payload": {
+          "events": [
+            "freeze_0",
+            "freeze_1",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "rotate",
+            "sign_1",
+            "store_1",
+            "finalize",
+            "export"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 2,
+            "local": {
+              "drafts": [
+                2,
+                3
+              ],
+              "durable_envelopes": 12,
+              "exported_envelope": 2,
+              "finalized": true,
+              "frozen_by": 3,
+              "key_revision": 1,
+              "logical_payload": 1,
+              "selected_envelope": 2
+            }
+          }
+        }
+      }
+    },
+    "replace_selected_envelope": {
+      "exploration_exhausted": true,
+      "explored_edges": 431,
+      "reachable_states": 234,
+      "variant": "replace_selected_envelope",
+      "violations": {
+        "canonical_envelope_single_assignment": {
+          "events": [
+            "freeze_0",
+            "freeze_1",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "rotate",
+            "sign_1",
+            "store_1",
+            "select_1"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                1
+              ],
+              "durable_envelopes": 3,
+              "exported_envelope": -1,
+              "finalized": false,
+              "frozen_by": 3,
+              "key_revision": 1,
+              "logical_payload": 0,
+              "selected_envelope": 1
+            }
+          }
+        },
+        "exported_reference_never_replaced": {
+          "events": [
+            "freeze_0",
+            "freeze_1",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "rotate",
+            "sign_1",
+            "store_1",
+            "finalize",
+            "export",
+            "select_1"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                1
+              ],
+              "durable_envelopes": 3,
+              "exported_envelope": 0,
+              "finalized": true,
+              "frozen_by": 3,
+              "key_revision": 1,
+              "logical_payload": 0,
+              "selected_envelope": 1
+            }
+          }
+        }
+      },
+      "witnesses": {
+        "two_issuance_revisions_endorse_one_exported_logical_payload": {
+          "events": [
+            "freeze_0",
+            "freeze_1",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "rotate",
+            "sign_1",
+            "store_1",
+            "finalize",
+            "export"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                1
+              ],
+              "durable_envelopes": 3,
+              "exported_envelope": 0,
+              "finalized": true,
+              "frozen_by": 3,
+              "key_revision": 1,
+              "logical_payload": 0,
+              "selected_envelope": 0
+            }
+          }
+        }
+      }
+    },
+    "safe": {
+      "exploration_exhausted": true,
+      "explored_edges": 351,
+      "reachable_states": 194,
+      "variant": "safe",
+      "violations": {},
+      "witnesses": {
+        "two_issuance_revisions_endorse_one_exported_logical_payload": {
+          "events": [
+            "freeze_0",
+            "freeze_1",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "rotate",
+            "sign_1",
+            "store_1",
+            "finalize",
+            "export"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                1
+              ],
+              "durable_envelopes": 3,
+              "exported_envelope": 0,
+              "finalized": true,
+              "frozen_by": 3,
+              "key_revision": 1,
+              "logical_payload": 0,
+              "selected_envelope": 0
+            }
+          }
+        }
+      }
+    },
+    "select_before_durable": {
+      "exploration_exhausted": true,
+      "explored_edges": 717,
+      "reachable_states": 314,
+      "variant": "select_before_durable",
+      "violations": {
+        "export_requires_finalized_durable_envelope": {
+          "events": [
+            "freeze_0",
+            "sign_0",
+            "select_0",
+            "finalize",
+            "export"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                -1
+              ],
+              "durable_envelopes": 0,
+              "exported_envelope": 0,
+              "finalized": true,
+              "frozen_by": 1,
+              "key_revision": 0,
+              "logical_payload": 0,
+              "selected_envelope": 0
+            }
+          }
+        },
+        "finalization_requires_durable_selection": {
+          "events": [
+            "freeze_0",
+            "sign_0",
+            "select_0",
+            "finalize"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                -1
+              ],
+              "durable_envelopes": 0,
+              "exported_envelope": -1,
+              "finalized": true,
+              "frozen_by": 1,
+              "key_revision": 0,
+              "logical_payload": 0,
+              "selected_envelope": 0
+            }
+          }
+        },
+        "selected_envelope_durable": {
+          "events": [
+            "freeze_0",
+            "sign_0",
+            "select_0"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                -1
+              ],
+              "durable_envelopes": 0,
+              "exported_envelope": -1,
+              "finalized": false,
+              "frozen_by": 1,
+              "key_revision": 0,
+              "logical_payload": 0,
+              "selected_envelope": 0
+            }
+          }
+        }
+      },
+      "witnesses": {
+        "two_issuance_revisions_endorse_one_exported_logical_payload": {
+          "events": [
+            "freeze_0",
+            "freeze_1",
+            "sign_0",
+            "store_0",
+            "select_0",
+            "rotate",
+            "sign_1",
+            "store_1",
+            "finalize",
+            "export"
+          ],
+          "state": {
+            "first_payload": 0,
+            "first_selected": 0,
+            "local": {
+              "drafts": [
+                0,
+                1
+              ],
+              "durable_envelopes": 3,
+              "exported_envelope": 0,
+              "finalized": true,
+              "frozen_by": 3,
+              "key_revision": 1,
+              "logical_payload": 0,
+              "selected_envelope": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "schema_version": 1
+}

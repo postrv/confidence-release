@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "status": "NEURAL_SUCCESSOR_CHECKED",
+  "preparedOn": "2026-10-12",
+  "scope": "Narration-only presentation successor. No new footage, native benchmark, production action, human sign-in or publication.",
+  "source": {
+    "capturedCommit": "680a5ef373d1904d463b155d74a99190ec04ab8e",
+    "capturedTree": "42cfb0ebbfd502558164b0fcf6521f7b8c670c06",
+    "sourceScript": "docs/judge-packet/DEMO_SCRIPT.md",
+    "sourceScriptSha256": "sha256:828adb09e3aeb37ecc53a82623d36258d639b05df11239499d371aa342f88333",
+    "spokenSourceTextUnchanged": true,
+    "laterHandoverSourceIsSeparate": true
+  },
+  "predecessor": {
+    "file": "confidence-judge-demo-2026-10-12.mp4",
+    "sha256": "sha256:088d394dabd1805adc68dbb50ce4d285c533ac35e4c0f9f8b8cd7dd7461cb909",
+    "bytes": 26512551,
+    "ledgerPath": "docs/judge-packet/completed-capture-ledger.json",
+    "originalFileAndLedgerUnchanged": true
+  },
+  "recording": {
+    "file": "confidence-judge-demo-2026-10-12-neural.mp4",
+    "sha256": "sha256:e48fb7f8e98ae6453751d938c3c30b6863654ceb5ba9cdb69f46eb278d683a00",
+    "bytes": 28996394,
+    "durationSeconds": 480,
+    "width": 1600,
+    "height": 1000,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "audioBitrateSetting": 192000,
+    "videoStreamUnchanged": true,
+    "videoElementaryStreamSha256": "sha256:c9e260c657ccaba7c4a1a54ada429846769bd0ad119ab56f46aff17909171167"
+  },
+  "narration": {
+    "engine": "kokoro==0.9.4",
+    "model": "hexgrad/Kokoro-82M",
+    "modelRevision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "voice": "bf_emma",
+    "language": "British English",
+    "synthetic": true,
+    "notEntrant": true,
+    "notCustomVoiceClone": true,
+    "inference": "Local CPU; not a paid inference API",
+    "modelLicense": "Apache-2.0 per pinned upstream model card; weights not redistributed",
+    "upstream": "https://huggingface.co/hexgrad/Kokoro-82M/blob/f3ff3571791e39611d31c381e3a41a3af07b4987/README.md",
+    "assets": {
+      "config.json": {
+        "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+        "bytes": 2351
+      },
+      "kokoro-v1_0.pth": {
+        "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "bytes": 327212226
+      },
+      "voices/bf_emma.pt": {
+        "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+        "bytes": 523420
+      }
+    },
+    "synthesisSampleRateHz": 24000,
+    "finishedWavSampleRateHz": 48000,
+    "finishedWavSha256": "sha256:117a9e5b13754a4b7522d29fab376914f84433c6960512a14ceb114c00e8a986",
+    "normalization": {
+      "input_i": "-23.71",
+      "input_tp": "-0.61",
+      "input_lra": "3.00",
+      "input_thresh": "-33.98",
+      "output_i": "-16.14",
+      "output_tp": "-1.50",
+      "output_lra": "2.70",
+      "output_thresh": "-26.40",
+      "normalization_type": "dynamic",
+      "target_offset": "0.14"
+    },
+    "segments": [
+      {
+        "index": 1,
+        "title": "The wrong value",
+        "startSeconds": 0,
+        "endSeconds": 35,
+        "sourceTextSha256": "sha256:e032e26be724382126dd572c02946cb1cac27bd6e6222d9b141d49a95df3af28",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 26.325,
+        "pitchPreservingTempoFactor": 1,
+        "fittedSeconds": 26.30366666666667,
+        "leadSeconds": 0.3,
+        "tailSeconds": 8.396333333333335,
+        "rawAudioSha256": "sha256:bc600413211c393e7a1aa57d1bb8a67f4fb09599d1aa385a0e2526d0a650bb8d",
+        "fittedAudioSha256": "sha256:463604459def5c659f3abd7339074631cd931490bbc4bce839ceed46cd244626"
+      },
+      {
+        "index": 2,
+        "title": "Three kinds of fact",
+        "startSeconds": 35,
+        "endSeconds": 85,
+        "sourceTextSha256": "sha256:9fbfb3c47d05fdfdc71cce4e52eacd224d849582a25bccbf134d36f6839bf830",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 48.96,
+        "pitchPreservingTempoFactor": 1,
+        "fittedSeconds": 48.955083333333334,
+        "leadSeconds": 0.3,
+        "tailSeconds": 0.7449166666666684,
+        "rawAudioSha256": "sha256:4fdf2785bfe7f64fc7cd29e2112e6e53646eda9bb145a250b04631de793d8e75",
+        "fittedAudioSha256": "sha256:6e04685f67047a8dd4226531e62dfd42ec36c14f60b185efcb4d6700ede5dac2"
+      },
+      {
+        "index": 3,
+        "title": "Explain the interaction",
+        "startSeconds": 85,
+        "endSeconds": 145,
+        "sourceTextSha256": "sha256:e4be9310b542d6c43e476faa5b13f03f00d5e7675eeec076ee9cfd891e221a44",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 43.93,
+        "pitchPreservingTempoFactor": 1,
+        "fittedSeconds": 43.90866666666667,
+        "leadSeconds": 0.3,
+        "tailSeconds": 15.791333333333334,
+        "rawAudioSha256": "sha256:46dba1a038b4f11a746d4d9f850f78e2b74b70de100f153ebff9a4ec4ffec738",
+        "fittedAudioSha256": "sha256:7912de7a598e8853b4b9b18feaed269d386756919d13d73ef0a17e9084488ed5"
+      },
+      {
+        "index": 4,
+        "title": "Preserve the useful work",
+        "startSeconds": 145,
+        "endSeconds": 220,
+        "sourceTextSha256": "sha256:331be05b726308300c0d374487f4e610fcffe5e0db4d34fad2b1f94aa85b304e",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 62.685,
+        "pitchPreservingTempoFactor": 1,
+        "fittedSeconds": 62.663666666666664,
+        "leadSeconds": 0.3,
+        "tailSeconds": 12.036333333333339,
+        "rawAudioSha256": "sha256:d90ab7771ae29b70ecd1da252f67efca3a1cc095401634579b42c941acffa3d7",
+        "fittedAudioSha256": "sha256:de8eda5391ec74d7bb40cf0b8576e8f99380868f0f8544b16fea2d174dbc09d5"
+      },
+      {
+        "index": 5,
+        "title": "A human decision with an identity",
+        "startSeconds": 220,
+        "endSeconds": 295,
+        "sourceTextSha256": "sha256:121ebc8b52dd2db7bb79c8dbe8c9dbcc974e40ed10fbcc66ba2b03c2cbe8c1c7",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 62.91,
+        "pitchPreservingTempoFactor": 1,
+        "fittedSeconds": 62.888666666666666,
+        "leadSeconds": 0.3,
+        "tailSeconds": 11.811333333333337,
+        "rawAudioSha256": "sha256:2a441977f742b202770d8db0bc7e6111e9d456d522df6ac6fedf3dd97c61b3cc",
+        "fittedAudioSha256": "sha256:29171575ba93640cb14f44db48d6a876c3d171e4a79972563ef2346563d185bf"
+      },
+      {
+        "index": 6,
+        "title": "The decision leaves the service",
+        "startSeconds": 295,
+        "endSeconds": 370,
+        "sourceTextSha256": "sha256:064c6459ac63a0e3b0e0faec159fda55f5d59262e429399a1929668a7c29f35f",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 62.81,
+        "pitchPreservingTempoFactor": 1,
+        "fittedSeconds": 62.788666666666664,
+        "leadSeconds": 0.3,
+        "tailSeconds": 11.911333333333339,
+        "rawAudioSha256": "sha256:7c35ff26f0771e8019207794bb0cee92f7d78b5e51059487200c26cded89eb11",
+        "fittedAudioSha256": "sha256:32fd56bb371ab6eaa28aea13052a485360fcf6c84d7b4378268bfbaeadd62263"
+      },
+      {
+        "index": 7,
+        "title": "Tools in the actual loop",
+        "startSeconds": 370,
+        "endSeconds": 430,
+        "sourceTextSha256": "sha256:0016f1fbe55641d76ac2d657a30e9cefff681b4c9fb9b423dcef22305a3aa1e1",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 63.99,
+        "pitchPreservingTempoFactor": 1.0809121621621622,
+        "fittedSeconds": 59.20883333333333,
+        "leadSeconds": 0.3,
+        "tailSeconds": 0.49116666666667186,
+        "rawAudioSha256": "sha256:49b9e9eaf6532600604e32670665b6b5f37c7c3c840759562d41c8e3b7fc1dd4",
+        "fittedAudioSha256": "sha256:6a087f5297bd87a5990e42f545b9fb2333f720adc80cb799fc69574732e0d7c7"
+      },
+      {
+        "index": 8,
+        "title": "The product boundary",
+        "startSeconds": 430,
+        "endSeconds": 480,
+        "sourceTextSha256": "sha256:db043f0ba5ec2925e4169137a77c3c62dd68f8bb19f1ee8232a3192d7192031c",
+        "synthesisSpeed": 1,
+        "rawSpokenSeconds": 51.105,
+        "pitchPreservingTempoFactor": 1.0387195121951218,
+        "fittedSeconds": 49.17970833333333,
+        "leadSeconds": 0.3,
+        "tailSeconds": 0.5202916666666724,
+        "rawAudioSha256": "sha256:ec3910b3ac82eeb810be2b878a28e7d1cb158ed26acd5ed36411a8d749d2e6ab",
+        "fittedAudioSha256": "sha256:a3443f4cf12225cc3a1d5bc643876d6aa42c79b72f11fa361f89ce95646def30"
+      }
+    ]
+  },
+  "checks": {
+    "fullDecode": "PASS",
+    "browserPlayback": "6/6 PASS",
+    "nonblankFrames": "19/19 PASS",
+    "textCoverage": "8/8 normalized-whitespace EXACT, not speech recognition",
+    "sourceTextsAndAudioDigests": "PASS",
+    "speechWindows": "8/8 waveform activity within section bounds",
+    "audioAnalysis": {
+      "meanDbfs": -17.4,
+      "peakDbfs": -1.4,
+      "integratedLufs": -16.15,
+      "truePeakDbtp": -1.44,
+      "loudnessRangeLu": 2.8
+    },
+    "originalFileAndLedgersUnchanged": true,
+    "browserAndLoopbackServerClosed": true,
+    "fullHumanWatch": false,
+    "uploadedCopyVerified": false,
+    "independentQaReport": {
+      "path": "docs/evidence/neural-narration-qa-2026-10-12.json",
+      "sha256": "sha256:87904aa68649253050270a23bd3c83c1d65ff886339f871f3269c721f9ece7ac"
+    }
+  },
+  "paidModelCalls": 0,
+  "paidModelSpendUsd": 0,
+  "localNeuralInferencePerformed": true,
+  "cloudflareRequests": 0,
+  "ciRuns": 0,
+  "externallyAccessible": false,
+  "submitted": false,
+  "limitations": [
+    "Source-text/chunk checks are not independent speech recognition or human listening.",
+    "Original local scripted and retained Cloudflare evidence labels remain unchanged.",
+    "Original matched comparison and fresh native confirmation remain separate.",
+    "The final chosen source commit is not the captured footage or synthetic signed-example revision.",
+    "The entrant must watch the whole final video and verify the actual uploaded copy.",
+    "Pre-existing no-model captions describe the captured local scripted workflow, not this later local neural narration processing."
+  ],
+  "checkedAt": "2026-10-12T20:01:23.467Z"
+}

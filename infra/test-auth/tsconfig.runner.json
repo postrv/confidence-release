@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../auth-runtime-check.ts"],
+  "exclude": ["../../node_modules"]
+}

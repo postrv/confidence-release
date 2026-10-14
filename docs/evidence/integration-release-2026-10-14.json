@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "kind": "sanitized-integration-release-summary",
+  "preparedAt": "2026-10-14T22:40:09.203894+00:00",
+  "sourceCommit": "f5cb312e85cc90ff8fa827c6496c5d6a9773d6bf",
+  "testedCommit": "5891b5679db04a4d61e316f86c23d46c7cf21b6c",
+  "tree": "58e2428d34f168802a3f8a0612ced44ff197b43b",
+  "testedTreeEqualsMergedTree": true,
+  "privateDevelopmentReferences": {
+    "availability": "Historical development references require access to the private repository; the clean public release does not grant that access.",
+    "pr": "https://github.com/postrv/confidence/pull/19",
+    "ci": {
+    "pr": "https://github.com/postrv/confidence/actions/runs/38640520327",
+    "main": "https://github.com/postrv/confidence/actions/runs/38642728868",
+      "bothSucceeded": true
+    }
+  },
+  "deployment": {
+    "isolatedTest": {
+      "workers": 5,
+      "providerChecksPassed": 44,
+      "protectedChecksPassed": 28
+    },
+    "pilot": {
+      "stages": [
+        "maintenance",
+        "restore"
+      ],
+      "acknowledgedStagesPerRelease": 11,
+      "providerChecksPerStage": 44,
+      "protectedChecksPerStage": 62,
+      "nativeProjectsPreserved": 4,
+      "storedStateMembershipBudgetTrustAndReceiptsPreserved": true,
+      "derivedHistoricalEvaluationEligibilityChanges": 8,
+      "reason": "Checker implementation changed; retained evaluation records were not rewritten.",
+      "nativeReceiptPositiveVerificationFacets": 6,
+      "publicationEnabled": false,
+      "weftServiceBound": false,
+      "newModelCalls": 0,
+      "newSigningKeys": 0,
+      "pilotProjectCommands": 0
+    }
+  },
+  "weft": {
+    "commit": "b1c5521bf28a0144203c55b3f056885dce3535ff",
+    "tree": "95865f40a45e6bb3f68eabe88766e593c8eb8959",
+    "bundleBytes": 756862,
+    "bundleSha256": "8174e542276c92ba6059fe3a02c0d61897757ec147d0e0481f026f3f4e7fa673",
+    "acquisition": "Separate-machine scoped agent acquisition after real Access admission",
+    "finiteLocalQualification": {
+      "status": "PASS",
+      "node": "22.22.0",
+      "lockedDependencies": true,
+      "installScriptsDisabled": true,
+      "lanes": [
+        "bundle-client",
+        "collaboration-profile",
+        "pinned-scanner",
+        "coordinator-replicas-release-rehearsal"
+      ],
+      "profileHttpCases": 28,
+      "runtimeChecks": 10,
+      "behavioralProbes": 9,
+      "ownedLocalGitPublications": 1,
+      "receiptVerificationFacets": 6,
+      "identityAndReleaseApproval": "Synthetic fixture only"
+    },
+    "fullRepositoryExecutionRegistered": false,
+    "fullRepositoryAuditBlockers": 22
+  },
+  "discussion": {
+    "realSeparateMachineAgentParticipation": true,
+    "qualificationMessageSequence": "7",
+    "releaseMessageSequence": "8",
+    "attribution": "Scoped agent credential",
+    "humanReleaseApproval": false
+  },
+  "preservedPrivateEvidenceDigests": {
+    "pilotRelease": "sha256:3cd01b2f6b0da689206cacee12fbdd1c452495e779ea35cdc6a75f31df758fe2",
+    "independentAudit": "sha256:fc7c4e78726b4e961b1f3cd2071e67797aacd51caf75b9929d4b26200546feaa",
+    "releaseProvenance": "sha256:1ce480ca92d57a85fabc1c3309b65888a2a1d2de9c65479564b2907e556986d6",
+    "isolatedRelease": "sha256:1c3f11b005e866b23fcf7e3b3233287f7880ec9ca70b74c3a31a0eb41c89de6d",
+    "finiteWeftQualification": "sha256:dc0cac50ae30adc9e0c376a3f284f732a7267de3c5113c4644afe3cdb49b439a",
+    "agentAcquisition": "sha256:9eae62988f25bd7e5a8d22e86831331fb69764af69b2bd8a51a9ca5412652ad2",
+    "agentQualificationPost": "sha256:241969b6488f07ba3bfd42a23ea39e8294dc75b58e0a929a20854523e673c54d",
+    "agentReleasePost": "sha256:57c06cc3394ec084a0a93bcf26770d3e64771753173c0c6d6cf510e0b515a45e"
+  },
+  "limitations": [
+    "This is a selected summary of private operator observations; raw operator exports, identities and authentication material are not distributed.",
+    "Sequential bounded authenticated reads are not an atomic cross-project snapshot.",
+    "Provider version/binding/module readback and drained scheduler observations do not establish physical container billing termination or sustained production health.",
+    "Finite local real-Weft qualification uses synthetic release identities/approval, not native Container, model, or full-repository qualification.",
+    "No provider invoice reconciliation or sustained soak is established by this release."
+  ]
+}

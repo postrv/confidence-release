@@ -1,0 +1,17 @@
+{
+  "formatter": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": false,
+      "suspicious": {
+        "noDebugger": "error"
+      }
+    }
+  },
+  "assist": {
+    "enabled": false
+  }
+}

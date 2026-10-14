@@ -1,0 +1,1617 @@
+{
+  "assumptions": [
+    "Fresh independent store and empty cache for every run.",
+    "Enabled cache entries do not expire during a trace.",
+    "A enables cache; B removes invalidation; repair restores invalidation.",
+    "C changes only presentation in this declared model.",
+    "Oracle expectations follow fixture data and successful writes."
+  ],
+  "experiment": "cache-invalidation-interaction-oracle",
+  "fixture": {
+    "initial": 1230,
+    "later": 8551,
+    "replacement": 5995
+  },
+  "full_contract_trace": [
+    "read",
+    "write_new",
+    "read"
+  ],
+  "implementation_sha256": "07f56f8a8bbdf4595fb8cc62e061674f76da3c99047b559170b1d06dd10c69c5",
+  "interaction_contrast": {
+    "definition": "F(A+B)-F(A)-F(B)+F(baseline)",
+    "scope": "Raw additive contrast for this binary observation, not statistical significance.",
+    "value": 1
+  },
+  "irrelevant_C_removal": {
+    "after": "A+B",
+    "before": "A+B+C",
+    "failure_preserved": true,
+    "scope": "C is unnecessary for this recorded freshness failure, not every possible contract."
+  },
+  "limits": [
+    "No universal semantic-independence or unique-root-cause claim.",
+    "Reducer checks only recorded one-action deletions under this fixed oracle.",
+    "No failure on a shortened trace is not a full acceptance-contract PASS.",
+    "No performance, provider correctness, containment, or scale result."
+  ],
+  "negative_control_without_warm_read": {
+    "features": [
+      "A",
+      "B"
+    ],
+    "fixture": {
+      "initial": 1230,
+      "later": 8551,
+      "replacement": 5995
+    },
+    "fixture_seed": 20261003,
+    "observations": [
+      {
+        "action": "write_new",
+        "step": 0,
+        "written": 5995
+      },
+      {
+        "action": "read",
+        "expected": 5995,
+        "observed": 5995,
+        "source": "store",
+        "step": 1
+      }
+    ],
+    "presentation": "baseline",
+    "stale_read_steps": [],
+    "store_read_count": 1,
+    "target_failure_observed": false,
+    "trace": [
+      "write_new",
+      "read"
+    ]
+  },
+  "nonmonotone_failure_witness": {
+    "subset": "A+B",
+    "subset_fails": true,
+    "superset": "A+B+repair",
+    "superset_fails": false
+  },
+  "retained_value_contract": {
+    "cases": {
+      "C_dropped_repair": {
+        "cache_probe": {
+          "features": [
+            "A",
+            "B",
+            "repair"
+          ],
+          "fixture": {
+            "initial": 1732,
+            "later": 2328,
+            "replacement": 2176
+          },
+          "fixture_seed": 20261103,
+          "observations": [
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "store",
+              "step": 0
+            },
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "cache",
+              "step": 1
+            }
+          ],
+          "presentation": "baseline",
+          "stale_read_steps": [],
+          "store_read_count": 1,
+          "target_failure_observed": false,
+          "trace": [
+            "read",
+            "read"
+          ]
+        },
+        "freshness_runs": [
+          {
+            "case": "warm_read_write_read",
+            "features": [
+              "A",
+              "B",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 1230,
+              "later": 8551,
+              "replacement": 5995
+            },
+            "fixture_seed": 20261003,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 1230,
+                "observed": 1230,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5995
+              },
+              {
+                "action": "read",
+                "expected": 5995,
+                "observed": 5995,
+                "source": "store",
+                "step": 2
+              }
+            ],
+            "presentation": "baseline",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "write_new",
+              "read"
+            ]
+          },
+          {
+            "case": "repeated_reads",
+            "features": [
+              "A",
+              "B",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 2430,
+              "later": 7181,
+              "replacement": 1443
+            },
+            "fixture_seed": 20261004,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "cache",
+                "step": 1
+              },
+              {
+                "action": "write_new",
+                "step": 2,
+                "written": 1443
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 1443,
+                "source": "store",
+                "step": 3
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 1443,
+                "source": "cache",
+                "step": 4
+              }
+            ],
+            "presentation": "baseline",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "read",
+              "write_new",
+              "read",
+              "read"
+            ]
+          },
+          {
+            "case": "successive_writes",
+            "features": [
+              "A",
+              "B",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 3267,
+              "later": 3427,
+              "replacement": 5470
+            },
+            "fixture_seed": 20261005,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 3267,
+                "observed": 3267,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5470
+              },
+              {
+                "action": "read",
+                "expected": 5470,
+                "observed": 5470,
+                "source": "store",
+                "step": 2
+              },
+              {
+                "action": "write_later",
+                "step": 3,
+                "written": 3427
+              },
+              {
+                "action": "read",
+                "expected": 3427,
+                "observed": 3427,
+                "source": "store",
+                "step": 4
+              }
+            ],
+            "presentation": "baseline",
+            "stale_read_steps": [],
+            "store_read_count": 3,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          },
+          {
+            "case": "cold_write_then_warm_write",
+            "features": [
+              "A",
+              "B",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 5053,
+              "later": 6521,
+              "replacement": 1666
+            },
+            "fixture_seed": 20261006,
+            "observations": [
+              {
+                "action": "write_new",
+                "step": 0,
+                "written": 1666
+              },
+              {
+                "action": "read",
+                "expected": 1666,
+                "observed": 1666,
+                "source": "store",
+                "step": 1
+              },
+              {
+                "action": "write_later",
+                "step": 2,
+                "written": 6521
+              },
+              {
+                "action": "read",
+                "expected": 6521,
+                "observed": 6521,
+                "source": "store",
+                "step": 3
+              }
+            ],
+            "presentation": "baseline",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          }
+        ],
+        "full_useful_goal_passed": false,
+        "requirements": {
+          "C_presentation": false,
+          "cache_benefit": true,
+          "freshness": true
+        }
+      },
+      "cache_disabled_repair": {
+        "cache_probe": {
+          "features": [
+            "A",
+            "B",
+            "C",
+            "disable_cache",
+            "repair"
+          ],
+          "fixture": {
+            "initial": 1732,
+            "later": 2328,
+            "replacement": 2176
+          },
+          "fixture_seed": 20261103,
+          "observations": [
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "store",
+              "step": 0
+            },
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "store",
+              "step": 1
+            }
+          ],
+          "presentation": "improved",
+          "stale_read_steps": [],
+          "store_read_count": 2,
+          "target_failure_observed": false,
+          "trace": [
+            "read",
+            "read"
+          ]
+        },
+        "freshness_runs": [
+          {
+            "case": "warm_read_write_read",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "disable_cache",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 1230,
+              "later": 8551,
+              "replacement": 5995
+            },
+            "fixture_seed": 20261003,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 1230,
+                "observed": 1230,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5995
+              },
+              {
+                "action": "read",
+                "expected": 5995,
+                "observed": 5995,
+                "source": "store",
+                "step": 2
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "write_new",
+              "read"
+            ]
+          },
+          {
+            "case": "repeated_reads",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "disable_cache",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 2430,
+              "later": 7181,
+              "replacement": 1443
+            },
+            "fixture_seed": 20261004,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "store",
+                "step": 1
+              },
+              {
+                "action": "write_new",
+                "step": 2,
+                "written": 1443
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 1443,
+                "source": "store",
+                "step": 3
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 1443,
+                "source": "store",
+                "step": 4
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 4,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "read",
+              "write_new",
+              "read",
+              "read"
+            ]
+          },
+          {
+            "case": "successive_writes",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "disable_cache",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 3267,
+              "later": 3427,
+              "replacement": 5470
+            },
+            "fixture_seed": 20261005,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 3267,
+                "observed": 3267,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5470
+              },
+              {
+                "action": "read",
+                "expected": 5470,
+                "observed": 5470,
+                "source": "store",
+                "step": 2
+              },
+              {
+                "action": "write_later",
+                "step": 3,
+                "written": 3427
+              },
+              {
+                "action": "read",
+                "expected": 3427,
+                "observed": 3427,
+                "source": "store",
+                "step": 4
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 3,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          },
+          {
+            "case": "cold_write_then_warm_write",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "disable_cache",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 5053,
+              "later": 6521,
+              "replacement": 1666
+            },
+            "fixture_seed": 20261006,
+            "observations": [
+              {
+                "action": "write_new",
+                "step": 0,
+                "written": 1666
+              },
+              {
+                "action": "read",
+                "expected": 1666,
+                "observed": 1666,
+                "source": "store",
+                "step": 1
+              },
+              {
+                "action": "write_later",
+                "step": 2,
+                "written": 6521
+              },
+              {
+                "action": "read",
+                "expected": 6521,
+                "observed": 6521,
+                "source": "store",
+                "step": 3
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          }
+        ],
+        "full_useful_goal_passed": false,
+        "requirements": {
+          "C_presentation": true,
+          "cache_benefit": false,
+          "freshness": true
+        }
+      },
+      "unrepaired_combination": {
+        "cache_probe": {
+          "features": [
+            "A",
+            "B",
+            "C"
+          ],
+          "fixture": {
+            "initial": 1732,
+            "later": 2328,
+            "replacement": 2176
+          },
+          "fixture_seed": 20261103,
+          "observations": [
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "store",
+              "step": 0
+            },
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "cache",
+              "step": 1
+            }
+          ],
+          "presentation": "improved",
+          "stale_read_steps": [],
+          "store_read_count": 1,
+          "target_failure_observed": false,
+          "trace": [
+            "read",
+            "read"
+          ]
+        },
+        "freshness_runs": [
+          {
+            "case": "warm_read_write_read",
+            "features": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": {
+              "initial": 1230,
+              "later": 8551,
+              "replacement": 5995
+            },
+            "fixture_seed": 20261003,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 1230,
+                "observed": 1230,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5995
+              },
+              {
+                "action": "read",
+                "expected": 5995,
+                "observed": 1230,
+                "source": "cache",
+                "step": 2
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [
+              2
+            ],
+            "store_read_count": 1,
+            "target_failure_observed": true,
+            "trace": [
+              "read",
+              "write_new",
+              "read"
+            ]
+          },
+          {
+            "case": "repeated_reads",
+            "features": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": {
+              "initial": 2430,
+              "later": 7181,
+              "replacement": 1443
+            },
+            "fixture_seed": 20261004,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "cache",
+                "step": 1
+              },
+              {
+                "action": "write_new",
+                "step": 2,
+                "written": 1443
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 2430,
+                "source": "cache",
+                "step": 3
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 2430,
+                "source": "cache",
+                "step": 4
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [
+              3,
+              4
+            ],
+            "store_read_count": 1,
+            "target_failure_observed": true,
+            "trace": [
+              "read",
+              "read",
+              "write_new",
+              "read",
+              "read"
+            ]
+          },
+          {
+            "case": "successive_writes",
+            "features": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": {
+              "initial": 3267,
+              "later": 3427,
+              "replacement": 5470
+            },
+            "fixture_seed": 20261005,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 3267,
+                "observed": 3267,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5470
+              },
+              {
+                "action": "read",
+                "expected": 5470,
+                "observed": 3267,
+                "source": "cache",
+                "step": 2
+              },
+              {
+                "action": "write_later",
+                "step": 3,
+                "written": 3427
+              },
+              {
+                "action": "read",
+                "expected": 3427,
+                "observed": 3267,
+                "source": "cache",
+                "step": 4
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [
+              2,
+              4
+            ],
+            "store_read_count": 1,
+            "target_failure_observed": true,
+            "trace": [
+              "read",
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          },
+          {
+            "case": "cold_write_then_warm_write",
+            "features": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": {
+              "initial": 5053,
+              "later": 6521,
+              "replacement": 1666
+            },
+            "fixture_seed": 20261006,
+            "observations": [
+              {
+                "action": "write_new",
+                "step": 0,
+                "written": 1666
+              },
+              {
+                "action": "read",
+                "expected": 1666,
+                "observed": 1666,
+                "source": "store",
+                "step": 1
+              },
+              {
+                "action": "write_later",
+                "step": 2,
+                "written": 6521
+              },
+              {
+                "action": "read",
+                "expected": 6521,
+                "observed": 1666,
+                "source": "cache",
+                "step": 3
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [
+              3
+            ],
+            "store_read_count": 1,
+            "target_failure_observed": true,
+            "trace": [
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          }
+        ],
+        "full_useful_goal_passed": false,
+        "requirements": {
+          "C_presentation": true,
+          "cache_benefit": true,
+          "freshness": false
+        }
+      },
+      "useful_repair": {
+        "cache_probe": {
+          "features": [
+            "A",
+            "B",
+            "C",
+            "repair"
+          ],
+          "fixture": {
+            "initial": 1732,
+            "later": 2328,
+            "replacement": 2176
+          },
+          "fixture_seed": 20261103,
+          "observations": [
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "store",
+              "step": 0
+            },
+            {
+              "action": "read",
+              "expected": 1732,
+              "observed": 1732,
+              "source": "cache",
+              "step": 1
+            }
+          ],
+          "presentation": "improved",
+          "stale_read_steps": [],
+          "store_read_count": 1,
+          "target_failure_observed": false,
+          "trace": [
+            "read",
+            "read"
+          ]
+        },
+        "freshness_runs": [
+          {
+            "case": "warm_read_write_read",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 1230,
+              "later": 8551,
+              "replacement": 5995
+            },
+            "fixture_seed": 20261003,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 1230,
+                "observed": 1230,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5995
+              },
+              {
+                "action": "read",
+                "expected": 5995,
+                "observed": 5995,
+                "source": "store",
+                "step": 2
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "write_new",
+              "read"
+            ]
+          },
+          {
+            "case": "repeated_reads",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 2430,
+              "later": 7181,
+              "replacement": 1443
+            },
+            "fixture_seed": 20261004,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "read",
+                "expected": 2430,
+                "observed": 2430,
+                "source": "cache",
+                "step": 1
+              },
+              {
+                "action": "write_new",
+                "step": 2,
+                "written": 1443
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 1443,
+                "source": "store",
+                "step": 3
+              },
+              {
+                "action": "read",
+                "expected": 1443,
+                "observed": 1443,
+                "source": "cache",
+                "step": 4
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "read",
+              "write_new",
+              "read",
+              "read"
+            ]
+          },
+          {
+            "case": "successive_writes",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 3267,
+              "later": 3427,
+              "replacement": 5470
+            },
+            "fixture_seed": 20261005,
+            "observations": [
+              {
+                "action": "read",
+                "expected": 3267,
+                "observed": 3267,
+                "source": "store",
+                "step": 0
+              },
+              {
+                "action": "write_new",
+                "step": 1,
+                "written": 5470
+              },
+              {
+                "action": "read",
+                "expected": 5470,
+                "observed": 5470,
+                "source": "store",
+                "step": 2
+              },
+              {
+                "action": "write_later",
+                "step": 3,
+                "written": 3427
+              },
+              {
+                "action": "read",
+                "expected": 3427,
+                "observed": 3427,
+                "source": "store",
+                "step": 4
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 3,
+            "target_failure_observed": false,
+            "trace": [
+              "read",
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          },
+          {
+            "case": "cold_write_then_warm_write",
+            "features": [
+              "A",
+              "B",
+              "C",
+              "repair"
+            ],
+            "fixture": {
+              "initial": 5053,
+              "later": 6521,
+              "replacement": 1666
+            },
+            "fixture_seed": 20261006,
+            "observations": [
+              {
+                "action": "write_new",
+                "step": 0,
+                "written": 1666
+              },
+              {
+                "action": "read",
+                "expected": 1666,
+                "observed": 1666,
+                "source": "store",
+                "step": 1
+              },
+              {
+                "action": "write_later",
+                "step": 2,
+                "written": 6521
+              },
+              {
+                "action": "read",
+                "expected": 6521,
+                "observed": 6521,
+                "source": "store",
+                "step": 3
+              }
+            ],
+            "presentation": "improved",
+            "stale_read_steps": [],
+            "store_read_count": 2,
+            "target_failure_observed": false,
+            "trace": [
+              "write_new",
+              "read",
+              "write_later",
+              "read"
+            ]
+          }
+        ],
+        "full_useful_goal_passed": true,
+        "requirements": {
+          "C_presentation": true,
+          "cache_benefit": true,
+          "freshness": true
+        }
+      }
+    },
+    "limits": [
+      "All seeds, traces and expected requirements are public, designed fixtures.",
+      "This is not hidden evaluation, an independently authored oracle, or real agent repair.",
+      "Model store-read counts are not latency or throughput measurements.",
+      "The presentation marker does not establish real UI quality or usefulness."
+    ],
+    "requirements": {
+      "C_presentation": "The modeled presentation marker remains improved.",
+      "cache_benefit": "Two fresh-state reads return correct data with exactly one modeled store read.",
+      "freshness": "No stale reads across the four declared fixture traces."
+    },
+    "scope": "Declared synthetic final-release obligations; witness rows still test common freshness only."
+  },
+  "runs": {
+    "A": {
+      "features": [
+        "A"
+      ],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 5995,
+          "source": "store",
+          "step": 2
+        }
+      ],
+      "presentation": "baseline",
+      "stale_read_steps": [],
+      "store_read_count": 2,
+      "target_failure_observed": false,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    },
+    "A+B": {
+      "features": [
+        "A",
+        "B"
+      ],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 1230,
+          "source": "cache",
+          "step": 2
+        }
+      ],
+      "presentation": "baseline",
+      "stale_read_steps": [
+        2
+      ],
+      "store_read_count": 1,
+      "target_failure_observed": true,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    },
+    "A+B+C": {
+      "features": [
+        "A",
+        "B",
+        "C"
+      ],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 1230,
+          "source": "cache",
+          "step": 2
+        }
+      ],
+      "presentation": "improved",
+      "stale_read_steps": [
+        2
+      ],
+      "store_read_count": 1,
+      "target_failure_observed": true,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    },
+    "A+B+C+repair": {
+      "features": [
+        "A",
+        "B",
+        "C",
+        "repair"
+      ],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 5995,
+          "source": "store",
+          "step": 2
+        }
+      ],
+      "presentation": "improved",
+      "stale_read_steps": [],
+      "store_read_count": 2,
+      "target_failure_observed": false,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    },
+    "A+B+repair": {
+      "features": [
+        "A",
+        "B",
+        "repair"
+      ],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 5995,
+          "source": "store",
+          "step": 2
+        }
+      ],
+      "presentation": "baseline",
+      "stale_read_steps": [],
+      "store_read_count": 2,
+      "target_failure_observed": false,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    },
+    "B": {
+      "features": [
+        "B"
+      ],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 5995,
+          "source": "store",
+          "step": 2
+        }
+      ],
+      "presentation": "baseline",
+      "stale_read_steps": [],
+      "store_read_count": 2,
+      "target_failure_observed": false,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    },
+    "baseline": {
+      "features": [],
+      "fixture": {
+        "initial": 1230,
+        "later": 8551,
+        "replacement": 5995
+      },
+      "fixture_seed": 20261003,
+      "observations": [
+        {
+          "action": "read",
+          "expected": 1230,
+          "observed": 1230,
+          "source": "store",
+          "step": 0
+        },
+        {
+          "action": "write_new",
+          "step": 1,
+          "written": 5995
+        },
+        {
+          "action": "read",
+          "expected": 5995,
+          "observed": 5995,
+          "source": "store",
+          "step": 2
+        }
+      ],
+      "presentation": "baseline",
+      "stale_read_steps": [],
+      "store_read_count": 2,
+      "target_failure_observed": false,
+      "trace": [
+        "read",
+        "write_new",
+        "read"
+      ]
+    }
+  },
+  "schema_version": 2,
+  "scope": "Executable reference model only; no agents, Git, Cloudflare, network, or concurrent runtime.",
+  "seed": 20261003,
+  "trace_reduction": {
+    "evaluation_count": 7,
+    "final_one_deletion_checks": [
+      {
+        "removed_index": 0,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "write_new",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 1,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "read",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 2,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "read",
+          "write_new"
+        ]
+      }
+    ],
+    "history": [
+      {
+        "removed_index": 0,
+        "starting_trace": [
+          "read",
+          "read",
+          "write_new",
+          "read",
+          "read"
+        ],
+        "target_failure_observed": true,
+        "trial_trace": [
+          "read",
+          "write_new",
+          "read",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 0,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "write_new",
+          "read",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 1,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "read",
+          "read",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 2,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read",
+          "read"
+        ],
+        "target_failure_observed": true,
+        "trial_trace": [
+          "read",
+          "write_new",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 0,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "write_new",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 1,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "read",
+          "read"
+        ]
+      },
+      {
+        "removed_index": 2,
+        "starting_trace": [
+          "read",
+          "write_new",
+          "read"
+        ],
+        "target_failure_observed": false,
+        "trial_trace": [
+          "read",
+          "write_new"
+        ]
+      }
+    ],
+    "original_trace": [
+      "read",
+      "read",
+      "write_new",
+      "read",
+      "read"
+    ],
+    "reduced_trace": [
+      "read",
+      "write_new",
+      "read"
+    ],
+    "status": "one_deletion_minimal_for_this_oracle"
+  }
+}

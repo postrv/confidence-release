@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../live-container-check.ts", "types.ts", "test.ts"],
+  "exclude": ["../../node_modules"]
+}

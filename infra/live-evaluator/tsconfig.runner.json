@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../live-evaluator-check.ts", "client.ts", "source.ts", "types.ts", "test.ts"],
+  "exclude": ["../../node_modules", "controller.ts", "evaluator.ts"]
+}

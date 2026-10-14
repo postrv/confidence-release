@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/QuentinCody/interlinked-cli",
+  "revision": "31b5259f29ee823ac23f8d7571b818bf5f609c71",
+  "version": "0.1.0",
+  "license": "MIT",
+  "archiveUrl": "https://codeload.github.com/QuentinCody/interlinked-cli/tar.gz/31b5259f29ee823ac23f8d7571b818bf5f609c71",
+  "archiveSha256": "970335a5977ed469bf032236618ad3a229239998af3aa888cd3c1692485835e0",
+  "lockfileSha256": "8b8377ec698fcbf19f916fd6e7f62438d4776b085632284af10c4f35bfcff024",
+  "typescriptVersion": "5.9.3",
+  "biomeVersion": "2.4.13",
+  "cli": "dist/index.js",
+  "build": "scripts/build-atomic-cli.mjs",
+  "notes": [
+    "There is no public npm interlinked-cli package at inspection time; this pin builds the public source archive.",
+    "npm lifecycle scripts are disabled. Only the explicit pinned upstream atomic build is invoked; no setup-hooks, enable, login or sync commands run.",
+    "A digest-verified local build patch resolves the retained Biome package directly for overlay checks. Original and modified source, patch and notice are retained in confidence-patches; all checker arguments and semantics are unchanged.",
+    "Production dependencies plus lockfile-pinned Biome and its platform binary are retained; the upstream license is retained.",
+    "The preview CLI's NO_BLOCKING_FINDINGS result does not report exhaustive checker coverage or protected acceptance."
+  ],
+  "buildPatch": {
+    "file": "interlinked-biome.patch.json",
+    "sha256": "66799b0d882ae4ffd8a1dcc08b86adba507d3f0a01c82257cce343bdb78f6f68"
+  }
+}

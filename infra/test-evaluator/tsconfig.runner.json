@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../evaluator-runtime-check.ts", "../evaluator-stop-runtime-check.ts"],
+  "exclude": ["../../node_modules"]
+}

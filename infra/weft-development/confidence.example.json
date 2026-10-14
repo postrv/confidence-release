@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "accountId": "REPLACE_WITH_32_HEX_ACCOUNT_ID",
+  "deploymentPrefix": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX",
+  "tenantId": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX",
+  "artifactsNamespace": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-sources",
+  "objectBucket": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-objects",
+  "eventQueue": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-events",
+  "deadLetterQueue": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-events-dlq",
+  "projectionDatabase": {
+    "name": "confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-projection",
+    "id": "REPLACE_WITH_D1_UUID"
+  },
+  "app": {
+    "origin": "https://confidence-weft-dev-REPLACE_WITH_UNIQUE_SUFFIX-app.REPLACE_WITH_ACCOUNT_WORKERS_DEV_SUBDOMAIN.workers.dev",
+    "workersDevSubdomain": "REPLACE_WITH_ACCOUNT_WORKERS_DEV_SUBDOMAIN",
+    "issuer": "https://YOUR_TEAM.cloudflareaccess.com",
+    "audience": "REPLACE_WITH_DEVELOPMENT_ACCESS_APPLICATION_AUD",
+    "jwksUrl": "https://YOUR_TEAM.cloudflareaccess.com/cdn-cgi/access/certs",
+    "bootstrapSubjects": [],
+    "defaultProjectId": "weft-fixture"
+  },
+  "images": { "authoring": "UNCONFIGURED", "evaluator": "UNCONFIGURED" },
+  "checkerImplementationDigest": "UNCONFIGURED",
+  "signerKeyIds": { "root": "root-v1", "authority": "authority-v1", "checker": "checker-v1" },
+  "model": null,
+  "authoring": { "narsilContext": "off", "interlinkedPreview": "off" },
+  "maintenance": true,
+  "enablePi": false,
+  "enablePublication": false,
+  "publicationEvidence": null,
+  "artifactsBindingEvidence": null
+}

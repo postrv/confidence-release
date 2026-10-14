@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../weft-runtime-check.ts", "journey.test.ts", "authority-runtime.ts", "authority-runtime.test.ts", "weft-runtime.ts", "weft-runtime.test.ts", "owned-git.ts", "owned-git.test.ts", "local-probes.ts", "local-probes.test.ts", "worker.test.ts"],
+  "exclude": ["../../node_modules"]
+}

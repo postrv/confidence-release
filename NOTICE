@@ -1,0 +1,37 @@
+Confidence Agent Collaboration Platform
+Copyright 2026 Confidence contributors
+
+Original source in this repository is licensed under Apache-2.0.
+Third-party packages retain their own licenses. Dependency versions and
+integrity hashes are recorded in package-lock.json and Cargo.lock.
+
+The implementation uses Cloudflare Sandbox SDK, Pi coding-agent SDK,
+isomorphic-git, jose, memfs, React, serde, wasm-bindgen and ed25519-dalek.
+Their license notices are included in installed packages and must accompany
+redistributed third-party source or binaries where required.
+
+The authoring runner also integrates these source-pinned team tools:
+
+Narsil (narsil-mcp), created by Laurence Avent (postrv)
+https://github.com/postrv/narsil-mcp
+Version 1.7.2, revision cf8eac40ce736f3706450e4b256b56f6845af8e5.
+Licensed MIT OR Apache-2.0. Upstream MIT notice: Copyright (c) 2024 postrv.
+The installation retains both upstream licenses and dependency notices.
+
+Interlinked CLI (interlinked-cli), created by Quentin Cody
+https://github.com/QuentinCody/interlinked-cli
+Version 0.1.0, revision 31b5259f29ee823ac23f8d7571b818bf5f609c71.
+Licensed MIT. Upstream notice: Copyright (c) 2026 Quentin Cody.
+The installation retains its license, runtime dependencies and inventory.
+Confidence applies one documented local Biome executable-lookup modification;
+original and modified source, the patch and modification notice are retained.
+This is not an upstream release. See docs/TEAM_TOOLS.md and
+integrations/interlinked-biome.patch.json for the exact integration boundary.
+
+These attributions do not replace the complete upstream license texts.
+Redistributed third-party binaries or source must include their required notices.
+
+The original design references earlier research and repositories. No source
+from Anankyr, Forge, Cloudflare CI, or model weights was copied into this
+implementation. DSSE framing and in-toto statement formats follow the
+public specifications linked in docs/DESIGN.md.

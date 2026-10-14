@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json", "name": "confidence-projector", "main": "index.ts", "compatibility_date": "2026-10-01", "workers_dev": false, "preview_urls": false,
+  "observability": {"enabled": true, "traces": {"enabled": true, "persist": true}, "redact_query_string": true, "logs": {"enabled": true, "head_sampling_rate": 1, "invocation_logs": true, "persist": true}},
+  "d1_databases": [{ "binding": "DB", "database_name": "confidence-projection", "migrations_dir": "../../migrations" }],
+  "services": [{ "binding": "AUTHORITY", "service": "confidence-authority" }],
+  "secrets": { "required": ["PROJECTOR_SERVICE_TOKEN"] },
+  "queues": { "consumers": [{ "queue": "confidence-events", "max_batch_size": 32, "max_retries": 10, "dead_letter_queue": "confidence-events-dead-letter" }] }
+}

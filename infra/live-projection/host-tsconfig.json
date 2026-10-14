@@ -1,0 +1,1 @@
+{ "extends": "../../tsconfig.json", "include": ["../live-projection-check.ts", "test.ts"], "exclude": ["../../node_modules", "../../packages/protocol/wasm"] }

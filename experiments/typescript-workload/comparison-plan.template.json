@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "studyId": "seat-inventory-equal-budget-01",
+  "baselineCommit": "REPLACE_ME_WITH_40_HEX_COMMIT",
+  "sourceManifestDigest": "REPLACE_ME_FROM_FINGERPRINT",
+  "authoringConfigDigest": "REPLACE_ME_FROM_FINGERPRINT",
+  "localOracleSourceDigest": "REPLACE_ME_FROM_FINGERPRINT",
+  "goals": {
+    "A": { "path": "cache.ts", "text": "Enable a bounded availability cache. Two unchanged reads must use one backing-store read before and after an acknowledged reservation." },
+    "B": { "path": "reservations.ts", "text": "Simplify write-side invalidation on the cache-disabled baseline while preserving atomic reservation and idempotency behavior." },
+    "C": { "path": "presentation.ts", "text": "Add a server-rendered, labelled live status containing the latest remaining-seat count." },
+    "repair": { "path": "reservations.ts", "text": "From the exact failed combined source, restore freshness while retaining the cache benefit, reservation correctness and accessible status." }
+  },
+  "model": {
+    "provider": "REPLACE_ME",
+    "name": "REPLACE_ME",
+    "revision": "REPLACE_ME_WITH_IMMUTABLE_MODEL_REVISION",
+    "endpoint": "REPLACE_ME_WITH_HTTPS_BASE_URL_WITHOUT_CREDENTIALS",
+    "generationSettingsDigest": "REPLACE_ME_WITH_TEMPERATURE_TOP_P_SEED_AND_ROUTE_SETTINGS_DIGEST"
+  },
+  "prompts": {
+    "publicPromptDigest": "REPLACE_ME",
+    "platformPolicyDigest": "REPLACE_ME_WITH_SYSTEM_POLICY_DIGEST",
+    "assignmentPacketDigests": { "A": "REPLACE_ME", "B": "REPLACE_ME", "C": "REPLACE_ME", "repair": "REPLACE_ME" }
+  },
+  "compiler": { "packageDigest": "REPLACE_ME", "version": "REPLACE_ME" },
+  "evaluator": { "imageDigest": "REPLACE_ME", "checkerDigest": "REPLACE_ME", "slots": 2 },
+  "integrations": {
+    "narsil": { "version": "1.7.2", "digest": "REPLACE_ME", "invocationConfigDigest": "REPLACE_ME_WITH_SELECTOR_MODE_LIMITS_DIGEST" },
+    "interlinked": { "version": "REPLACE_ME", "digest": "REPLACE_ME", "invocationConfigDigest": "REPLACE_ME_WITH_MODE_AND_OPTIONS_DIGEST", "compilerPackageDigest": "REPLACE_ME_WITH_MATCHING_COMPILER_DIGEST" }
+  },
+  "prices": {
+    "inputMicroUsdPerMillionTokens": 0,
+    "cachedInputMicroUsdPerMillionTokens": 0,
+    "outputMicroUsdPerMillionTokens": 0,
+    "source": "REPLACE_ME_WITH_PROVIDER_PRICE_REFERENCE",
+    "observedAt": "REPLACE_ME_WITH_UTC_TIMESTAMP"
+  },
+  "reviewRubricDigest": "REPLACE_ME_WITH_FROZEN_QUESTIONNAIRE_AND_ANSWER_KEY_DIGEST",
+  "budgets": {
+    "providerCalls": 24,
+    "inputTokens": 120000,
+    "outputTokens": 48000,
+    "outputTokensPerCall": 8192,
+    "modelCostMicroUsd": 0,
+    "episodeWallMs": 0,
+    "reviewerActiveMs": 0
+  },
+  "repetitions": 5,
+  "randomizationSeed": "REPLACE_ME_WITH_64_HEX_RANDOM_SEED",
+  "reviewerPseudonym": "REPLACE_ME",
+  "authoringCapacity": 3
+}

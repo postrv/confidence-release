@@ -1,0 +1,1 @@
+{ "extends": "../../tsconfig.json", "include": ["../runner-runtime-check.ts"], "exclude": ["../../node_modules"] }

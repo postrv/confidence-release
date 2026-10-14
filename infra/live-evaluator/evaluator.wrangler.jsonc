@@ -1,0 +1,22 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "confidence-owned-evaluator-unconfigured", "main": "evaluator.ts",
+  "compatibility_date": "2026-10-01", "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false, "preview_urls": false,
+  "durable_objects": { "bindings": [
+    { "name": "EVALUATIONS", "class_name": "ConformanceEvaluation" },
+    { "name": "SCHEDULER", "class_name": "ConformanceScheduler" },
+    { "name": "FIXTURES", "class_name": "FixtureStore" }
+  ] },
+  "exports": {
+    "ConformanceEvaluation": { "type": "durable-object", "storage": "sqlite", "container": "confidence-owned-checker-unconfigured" },
+    "ConformanceScheduler": { "type": "durable-object", "storage": "sqlite" },
+    "FixtureStore": { "type": "durable-object", "storage": "sqlite" }
+  },
+  "containers": [{ "name": "confidence-owned-checker-unconfigured", "class_name": "ConformanceEvaluation", "scheduling_policy": "durable_object", "images": { "base": { "dockerfile": "../../workers/evaluator/Dockerfile", "build_context": "../.." } } }],
+  "r2_buckets": [{ "binding": "OBJECTS", "bucket_name": "confidence-owned-objects-unconfigured" }],
+  "services": [{ "binding": "AUTHORITY", "service": "confidence-owned-control-unconfigured" }],
+  "vars": { "CHECKER_KEY_ID": "owned-checker", "EVALUATION_IMAGE_DIGEST": "UNCONFIGURED", "CHECKER_IMPLEMENTATION_DIGEST": "UNCONFIGURED" },
+  "secrets": { "required": ["EVALUATOR_SERVICE_TOKEN", "CHECKER_SIGNING_KEY"] },
+  "rules": [{ "type": "CompiledWasm", "globs": ["**/*.wasm"], "fallthrough": true }]
+}

@@ -1,0 +1,5 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["configure-pilot.ts", "deploy-pilot.ts", "continue-deployment.ts", "deployment-continuation.test.ts", "reconcile-restoration.ts", "deployment-restoration.test.ts", "deployment-recovery.test.ts", "inspect-deployment-history.ts", "verify-deployed-pilot.ts", "verify-deployed-pilot.test.ts", "provision-pilot.ts", "seed-pilot.ts", "seed-pilot.test.ts", "signing-configuration.ts", "signing-configuration.test.ts", "bootstrap.ts", "release-inputs.ts", "release-inputs.test.ts", "checker-configuration.test.ts", "authoring-configuration.test.ts", "projection-configuration.test.ts", "artifacts-configuration.test.ts"],
+  "exclude": ["../node_modules", "../packages/protocol/wasm"]
+}

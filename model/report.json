@@ -1,0 +1,415 @@
+{
+  "assumptions": [
+    "Correct atomic B-to-N backend CAS and monotonically advancing remote head.",
+    "Two exact valid approvals at B; one fully modeled immutable command.",
+    "Atomic durable local steps and immutable prepared descriptor.",
+    "observe_N means exact commit/source verification already succeeded.",
+    "Receipt storage event means signed bytes durably persisted and verified.",
+    "Simulator network/remote state is never an application guard input."
+  ],
+  "bounds": {
+    "canonical_refs": 1,
+    "competing_admission": "one extra approval; its execution is not modeled",
+    "dispatch_attempts": 2,
+    "fully_modeled_publications": 1,
+    "gate_closures": 1,
+    "ordinary_restarts": 1,
+    "simultaneously_buffered_reads": 1
+  },
+  "implementation_sha256": "5a572407f5752c8d3b5898152dfba3cfac4e82b7eb299375fcca6b967088cbff",
+  "method": "Deterministic BFS of all reachable states within the explicit finite model",
+  "omissions": [
+    "No real Cloudflare, Git, signing, parser, broker, grant or database test.",
+    "No stale-database restore, unauthorized external writer or divergent descendant.",
+    "No second publication execution, gate reopening, key rotation or policy revision.",
+    "Restart preserves durable state by assumption; lost/corrupt storage is not modeled.",
+    "No fairness or liveness proof; a network/storage action can be delayed forever.",
+    "Identity is fixed by construction; this does not prove a production adapter preserves it."
+  ],
+  "results": {
+    "finalize_without_receipt": {
+      "exploration_exhausted": true,
+      "explored_edges": 2718,
+      "reachable_states": 824,
+      "variant": "finalize_without_receipt",
+      "violations": {
+        "receipt_durable_before_finalization": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "send_fixed_B_to_N",
+            "remote_CAS_applies_N",
+            "read_samples_N",
+            "deliver_observe_N",
+            "finalize"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 1,
+              "dispatch_attempts": 1,
+              "gate_open": true,
+              "last_observed": 1,
+              "may_have_dispatched": true,
+              "phase": "finalized",
+              "read_b_after_timeout": false,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": false,
+              "verified_n": true
+            },
+            "network_sends": 1,
+            "pending_pushes": 0,
+            "remote_head": 1
+          }
+        }
+      },
+      "witnesses": {
+        "finalized_after_timeout_old_read_and_revocation": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "revoke",
+            "send_fixed_B_to_N",
+            "read_samples_B",
+            "remote_CAS_applies_N",
+            "deliver_observe_B",
+            "read_samples_N",
+            "deliver_observe_N",
+            "finalize"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 1,
+              "dispatch_attempts": 1,
+              "gate_open": false,
+              "last_observed": 1,
+              "may_have_dispatched": true,
+              "phase": "finalized",
+              "read_b_after_timeout": true,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": true
+            },
+            "network_sends": 1,
+            "pending_pushes": 0,
+            "remote_head": 1
+          }
+        }
+      }
+    },
+    "revocation_blocks_reconcile": {
+      "exploration_exhausted": true,
+      "explored_edges": 2472,
+      "reachable_states": 776,
+      "variant": "revocation_blocks_reconcile",
+      "violations": {
+        "revocation_preserves_observation_availability": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "revoke"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 0,
+              "dispatch_attempts": 1,
+              "gate_open": false,
+              "last_observed": -1,
+              "may_have_dispatched": true,
+              "phase": "marked",
+              "read_b_after_timeout": false,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": true,
+              "timed_out": false,
+              "verified_n": false
+            },
+            "network_sends": 0,
+            "pending_pushes": 0,
+            "remote_head": 0
+          }
+        }
+      },
+      "witnesses": {
+        "finalized_after_timeout_old_read_and_revocation": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "send_fixed_B_to_N",
+            "read_samples_B",
+            "remote_CAS_applies_N",
+            "deliver_observe_B",
+            "read_samples_N",
+            "deliver_observe_N",
+            "revoke",
+            "store_receipt",
+            "finalize"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 1,
+              "dispatch_attempts": 1,
+              "gate_open": false,
+              "last_observed": 1,
+              "may_have_dispatched": true,
+              "phase": "finalized",
+              "read_b_after_timeout": true,
+              "receipt_durable": true,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": true
+            },
+            "network_sends": 1,
+            "pending_pushes": 0,
+            "remote_head": 1
+          }
+        }
+      }
+    },
+    "safe": {
+      "exploration_exhausted": true,
+      "explored_edges": 2598,
+      "reachable_states": 776,
+      "variant": "safe",
+      "violations": {},
+      "witnesses": {
+        "finalized_after_timeout_old_read_and_revocation": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "revoke",
+            "send_fixed_B_to_N",
+            "read_samples_B",
+            "remote_CAS_applies_N",
+            "deliver_observe_B",
+            "read_samples_N",
+            "deliver_observe_N",
+            "store_receipt",
+            "finalize"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 1,
+              "dispatch_attempts": 1,
+              "gate_open": false,
+              "last_observed": 1,
+              "may_have_dispatched": true,
+              "phase": "finalized",
+              "read_b_after_timeout": true,
+              "receipt_durable": true,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": true
+            },
+            "network_sends": 1,
+            "pending_pushes": 0,
+            "remote_head": 1
+          }
+        }
+      }
+    },
+    "timeout_aborts": {
+      "exploration_exhausted": true,
+      "explored_edges": 3710,
+      "reachable_states": 1128,
+      "variant": "timeout_aborts",
+      "violations": {
+        "no_competing_admission_while_unresolved": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "read_samples_B",
+            "deliver_observe_B",
+            "abort_on_old_read",
+            "admit_second"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 0,
+              "dispatch_attempts": 1,
+              "gate_open": true,
+              "last_observed": 0,
+              "may_have_dispatched": true,
+              "phase": "aborted",
+              "read_b_after_timeout": true,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": true,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": false
+            },
+            "network_sends": 0,
+            "pending_pushes": 0,
+            "remote_head": 0
+          }
+        },
+        "no_false_abort_after_possible_dispatch": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "read_samples_B",
+            "deliver_observe_B",
+            "abort_on_old_read"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 0,
+              "dispatch_attempts": 1,
+              "gate_open": true,
+              "last_observed": 0,
+              "may_have_dispatched": true,
+              "phase": "aborted",
+              "read_b_after_timeout": true,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": false
+            },
+            "network_sends": 0,
+            "pending_pushes": 0,
+            "remote_head": 0
+          }
+        },
+        "possible_effect_retains_slot": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "read_samples_B",
+            "deliver_observe_B",
+            "abort_on_old_read"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 0,
+              "dispatch_attempts": 1,
+              "gate_open": true,
+              "last_observed": 0,
+              "may_have_dispatched": true,
+              "phase": "aborted",
+              "read_b_after_timeout": true,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": false
+            },
+            "network_sends": 0,
+            "pending_pushes": 0,
+            "remote_head": 0
+          }
+        }
+      },
+      "witnesses": {
+        "finalized_after_timeout_old_read_and_revocation": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "revoke",
+            "send_fixed_B_to_N",
+            "read_samples_B",
+            "remote_CAS_applies_N",
+            "deliver_observe_B",
+            "read_samples_N",
+            "deliver_observe_N",
+            "store_receipt",
+            "finalize"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 1,
+              "dispatch_attempts": 1,
+              "gate_open": false,
+              "last_observed": 1,
+              "may_have_dispatched": true,
+              "phase": "finalized",
+              "read_b_after_timeout": true,
+              "receipt_durable": true,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": true
+            },
+            "network_sends": 1,
+            "pending_pushes": 0,
+            "remote_head": 1
+          }
+        },
+        "remote_N_despite_local_abort": {
+          "events": [
+            "admit",
+            "prepare",
+            "mark_dispatch",
+            "timeout",
+            "send_fixed_B_to_N",
+            "read_samples_B",
+            "remote_CAS_applies_N",
+            "deliver_observe_B",
+            "abort_on_old_read"
+          ],
+          "state": {
+            "buffered_read": -1,
+            "local": {
+              "accepted_head": 0,
+              "dispatch_attempts": 1,
+              "gate_open": true,
+              "last_observed": 0,
+              "may_have_dispatched": true,
+              "phase": "aborted",
+              "read_b_after_timeout": true,
+              "receipt_durable": false,
+              "restarted": false,
+              "second_admitted": false,
+              "slot": false,
+              "timed_out": true,
+              "verified_n": false
+            },
+            "network_sends": 1,
+            "pending_pushes": 0,
+            "remote_head": 1
+          }
+        }
+      }
+    }
+  },
+  "schema_version": 1
+}

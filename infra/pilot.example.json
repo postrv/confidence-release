@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "accountId": "REPLACE_WITH_32_HEX_ACCOUNT_ID",
+  "deploymentPrefix": "confidence-pilot",
+  "tenantId": "pilot",
+  "artifactsNamespace": "confidence",
+  "objectBucket": "confidence-objects",
+  "eventQueue": "confidence-events",
+  "deadLetterQueue": "confidence-events-dead-letter",
+  "projectionDatabase": { "name": "confidence-projection", "id": "REPLACE_WITH_D1_UUID" },
+  "app": {
+    "origin": "https://confidence.example.com",
+    "issuer": "https://YOUR_TEAM.cloudflareaccess.com",
+    "audience": "REPLACE_WITH_ACCESS_APPLICATION_AUD",
+    "jwksUrl": "https://YOUR_TEAM.cloudflareaccess.com/cdn-cgi/access/certs",
+    "bootstrapSubjects": ["https://YOUR_TEAM.cloudflareaccess.com#REPLACE_WITH_VERIFIED_SUB"],
+    "defaultProjectId": "competition-demo"
+  },
+  "images": { "authoring": "UNCONFIGURED", "evaluator": "UNCONFIGURED" },
+  "checkerImplementationDigest": "UNCONFIGURED",
+  "signerKeyIds": { "root": "root-v1", "authority": "authority-v1", "checker": "checker-v1" },
+  "model": null,
+  "authoring": { "narsilContext": "auto", "interlinkedPreview": "feedback" },
+  "maintenance": true,
+  "enablePi": false,
+  "enablePublication": false,
+  "publicationEvidence": null,
+  "artifactsBindingEvidence": null
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "confidence-app", "main": "index.ts", "compatibility_date": "2026-10-01", "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true, "preview_urls": false,
+  "observability": {"enabled": true, "traces": {"enabled": true, "persist": true}, "redact_query_string": true, "logs": {"enabled": true, "head_sampling_rate": 1, "invocation_logs": true, "persist": true}},
+  "assets": { "directory": "../../apps/web/dist", "binding": "ASSETS", "not_found_handling": "single-page-application", "run_worker_first": ["/v1/*", "/api/*"] },
+  "services": [{ "binding": "AUTHORITY", "service": "confidence-authority" }],
+  "vars": { "AUTH_ISSUER": "UNCONFIGURED", "AUTH_AUDIENCE": "UNCONFIGURED", "AUTH_JWKS_URL": "UNCONFIGURED", "AUTH_TENANT_ID": "pilot", "APP_ORIGIN": "UNCONFIGURED", "DEFAULT_PROJECT_ID": "competition-demo", "PI_ENABLED": "false", "CONDITIONAL_PUBLICATION_VERIFIED": "false", "MAINTENANCE_MODE": "true", "BOOTSTRAP_IDENTITY_ENABLED": "false" },
+  "secrets": { "required": ["APP_SERVICE_TOKEN"] },
+  "rules": [{ "type": "CompiledWasm", "globs": ["**/*.wasm"], "fallthrough": true }]
+}

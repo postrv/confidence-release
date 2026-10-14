@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler", "lib": ["ES2022", "DOM", "DOM.Iterable", "ESNext.Disposable"], "types": ["@cloudflare/workers-types", "node"], "strict": true, "skipLibCheck": true, "noEmit": true, "esModuleInterop": true, "allowImportingTsExtensions": true },
+  "include": ["**/*.ts", "../packages/protocol/src/**/*.ts"], "exclude": ["../node_modules"]
+}

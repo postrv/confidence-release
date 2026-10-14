@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "confidence-projection-package-only", "main": "worker.ts",
+  "compatibility_date": "2026-10-05", "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true, "preview_urls": false,
+  "observability": { "enabled": true, "traces": { "enabled": true } },
+  "d1_databases": [{ "binding": "DB", "database_name": "confidence-projection-package-only-db", "database_id": "11111111-1111-4111-8111-111111111111" }],
+  "queues": { "producers": [{ "binding": "EVENTS", "queue": "confidence-projection-package-only-events" }], "consumers": [{ "queue": "confidence-projection-package-only-events", "max_batch_size": 32, "max_batch_timeout": 1, "max_retries": 10, "dead_letter_queue": "confidence-projection-package-only-dlq" }] },
+  "vars": { "RUN_ID": "UNCONFIGURED", "RUN_EXPIRES_AT": "0", "SOURCE_SET_DIGEST": "UNCONFIGURED", "WORKER_NAME": "UNCONFIGURED", "QUEUE_NAME": "UNCONFIGURED", "DATABASE_ID": "UNCONFIGURED" },
+  "secrets": { "required": ["CONTROL_TOKEN", "PROJECTOR_SERVICE_TOKEN"] }
+}

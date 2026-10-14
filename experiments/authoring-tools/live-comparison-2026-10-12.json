@@ -1,0 +1,444 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-10-12",
+  "status": "OBSERVED_TWO_ARM_EPISODE",
+  "taskProfile": "biome-covered",
+  "episodesPerArm": 1,
+  "order": [
+    "neither",
+    "both"
+  ],
+  "commonControls": {
+    "model": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+    "requestedReasoningEffort": "none",
+    "providerInternalReasoningEstablished": false,
+    "maximumCompletionTokensPerCall": 8192,
+    "maximumCallsPerArm": 4,
+    "phaseDeadlinesMs": {
+      "authoring": 660000,
+      "ingestion": 120000,
+      "evaluation": 300000,
+      "cleanup": 120000
+    },
+    "nativeResources": {
+      "vcpu": 1,
+      "memoryMib": 3072,
+      "diskMb": 2000
+    },
+    "sourceCommit": "0422b7b787b2342ea02a946b09d6bb8ba2177472",
+    "sourceManifestDigest": "sha256:7482ca0db527d20f73f369264c8dd2168c32e0802f653f0475ddca18700e5f08",
+    "runnerImageDigest": "sha256:a80019fad203f86a01f8394274c83bfd30eed357007f8144851d84bc35faca3b",
+    "evaluatorImageDigest": "sha256:bbd864886fce000b3342b6f077a348e10d3e19f6680bbebabd00fb0e63f5300c",
+    "checkerDigest": "sha256:d483ef1e522e3f44f2354c65a9b3feb8afa4a4a547c33de9c6a8082077a0a541",
+    "planDigest": "sha256:fc3d0f7baff540f95c922236d3c6df0084ad52592308fb1c9f9f501361990102"
+  },
+  "arms": [
+    {
+      "arm": "neither",
+      "originalControllerStatus": "AUTHORITY_REPORTED_PASS",
+      "originalControllerError": null,
+      "recordedRejection": null,
+      "authoringOutcome": "COMPLETED",
+      "authoredSourceCommit": "1cd23e4dbd827f96a7fc4aba70faabef6fed0bd4",
+      "modelCalls": 2,
+      "checks": {
+        "status": "AUTHORITY_REPORTED_PASS",
+        "required": 9,
+        "observed": 9,
+        "passed": 9,
+        "nonpass": 0,
+        "jobs": [
+          {
+            "id": "warm-read-write-read",
+            "outcome": "PASS",
+            "inputDigest": "sha256:52402bbba47af4a938606118321645481839943798b785f292db929f4f2e9e2f",
+            "evidenceDigest": "sha256:2bd7ae06d2773e5d35705ba37668437e4388025cba04e95d28ffe37563107e08"
+          },
+          {
+            "id": "repeated-reads",
+            "outcome": "PASS",
+            "inputDigest": "sha256:e2790d48a2d6def3d3e2ddaf766c6556dd30a9a604febe425496aa4244286ef4",
+            "evidenceDigest": "sha256:0a8f69f20c1c749246f64164e165367b273a4f698bed5ae6a217aab3006a18ec"
+          },
+          {
+            "id": "successive-writes",
+            "outcome": "PASS",
+            "inputDigest": "sha256:6a9389e2a7f0d49755b2554cfd150e3636f73fe5ebe94b84bc46ea394a96502c",
+            "evidenceDigest": "sha256:88801d27a8f6cfed6fe87a6298a6b573f694c2f9bb7901784c3b44b8eaa528f0"
+          },
+          {
+            "id": "cold-write",
+            "outcome": "PASS",
+            "inputDigest": "sha256:a8b3a180228476263be54140ce335d402b83f4b0504c80f4d2a3fcb06303b469",
+            "evidenceDigest": "sha256:c300902ab0330e13e76348b6a3d899bca06fec740a2cde5b0810fe6079957603"
+          },
+          {
+            "id": "retained-cache-benefit",
+            "outcome": "PASS",
+            "inputDigest": "sha256:d6d7ae40db6a19db81e58b721b943c4fa432d86d98b485c19d0a0d50b3bdef9f",
+            "evidenceDigest": "sha256:3f19989ee810ca0ced2bc52f4eccccd485405e67c52f89cef0c744ca1d562e2a"
+          },
+          {
+            "id": "accessible-value",
+            "outcome": "PASS",
+            "inputDigest": "sha256:0406dc7f8593c2159813e2b3e335509ec3413522e7fcb77ceb966df7ec60b9c4",
+            "evidenceDigest": "sha256:1ef4e16c1d303d57ac097e44d12314f25ab80c754d170d74ee3407e200a02873"
+          },
+          {
+            "id": "audit-write-burst",
+            "outcome": "PASS",
+            "inputDigest": "sha256:63a66d74b2d32c06e4d9331ee43087d4407732a4289aa9055db63410c3386143",
+            "evidenceDigest": "sha256:f99090ea06e6ddc30deb4b642b6e6b29134c380e392a3b49fa9cc65a88bc225a"
+          },
+          {
+            "id": "audit-alternating-pages",
+            "outcome": "PASS",
+            "inputDigest": "sha256:0fd7ea82ef4a38ae2dda66296ad98fce84774ec6bd60e3528bfbc4561aa5cb16",
+            "evidenceDigest": "sha256:7e19c86470b6fcecc3ced53cad0dfa34961121a85601c6f93c08e87ca069341d"
+          },
+          {
+            "id": "overlapping-read-write",
+            "outcome": "PASS",
+            "inputDigest": "sha256:e22cb28866e83bff7b0ba8bcc7d6d72fb2b6869718fc915dac16928071bad53c",
+            "evidenceDigest": "sha256:7baefe0fda21b5e554cbe3fd4dc54b0aade88b4b638ad41eeefcf513f8309884"
+          }
+        ],
+        "planDigest": "sha256:503cb7ec48b5e363580eb394219c757eed46957b5d88070747893183bdeee5c9",
+        "candidateDigest": "sha256:092fb1a6aa017a349c61e013b0a1c28b82c250f9f9731eb5ad5798a3d4a17382",
+        "meaning": "Complete authority-reported protected checks on the exact candidate, not an independent portable receipt or general correctness proof."
+      },
+      "cleanup": "TOMBSTONED",
+      "timing": {
+        "deploymentExcludedCodingMs": 258371,
+        "sdkFirstUserToLastAssistantMs": 213142,
+        "fullRecordedWorkflowMs": 631147,
+        "fullWorkflowStartedAt": "2026-10-12T13:46:25.434Z",
+        "fullWorkflowCompletedAt": "2026-10-12T13:56:56.581Z",
+        "fullWorkflowBasis": "Original arm start through original evaluation/cleanup completion; includes deployment",
+        "fullWorkflowIncludesDeployment": true,
+        "fullWorkflowIncludesLaterEvidenceCollection": false,
+        "supplementalEvaluationMs": null,
+        "supplementalReconciliationAndCleanupMs": null
+      },
+      "tools": {
+        "narsil": {
+          "status": "DISABLED",
+          "promptBytes": 3619,
+          "advisoryBytes": null,
+          "advisoryInPrompt": false,
+          "firstPromptMatchesRendered": true,
+          "coverage": null
+        },
+        "interlinked": {
+          "status": "DISABLED",
+          "previews": []
+        }
+      },
+      "promptCount": 2,
+      "providerUsage": {
+        "callCoverage": "INCOMPLETE",
+        "verifiedResponseCount": 2,
+        "uncertainCallCount": 0,
+        "unobservedCallCount": 0,
+        "inputTokens": 2338,
+        "outputTokens": 13421,
+        "cachedInputTokens": 1024,
+        "observedResponseEstimateUsd": "0.018308216",
+        "estimatedTotalUsd": null,
+        "actualBilledUsd": null,
+        "calls": [
+          {
+            "state": "VERIFIED_RESPONSE",
+            "usage": {
+              "promptTokens": 1208,
+              "completionTokens": 5229,
+              "cachedInputTokens": 1024
+            },
+            "estimatedResponseUsd": "0.006997576",
+            "uncertainty": []
+          },
+          {
+            "state": "VERIFIED_RESPONSE",
+            "usage": {
+              "promptTokens": 1130,
+              "completionTokens": 8192,
+              "cachedInputTokens": 0
+            },
+            "estimatedResponseUsd": "0.011310640",
+            "uncertainty": []
+          }
+        ]
+      },
+      "supplementalModelCalls": 0,
+      "evidenceDigests": {
+        "reportDigest": "sha256:e96822edc152c9773fc34b1f3d20bd32ac0af7a825d4da2ada6ff43e74ff5182",
+        "snapshotDigest": "sha256:c3bd11eb3f6f7c0a6873a2207a69bb42fa7039e84ddcbd939af580d732e88157",
+        "journalDigest": "sha256:0bb122fa915f8bf93094e0e82995a934172ad8753a30828d9941579b1461fd23",
+        "supplementalReportDigest": null
+      }
+    },
+    {
+      "arm": "both",
+      "originalControllerStatus": "INCOMPLETE",
+      "originalControllerError": "Authority HTTP 409",
+      "recordedRejection": "STALE_STATE",
+      "authoringOutcome": "COMPLETED",
+      "authoredSourceCommit": "612f800e86f198fd2735c079bdaff2b050cbd0d3",
+      "modelCalls": 1,
+      "checks": {
+        "status": "AUTHORITY_REPORTED_PASS",
+        "required": 9,
+        "observed": 9,
+        "passed": 9,
+        "nonpass": 0,
+        "jobs": [
+          {
+            "id": "warm-read-write-read",
+            "outcome": "PASS",
+            "inputDigest": "sha256:229f961b2988ecc004a78ed668400a42c1aeeea4574a1c316bcb529da525a07c",
+            "evidenceDigest": "sha256:bb0f335ed394b8328b971482a23df2ca8243dea225e4ab3a7eb751f6a9e082f1"
+          },
+          {
+            "id": "repeated-reads",
+            "outcome": "PASS",
+            "inputDigest": "sha256:947c998267087685e2b0112b54e45490415ffcc3201be3dfaee5a8c7325f9b5f",
+            "evidenceDigest": "sha256:f60b3b5b3c490af4e6f13385c37cee24f4d5c97e89409012ef0eb0893c5612ab"
+          },
+          {
+            "id": "successive-writes",
+            "outcome": "PASS",
+            "inputDigest": "sha256:a83480ba726def33027bde96a711fd64b4c9d181189775b7cdd6b433a4a33c9e",
+            "evidenceDigest": "sha256:3f019c7cfe84b45d2a59f16b65a303be3241dd0a5e626b454f19e16873c41989"
+          },
+          {
+            "id": "cold-write",
+            "outcome": "PASS",
+            "inputDigest": "sha256:8262506c3d8348cbf201d93fa31d2412ed04e960baad2abc6bc9c6478548e19b",
+            "evidenceDigest": "sha256:6474391f555a8b2ba79ff4bdf68bddaa2a737dae0c1c42712c3662de3e56a83c"
+          },
+          {
+            "id": "retained-cache-benefit",
+            "outcome": "PASS",
+            "inputDigest": "sha256:90c280c83fdee0a0191b9f6ca06db3f8819efea8f50989f041d7e63fd3c16732",
+            "evidenceDigest": "sha256:b289db2bc16c4b34dda0d8dffc2e1fc595400f3df942884fd03d1f73dd8dfc16"
+          },
+          {
+            "id": "accessible-value",
+            "outcome": "PASS",
+            "inputDigest": "sha256:3745e61c573a6e0618d1185c3d352e70daebb7738a5592808004c6e4d73a5e9e",
+            "evidenceDigest": "sha256:662a4540e0c25d67d98f3a736ebd0ff12919ace95fc1e2ddb5689fab4cc8dac3"
+          },
+          {
+            "id": "audit-write-burst",
+            "outcome": "PASS",
+            "inputDigest": "sha256:7dd4bd0c6654e7a5d4b5e8adbacbed739c340eb899284b8cecad388491149afd",
+            "evidenceDigest": "sha256:92fa0cac0f1d5d658f9930e3202450f4d544b91192b7696c2e67a6ad6b518218"
+          },
+          {
+            "id": "audit-alternating-pages",
+            "outcome": "PASS",
+            "inputDigest": "sha256:d5bcfedfe58c008e4a626d7b16197c0ad86cf91ee62bea16d097d53dbfd36a98",
+            "evidenceDigest": "sha256:6a2055318de24afc747a586b536820f3d579559fefd6db95328f44aad3ba3c6f"
+          },
+          {
+            "id": "overlapping-read-write",
+            "outcome": "PASS",
+            "inputDigest": "sha256:db536711e3e3458bc9ea4a1ce4256f23badd325b8d8071313636cf69f042e002",
+            "evidenceDigest": "sha256:dad222c98371aed0cc9f3550b80d9b070593b138bc23105cae723d1cd0d99582"
+          }
+        ],
+        "planDigest": "sha256:d0d714c0996ee354ec005c9f3a2deea5d8c0f8217e95193ef338ed7562d14019",
+        "candidateDigest": "sha256:7c42e2585d89832fb5648cf61cac12ec05c1fea474d3a7238afc339101f2586b",
+        "meaning": "Complete authority-reported protected checks on the exact candidate, not an independent portable receipt or general correctness proof."
+      },
+      "cleanup": "TOMBSTONED",
+      "timing": {
+        "deploymentExcludedCodingMs": 120612,
+        "sdkFirstUserToLastAssistantMs": 74011,
+        "fullRecordedWorkflowMs": 1106485,
+        "fullWorkflowStartedAt": "2026-10-12T13:56:56.587Z",
+        "fullWorkflowCompletedAt": "2026-10-12T14:15:23.072Z",
+        "fullWorkflowBasis": "Original arm start through supplemental reconciliation/cleanup completion; includes deployment and operator pause",
+        "fullWorkflowIncludesDeployment": true,
+        "fullWorkflowIncludesLaterEvidenceCollection": false,
+        "supplementalEvaluationMs": 37794,
+        "supplementalReconciliationAndCleanupMs": 123502
+      },
+      "tools": {
+        "narsil": {
+          "status": "OBSERVED_SOURCE_CONTEXT",
+          "promptBytes": 7175,
+          "advisoryBytes": 3529,
+          "advisoryInPrompt": true,
+          "firstPromptMatchesRendered": true,
+          "coverage": {
+            "assignedPaths": [
+              "cache.mjs",
+              "mutation.mjs",
+              "presentation.mjs"
+            ],
+            "incomplete": true,
+            "indexedFiles": 4,
+            "queriedPaths": [
+              "cache.mjs",
+              "mutation.mjs",
+              "presentation.mjs"
+            ],
+            "queryCount": 12,
+            "sourceBytes": 3436,
+            "sourceFiles": 5
+          }
+        },
+        "interlinked": {
+          "status": "OBSERVED_PREVIEW_INVOCATION",
+          "previews": [
+            {
+              "status": "NO_BLOCKING_FINDINGS",
+              "outcome": "REPORTED_PREVIEW_RESULT",
+              "elapsedMs": 2327,
+              "cliElapsedMs": 1057,
+              "reason": "RETAINED_REASON_IN_PRIVATE_METRICS",
+              "sourceCoherence": "COHERENT",
+              "terminationObserved": true
+            }
+          ]
+        }
+      },
+      "promptCount": 1,
+      "providerUsage": {
+        "callCoverage": "INCOMPLETE",
+        "verifiedResponseCount": 1,
+        "uncertainCallCount": 0,
+        "unobservedCallCount": 0,
+        "inputTokens": 2255,
+        "outputTokens": 4676,
+        "cachedInputTokens": 256,
+        "observedResponseEstimateUsd": "0.007055464",
+        "estimatedTotalUsd": null,
+        "actualBilledUsd": null,
+        "calls": [
+          {
+            "state": "VERIFIED_RESPONSE",
+            "usage": {
+              "promptTokens": 2255,
+              "completionTokens": 4676,
+              "cachedInputTokens": 256
+            },
+            "estimatedResponseUsd": "0.007055464",
+            "uncertainty": []
+          }
+        ]
+      },
+      "supplementalModelCalls": 0,
+      "evidenceDigests": {
+        "reportDigest": "sha256:5355c260e8f539bc07f3b797afec791a8054c4c89613e248bf7dcc98d6a67229",
+        "snapshotDigest": "sha256:6b17400fb6500667d503964b9589cf977c9d5904b0119d0ae659eee40c4167ce",
+        "journalDigest": "sha256:0bb122fa915f8bf93094e0e82995a934172ad8753a30828d9941579b1461fd23",
+        "supplementalReportDigest": "sha256:6114391b6d4e813d61d9cf70dbe21587d80254ad33041985664e69059cb6fdcc"
+      }
+    }
+  ],
+  "spending": {
+    "authorizedMaximumUsd": 10,
+    "retainedPriorAllowanceUsd": 4.515,
+    "newAdmittedCalls": 3,
+    "perCallConservativeMaximumUsd": 0.473,
+    "cumulativeConservativeMaximumUsd": 5.934,
+    "verifiedResponseEstimateUsd": "0.025363680",
+    "estimatedNewTotalUsd": null,
+    "actualBilledUsd": null,
+    "meaning": "Retained prior allowance and per-call ceiling bound authorized model spend. Verified response token prices are estimates; missing usage and invoices remain unknown."
+  },
+  "usageInventory": {
+    "status": "OBSERVED_PARTIAL",
+    "listedObjects": 498,
+    "inspectedObjects": 495,
+    "skippedLargeObjects": 3,
+    "pages": 1,
+    "bytesRead": 2357319,
+    "listingComplete": true,
+    "issues": [
+      "LARGE_OBJECTS_UNINSPECTED"
+    ],
+    "callCoverage": "INCOMPLETE",
+    "listedReservations": 3,
+    "verifiedResponses": 3,
+    "uncertainCalls": 0,
+    "unobservedCalls": 0,
+    "estimatedTotalUsd": null,
+    "actualBilledUsd": null
+  },
+  "price": {
+    "source": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+    "sourceUpdatedOn": "2026-10-01",
+    "model": {
+      "model": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+      "observedOn": "2026-10-08",
+      "perMillion": {
+        "ordinaryInput": "0.44",
+        "cachedInput": "0.014",
+        "output": "1.32"
+      }
+    },
+    "meaning": "Dated token-rate estimate for complete authority-matched usage only; not a Cloudflare invoice."
+  },
+  "operatorCollection": {
+    "failedPasses": [
+      {
+        "status": "BLOCKED_OR_FAILED",
+        "phase": "BOUNDED_PROVIDER_USAGE_RECONCILIATION",
+        "requests": 448,
+        "elapsedMs": 300020,
+        "requestTimeoutMs": 15000,
+        "overallTimeoutMs": 300000,
+        "failureDiagnostic": null,
+        "modelCalls": 0,
+        "r2Writes": 0,
+        "reportDigest": "sha256:ff45e9d6a3631dba46c9497e4d46a64914c11f1276270afbf8a87b7e9f40357d"
+      },
+      {
+        "status": "BLOCKED_OR_FAILED",
+        "phase": "GET_REFERENCED_ARTIFACT",
+        "requests": 1,
+        "elapsedMs": 18236,
+        "requestTimeoutMs": 15000,
+        "overallTimeoutMs": 600000,
+        "failureDiagnostic": {
+          "code": null,
+          "name": "TimeoutError"
+        },
+        "modelCalls": 0,
+        "r2Writes": 0,
+        "reportDigest": "sha256:c3e1f6245a481edba5adf3a476483cc161757b3fe8d5aefc954ed30df7f8b7bd"
+      }
+    ],
+    "completedPass": {
+      "status": "PASS",
+      "requests": 511,
+      "startedAt": "2026-10-12T14:36:33.443Z",
+      "completedAt": "2026-10-12T14:41:58.349Z",
+      "modelCalls": 0,
+      "r2Writes": 0,
+      "inputsUnchanged": true,
+      "reportDigest": "sha256:c4895c3a6bd7b95d69e057affd19339df2009e244dc5c1d299d373b544af6f7f"
+    }
+  },
+  "retainedPrivateEvidenceDigests": {
+    "comparisonResults": "sha256:1a58e94daeea86d90e045dffa3bcd03206608a02ebc311afff4c68f2616b2cf1",
+    "modelUsage": "sha256:b59457e8bb2e87a8747d91089594cce2345eb3f03ff7bd3155a797277e01493e",
+    "planFile": "sha256:376183ad2e37794f085db71e7dc5c6e463bd94f719d1245c4a8856b15c30fa05"
+  },
+  "comparativeQualityAdvantage": null,
+  "statisticallyReliableSpeedup": null,
+  "limitations": [
+    "One designed task and one sequential episode per arm; provider variability, warm infrastructure and response caching may affect timing.",
+    "Both tools change together, so their individual effects cannot be attributed.",
+    "Protected checks establish finite observed cases. Tool/session diagnostics are not protected correctness evidence.",
+    "Primary coding spans exclude deployment. Total controller spans include deployment; SDK spans have different boundaries. Startup/polling overhead is retained, and active reviewer time is unmeasured.",
+    "An original INCOMPLETE controller report remains INCOMPLETE. Any later protected evaluation and cleanup are bound supplemental observations, with their timing shown separately.",
+    "No benchmark publication occurred. The historical human-review/publication/receipt journey is separate.",
+    "Provider usage inventory coverage is INCOMPLETE; token-price estimates are not account billing.",
+    "Full workflow timing includes deployment and operator recovery pauses. The enabled arm took longer overall in this episode despite a shorter coding phase.",
+    "Initial controller STALE_STATE and both failed read-only collection passes remain recorded; no paid episode was restarted."
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "extends": "../../workers/tsconfig.json",
+  "include": ["controller.ts", "evaluator.ts", "source.ts", "types.ts", "../../workers/authority/worker-configuration.d.ts"],
+  "exclude": ["../../node_modules"]
+}

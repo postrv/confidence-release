@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "scope": {
+    "schemaVersion": 1,
+    "projectId": "collaboration-demo",
+    "projectIncarnation": "incarnation-288af1e9-67bc-4b63-8a8a-22cf99b6844b",
+    "tenantId": "local-tenant"
+  },
+  "keysetRevision": "1",
+  "keys": [
+    {
+      "id": "sha256:549067dde2521d5deda6b962003a1863522b197dfae96abbcace36b206f60157",
+      "roles": [
+        "checker"
+      ],
+      "publicKeyBase64": "K6ki0WgnKV4ij66AQNlBf+R1P6NPb7fxzEHKGl4uHec="
+    },
+    {
+      "id": "sha256:4c4753af6322b898bd98b07d47aa6102219ff455c5fcbaa0be1c7b7832da3c2d",
+      "roles": [
+        "authority"
+      ],
+      "publicKeyBase64": "2/pP+kV2cmZE1WPpRySnTytjiVsyGFxZkF72jpdveG8="
+    },
+    {
+      "id": "sha256:108d624151f9608d38c82b4ae7e52df3f23fc2fdaaffb9caeac0584a3986d7a9",
+      "roles": [
+        "root"
+      ],
+      "publicKeyBase64": "mLFkal1sgINHhn/o4AgCGPnWsRywFee3Gr5zI0IrMHA="
+    }
+  ],
+  "genesis": {
+    "schemaVersion": 1,
+    "scope": {
+      "schemaVersion": 1,
+      "projectId": "collaboration-demo",
+      "projectIncarnation": "incarnation-288af1e9-67bc-4b63-8a8a-22cf99b6844b",
+      "tenantId": "local-tenant"
+    },
+    "keysetRevision": "1",
+    "keys": [
+      {
+        "id": "sha256:549067dde2521d5deda6b962003a1863522b197dfae96abbcace36b206f60157",
+        "roles": [
+          "checker"
+        ],
+        "publicKeyBase64": "K6ki0WgnKV4ij66AQNlBf+R1P6NPb7fxzEHKGl4uHec="
+      },
+      {
+        "id": "sha256:4c4753af6322b898bd98b07d47aa6102219ff455c5fcbaa0be1c7b7832da3c2d",
+        "roles": [
+          "authority"
+        ],
+        "publicKeyBase64": "2/pP+kV2cmZE1WPpRySnTytjiVsyGFxZkF72jpdveG8="
+      },
+      {
+        "id": "sha256:108d624151f9608d38c82b4ae7e52df3f23fc2fdaaffb9caeac0584a3986d7a9",
+        "roles": [
+          "root"
+        ],
+        "publicKeyBase64": "mLFkal1sgINHhn/o4AgCGPnWsRywFee3Gr5zI0IrMHA="
+      }
+    ]
+  },
+  "lifecycle": []
+}

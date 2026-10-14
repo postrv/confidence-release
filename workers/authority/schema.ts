@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: Apache-2.0
+export const AUTHORITY_SCHEMA = `
+CREATE TABLE IF NOT EXISTS project (singleton INTEGER PRIMARY KEY CHECK(singleton = 1), revision TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS memberships (subject TEXT PRIMARY KEY, roles TEXT NOT NULL, active INTEGER NOT NULL CHECK(active IN (0,1)));
+CREATE TABLE IF NOT EXISTS collaboration_config (singleton INTEGER PRIMARY KEY CHECK(singleton = 1), payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS verified_identities (id TEXT PRIMARY KEY, issuer TEXT NOT NULL, subject TEXT NOT NULL, tenant_id TEXT NOT NULL, credential_class TEXT NOT NULL, verified_at INTEGER NOT NULL, session_cutoff INTEGER NOT NULL DEFAULT 0, UNIQUE(issuer,subject));
+CREATE TABLE IF NOT EXISTS collaborators (subject TEXT PRIMARY KEY REFERENCES verified_identities(id), role TEXT NOT NULL, owner INTEGER NOT NULL CHECK(owner IN (0,1)));
+CREATE TABLE IF NOT EXISTS invitations (id TEXT PRIMARY KEY, token_digest TEXT NOT NULL UNIQUE, recipient TEXT NOT NULL, inviter TEXT NOT NULL, role TEXT NOT NULL, expires_at INTEGER NOT NULL, state TEXT NOT NULL, created_at INTEGER NOT NULL, payload TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS invitations_recipient_state ON invitations(recipient,state);
+CREATE TABLE IF NOT EXISTS invitation_acceptance_limits (subject TEXT PRIMARY KEY, window_start INTEGER NOT NULL, attempts INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS commands (caller TEXT NOT NULL, id TEXT NOT NULL, digest TEXT NOT NULL, operation TEXT NOT NULL, state TEXT NOT NULL, result TEXT NOT NULL, PRIMARY KEY(caller,id));
+CREATE TABLE IF NOT EXISTS records (kind TEXT NOT NULL, id TEXT NOT NULL, digest TEXT NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(kind,id));
+CREATE TABLE IF NOT EXISTS grants (id TEXT PRIMARY KEY, subject TEXT NOT NULL, attempt_id TEXT NOT NULL, generation TEXT NOT NULL, revoked INTEGER NOT NULL DEFAULT 0, expires_at INTEGER NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS reservations (id TEXT PRIMARY KEY, owner TEXT NOT NULL, maximum TEXT NOT NULL, state TEXT NOT NULL, settled TEXT, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS model_calls (call_id TEXT PRIMARY KEY REFERENCES reservations(id),created_at_ms INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS model_call_facts (call_id TEXT NOT NULL REFERENCES model_calls(call_id),phase TEXT NOT NULL CHECK(phase IN ('DISPATCH','RESPONSE')),observation_digest TEXT NOT NULL,payload TEXT NOT NULL,observed_at_ms INTEGER NOT NULL,PRIMARY KEY(call_id,phase));
+CREATE TABLE IF NOT EXISTS approvals (proposal_digest TEXT PRIMARY KEY, reviewer TEXT NOT NULL, expires_at INTEGER NOT NULL, consumed_by TEXT);
+CREATE TABLE IF NOT EXISTS evidence (job_id TEXT PRIMARY KEY, digest TEXT NOT NULL, outcome TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS publications (id TEXT PRIMARY KEY, canonical_ref TEXT NOT NULL, sequence TEXT NOT NULL UNIQUE, unresolved INTEGER NOT NULL CHECK(unresolved IN (0,1)), phase TEXT NOT NULL, old_head TEXT NOT NULL, new_head TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE UNIQUE INDEX IF NOT EXISTS one_unresolved_publication ON publications(canonical_ref) WHERE unresolved = 1;
+CREATE TABLE IF NOT EXISTS receipts (sequence TEXT PRIMARY KEY, logical_digest TEXT NOT NULL UNIQUE, publication_id TEXT NOT NULL UNIQUE, envelope_digest TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS events (sequence INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT NOT NULL UNIQUE, digest TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS outbox (id TEXT PRIMARY KEY, kind TEXT NOT NULL, digest TEXT NOT NULL, payload TEXT NOT NULL, state TEXT NOT NULL DEFAULT 'PENDING', attempts INTEGER NOT NULL DEFAULT 0, created_at_ms INTEGER CHECK(created_at_ms IS NULL OR created_at_ms >= 0));
+CREATE TABLE IF NOT EXISTS projection_replays (id TEXT PRIMARY KEY, requester TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS pins (owner TEXT NOT NULL, digest TEXT NOT NULL, PRIMARY KEY(owner,digest));
+CREATE TABLE IF NOT EXISTS cleanups (id TEXT PRIMARY KEY, attempt_id TEXT NOT NULL UNIQUE, generation TEXT NOT NULL, phase TEXT NOT NULL, payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS cleanup_archives (cleanup_id TEXT PRIMARY KEY, payload TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS events_by_kind_sequence ON events(json_extract(payload,'$.kind'),sequence);
+CREATE INDEX IF NOT EXISTS candidate_by_commit ON records(json_extract(payload,'$.commit')) WHERE kind='candidate';
+CREATE INDEX IF NOT EXISTS plan_by_candidate ON records(json_extract(payload,'$.candidateId')) WHERE kind='plan';
+CREATE INDEX IF NOT EXISTS review_by_candidate ON records(json_extract(payload,'$.proposal.candidateId')) WHERE kind='review';
+CREATE INDEX IF NOT EXISTS evidence_by_candidate ON evidence(json_extract(payload,'$.candidateId'),job_id);
+CREATE INDEX IF NOT EXISTS contradiction_by_candidate ON records(json_extract(payload,'$.candidateId')) WHERE kind='evidence-contradiction';
+CREATE INDEX IF NOT EXISTS attempt_by_work_base ON records(json_extract(payload,'$.workBase')) WHERE kind='attempt';
+CREATE INDEX IF NOT EXISTS runtime_by_attempt_generation ON records(json_extract(payload,'$.attemptId'),json_extract(payload,'$.generation')) WHERE kind='runtime-observation';
+CREATE INDEX IF NOT EXISTS event_by_admitted_attempt ON events(json_extract(payload,'$.payload.id'),sequence) WHERE json_extract(payload,'$.kind') IN ('start-repair','accept-proposal');
+`;

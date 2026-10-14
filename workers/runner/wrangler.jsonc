@@ -1,0 +1,10 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json", "name": "confidence-runner", "main": "index.ts", "compatibility_date": "2026-10-01", "compatibility_flags": ["nodejs_compat", "enable_request_signal"], "workers_dev": false, "preview_urls": false,
+  "observability": {"enabled": true, "traces": {"enabled": true, "persist": true}, "redact_query_string": true, "logs": {"enabled": true, "head_sampling_rate": 1, "invocation_logs": true, "persist": true}},
+  "durable_objects": { "bindings": [{ "name": "ATTEMPTS", "class_name": "AttemptRunner" }] }, "exports": { "AttemptRunner": { "type": "durable-object", "storage": "sqlite" } },
+  "containers": [{ "name": "confidence-authoring", "class_name": "AttemptRunner", "scheduling_policy": "durable_object", "images": { "agent": { "dockerfile": "./Dockerfile", "build_context": "../../" } } }],
+  "services": [{ "binding": "AUTHORITY", "service": "confidence-authority" }], "r2_buckets": [{ "binding": "OBJECTS", "bucket_name": "confidence-objects" }],
+  "ai": { "binding": "AI" },
+  "vars": { "MODEL_PROVIDER_KIND": "UNCONFIGURED", "MODEL_NAME": "UNCONFIGURED", "MODEL_API_BASE_URL": "UNCONFIGURED", "MODEL_MAXIMUM_CALL_COST": "100000", "MODEL_OUTPUT_TOKEN_FIELD": "max_tokens", "MODEL_REASONING_EFFORT": "UNCONFIGURED", "AUTHORING_IMAGE_DIGEST": "UNCONFIGURED", "NARSIL_CONTEXT_MODE": "auto", "INTERLINKED_PREVIEW_MODE": "feedback", "MAINTENANCE_MODE": "true" },
+  "secrets": { "required": ["RUNNER_SERVICE_TOKEN", "MODEL_API_KEY"] }, "rules": [{ "type": "CompiledWasm", "globs": ["**/*.wasm"], "fallthrough": true }]
+}

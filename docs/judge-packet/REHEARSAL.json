@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "kind": "synthetic-local-scripted",
+  "rehearsalStartedAt": "2026-10-12T16:51:14.690Z",
+  "source": {
+    "commit": "ec00334c1c2c8e2156ae0c11baf0bade3cebde1c",
+    "tree": "a57687d0bf7151c4e4db876f4eed1b777852681e",
+    "laterWorkingChangesValidated": false
+  },
+  "toolchain": {
+    "node": "22.20.0",
+    "npm": "10.9.3",
+    "rustc": "1.98.0 (88d9e12ae 2026-08-18)",
+    "wasmPack": "0.13.1",
+    "git": "2.54.0 (Apple Git-157)",
+    "os": "macOS",
+    "architecture": "arm64"
+  },
+  "checks": {
+    "cleanLocalClone": "PASS",
+    "privateStateAbsentAtCheckout": "PASS",
+    "npmCiOffline": "PASS",
+    "fullRustWasmAndWebBuild": "PASS",
+    "scriptedLocalFailureRepairAndPublication": "PASS",
+    "nativeVerifierReleaseBuildLockedOffline": "PASS",
+    "nativePositiveVerificationNetworkingDenied": "PASS",
+    "packetHelperAndTamperedSignature": "PASS"
+  },
+  "example": {
+    "scope": {
+      "schemaVersion": 1,
+      "projectId": "collaboration-demo",
+      "projectIncarnation": "incarnation-37373eff-ce00-444c-8a6e-65829486a23f",
+      "tenantId": "local-tenant"
+    },
+    "sequence": "1",
+    "receiptDigest": "sha256:c8354d78d883728c4a1a5d33dbe568ce2cc014296cc1b2ea7ab24df94f4df4f9",
+    "files": [
+      {
+        "file": "receipt.json",
+        "bytes": 75320,
+        "sha256": "sha256:a4148b686a6bfeef3f09517a1f4095ed10df8b0c08aaa0c5cc06e351c6be5c8f"
+      },
+      {
+        "file": "trust.json",
+        "bytes": 1902,
+        "sha256": "sha256:c5cde12b3af7cfebdf74d3d23dcf7d883d72780054aeada5f4e606bb3ec23346"
+      },
+      {
+        "file": "checkpoint-attestation.json",
+        "bytes": 1501,
+        "sha256": "sha256:7005863fc428af836798222d559856d67a3c6423725e6d584d4db8a233af91c9"
+      }
+    ]
+  },
+  "verification": {
+    "authorization": true,
+    "continuity": true,
+    "errors": [],
+    "integrity": true,
+    "limitations": [
+      "Offline replay uses authority-attested recorded state; it cannot establish that state was latest or complete.",
+      "Attested publication is an observation, not a check of the current remote head or general program correctness.",
+      "Trust configuration must be selected independently; operator control remains a trust assumption."
+    ],
+    "publicationObservation": true,
+    "receiptDigest": "sha256:c8354d78d883728c4a1a5d33dbe568ce2cc014296cc1b2ea7ab24df94f4df4f9",
+    "sequence": "1",
+    "sourceVerified": true,
+    "valid": true
+  },
+  "tamperedSignatureVerification": {
+    "networkingDenied": true,
+    "valid": false,
+    "exitCode": 1,
+    "errors": ["BAD_SIGNATURE"],
+    "retainedExampleUnchanged": true
+  },
+  "packetHelperVerification": {
+    "checkedAt": "2026-10-12T17:01:18Z",
+    "file": "scripts/judge-packet-verify.mjs",
+    "sha256": "sha256:352943d61b803761b34d47ded2a8d51524093b7fbdf08bc131476d88fb5f7658",
+    "status": "PASS",
+    "networkingDeniedByOs": true,
+    "nativeBinaryBuiltFromRecordedSource": true
+  },
+  "privacy": {
+    "signedExportBytesUnmodified": true,
+    "privateKeysSessionsAndStateIncluded": false,
+    "decodedEnvelopeAndGitObjectReview": "PASS",
+    "syntheticGitAuthorEmail": "materializer@example.invalid",
+    "sourceCodeBearerTemplate": "Only the literal placeholder Bearer ${token}; no credential value is included."
+  },
+  "limits": {
+    "modelCalls": 0,
+    "cloudflareRequests": 0,
+    "localMode": "predetermined concurrent child processes and loopback HTTP under one trusted host identity",
+    "productionReceipt": false,
+    "productionTrust": false,
+    "installationEntirelyOffline": false,
+    "networkingDeniedForNativeVerification": true,
+    "broaderReleaseGateRun": false
+  }
+}

@@ -1,0 +1,21 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import { initializeKernel } from '../packages/protocol/src/node.ts';
+import { canonicalize, digest, signStatement, statement, verifyBundle } from '../packages/protocol/src/index.ts';
+import { vector } from '../tests/conformance/vector.ts';
+await initializeKernel();
+const {bundle,trust,receipt,authority}=await vector();
+const directory = new URL('../fixtures/protocol/', import.meta.url);
+await mkdir(directory,{recursive:true});
+const save=async(name:string,data:unknown)=>writeFile(new URL(name,directory),canonicalize(data)+'\n');
+await save('valid-bundle.json',bundle);await save('trusted-keys.json',trust);
+await save('checkpoint.json',{schemaVersion:1,scope:trust.scope,enrollmentDigest:receipt.enrollmentDigest,sequence:receipt.sequence,receiptDigest:await digest(receipt)});
+const signature=structuredClone(bundle);signature.publication.signatures[0].sig='A'.repeat(86)+'==';
+await save('invalid-signature.json',signature);
+const witness=structuredClone(bundle);witness.inputs.witness.state.approval.consumedBy='already-used';
+const a=JSON.parse(Buffer.from(witness.admission.payload,'base64').toString()).predicate;
+a.witnessDigest=await digest(witness.inputs.witness);
+witness.admission=await signStatement(await statement('admission',a),'authority-1',authority.privateKey);
+const p=JSON.parse(Buffer.from(witness.publication.payload,'base64').toString()).predicate;
+p.witnessDigest=a.witnessDigest;witness.publication=await signStatement(await statement('publication',p),'authority-1',authority.privateKey);
+await save('invalid-admission.json',witness);
+for(const[name,value]of [['valid',bundle],['bad-signature',signature],['bad-witness',witness]]as const){console.log(name,canonicalize(verifyBundle(value,trust)));}

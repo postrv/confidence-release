@@ -1,0 +1,15 @@
+node_modules/
+target/
+apps/web/dist/
+.local-data/
+.local-tools/
+demo-output/
+preflight-output/
+.pilot/
+infra/generated/
+.wrangler/
+.dev.vars*
+.env*
+!.env.example
+*.log
+.DS_Store

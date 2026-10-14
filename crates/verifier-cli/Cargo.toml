@@ -1,0 +1,9 @@
+[package]
+name = "confidence-verifier"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+confidence-protocol = { path = "../protocol" }
+serde_json.workspace = true

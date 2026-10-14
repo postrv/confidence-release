@@ -1,0 +1,1 @@
+{ "extends": "../../tsconfig.json", "include": ["../live-artifacts-check.ts", "../live-artifacts-operator.ts", "types.ts", "test.ts", "operator.test.ts", "diagnostics.test.ts", "seed-transport.test.ts"], "exclude": ["../../node_modules", "worker.ts"] }

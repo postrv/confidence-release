@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["../collaboration-runtime.ts", "../collaboration-runtime-check.ts", "../collaboration-migration-check.ts", "../collaboration-demo.ts"],
+  "exclude": ["../../node_modules"]
+}

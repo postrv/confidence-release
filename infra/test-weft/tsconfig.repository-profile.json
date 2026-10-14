@@ -1,0 +1,5 @@
+{
+  "extends": "../../workers/tsconfig.json",
+  "include": ["repository-profile-check.ts", "repository-profile-check.test.ts", "repository-acquisition-v2.test.ts", "repository-preflight.test.ts"],
+  "exclude": ["../../node_modules"]
+}

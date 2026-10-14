@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/postrv/narsil-mcp",
+  "version": "1.7.2",
+  "revision": "cf8eac40ce736f3706450e4b256b56f6845af8e5",
+  "license": "MIT OR Apache-2.0",
+  "archiveUrl": "https://static.crates.io/crates/narsil-mcp/narsil-mcp-1.7.2.crate",
+  "archiveSha256": "f2b02d1fed13146468340aa8a244b9b6009a98ef390b4899155a1d69c7cc7b88",
+  "lockfileSha256": "2b9678c4c71f31015258989e1e5c7865e2265d77e886b62a173bd50c9ede0ad2",
+  "rustBuilderImage": "rust:1.98.0-bookworm@sha256:82150a52ec202c1b14d7817e14516c392bb7f5cfebd88f1ed531cb37ebd39922",
+  "features": "default native; optional graph, neural, neural-onnx and frontend disabled",
+  "profile": {
+    "jobs": 2,
+    "incremental": false,
+    "releaseLto": false,
+    "releaseCodegenUnits": 16,
+    "releaseDebug": 0
+  },
+  "notes": [
+    "Built from the checksum-verified published 1.7.2 crate and locked dependencies with Confidence's selected native feature profile.",
+    "The image rebuilds the published source on the pinned Bookworm builder; its executable digest identifies that build separately from upstream release assets.",
+    "Default native features include the ordinary call graph used by the bounded selector; the optional graph feature is a separate RDF store.",
+    "The image retains upstream licenses, dependency license notices, source pin and executable build manifest."
+  ]
+}

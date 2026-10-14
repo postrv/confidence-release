@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "PREPARED_NOT_RECORDED",
+  "preparedOn": "2026-10-12",
+  "plannedDurationSeconds": 480,
+  "finishedRecording": {
+    "file": null,
+    "sha256": null,
+    "durationSeconds": null,
+    "bytes": null,
+    "playbackChecked": false,
+    "uncutRecordingRetained": false,
+    "submissionConfirmed": false
+  },
+  "currentCapture": {
+    "sourceCommit": null,
+    "sourceTree": null,
+    "workingOverlaySha256": null,
+    "runtime": null,
+    "startedAt": null,
+    "completedAt": null,
+    "privateMaterialReview": "PENDING"
+  },
+  "retainedEvidence": {
+    "cloudflareRuntimeObservation": {
+      "sourceCommit": "0c26ad01c5c188ba4bc601628e147f7e4de30625",
+      "reviewedTree": "af67b130e886250860e8cbab6da7dde0d085e26c",
+      "restoreObservedBy": "2026-10-12T14:23:00Z",
+      "readbackPassed": 44,
+      "readbackTotal": 44,
+      "publicationEnabled": false,
+      "model": "GLM-5.3",
+      "narsil": "always",
+      "interlinked": "feedback",
+      "reference": "../RELEASE_STATUS.md",
+      "isCurrentHealthProbe": false
+    },
+    "historicalPublication": {
+      "candidateCommit": "15456806a501b267e36ce660e1c10c95333df9cd",
+      "receiptSequence": "1",
+      "receiptDigest": "sha256:364b1164e28762c9d3b51986b923f30176e451df0c80ead75663713b674d3d44",
+      "stageSpecificPlatformIdentities": "See original publication checkpoint; not relabelled as current runtime",
+      "reference": "../PILOT_RELEASE_GATE_F508454.md",
+      "publicationRepeatedForRecording": false
+    },
+    "matchedComparison": {
+      "reference": "../../experiments/authoring-tools/LIVE_COMPARISON_2026-10-12.md",
+      "dataReference": "../../experiments/authoring-tools/live-comparison-2026-10-12.json",
+      "episodesPerArm": 1,
+      "disabledCodingSeconds": 258.371,
+      "enabledCodingSeconds": 120.612,
+      "disabledFullWorkflowSeconds": 631.147,
+      "enabledFullWorkflowSeconds": 1106.485,
+      "disabledCalls": 2,
+      "enabledCalls": 1,
+      "bothProtectedCasesPassed": 9,
+      "accountBillingVerified": false,
+      "generalAdvantageEstablished": false
+    },
+    "syntheticOfflineExample": {
+      "sourceCommit": "ec00334c1c2c8e2156ae0c11baf0bade3cebde1c",
+      "receiptDigest": "sha256:c8354d78d883728c4a1a5d33dbe568ce2cc014296cc1b2ea7ab24df94f4df4f9",
+      "reference": "REHEARSAL.json",
+      "productionReceipt": false,
+      "modelCalls": 0
+    }
+  },
+  "captionLabels": [
+    "CURRENT UI - actual capture source/runtime shown separately",
+    "LOCAL SCRIPTED REHEARSAL - predetermined edits; real subprocesses/Git/loopback HTTP",
+    "RETAINED CLOUDFLARE PILOT - original stage-specific versions; no new publication",
+    "OFFLINE SYNTHETIC EXAMPLE - selected local public trust; not production enrollment",
+    "MATCHED LIVE COMPARISON - one designed task and one episode per arm",
+    "Coding phase shorter with tools; complete recorded workflow longer after recovery"
+  ],
+  "segments": [
+    { "startSeconds": 0, "endSeconds": 35, "title": "Wrong value and useful goal", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 35, "endSeconds": 85, "title": "Parallel work and three kinds of fact", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 85, "endSeconds": 145, "title": "Concrete behavioral interaction", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 145, "endSeconds": 220, "title": "Goal-preserving repair", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 220, "endSeconds": 295, "title": "Exact human decision and publication", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 295, "endSeconds": 370, "title": "Offline independent execution and rejection", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 370, "endSeconds": 430, "title": "Balanced measured coding comparison", "actualInput": null, "captureStatus": "PENDING" },
+    { "startSeconds": 430, "endSeconds": 480, "title": "Current product and supported boundaries", "actualInput": null, "captureStatus": "PENDING" }
+  ]
+}
