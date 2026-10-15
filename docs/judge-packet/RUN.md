@@ -4,7 +4,7 @@ No Cloudflare account, model credential, private Weft source or paid authoring i
 
 ## Tested source
 
-The [public source manifest](../../PUBLIC_SOURCE_MANIFEST.json) binds this distribution to original source commit `4fc8bfcb24415412d854962713b2ecc3f3bbeeef`, tree `9f678889b0d3654bd624c32ba3bbca13ca644e16`. The public export has a separate Git identity; do not try to check out a private-history commit from the clean repository.
+The [public source manifest](../../PUBLIC_SOURCE_MANIFEST.json) binds this distribution to original source commit `9a067a0491dc9ec56ec34fe66d647729c0ccdbac`, tree `0739636db2c10b7060159a1affdcea5354e17fa6`. The public export has a separate Git identity; do not try to check out a private-history commit from the clean repository.
 
 The retained [12 October rehearsal](REHEARSAL.json) is dated evidence for its own source and signed example. It is not a fresh test of this later export. Final export reproduction and external judge access require separately retained observations.
 

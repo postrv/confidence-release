@@ -42,6 +42,152 @@ Evaluator traces are enabled at a 10% head sample in `workers/evaluator/wrangler
 
 `oldestPendingOutboxAgeSeconds` and `oldestQueuedAgeSeconds` come from durable creation timestamps for new rows. An older row without a recorded timestamp sorts first and makes the oldest age `null` with `LEGACY_UNKNOWN`; an empty queue is `EMPTY`. Neither a duplicate effect nor a schema migration refreshes an old timestamp. Projection lag, dead-letter backlog, provider spend and container resource return are still unobserved in this endpoint. Do not infer them from a clean snapshot or a `ready` flag. Inspect the original outbox identity, the D1 contiguous watermark, the named dead-letter Queue, provider AI billing and container inventory separately. Retain UTC observation time, project incarnation, authority revision, deployed source digest, inspected job key and the independent provider or D1 response; never retain Access credentials or raw model content in a public report.
 
+## Bounded operations monitor and local alert spool
+
+`node scripts/monitor-pilot.mjs` is an operator-invoked, finite monitor for the existing
+native projects explicitly listed in a private configuration. It makes one Access-protected `GET /api/session`, then one `GET /v1/projects/<id>/operations` per project
+per sample. It performs no admission change, model call, resource creation, credential
+minting or external notification. Run its injected local fault suite with `node --test
+scripts/monitor-pilot.test.mjs` using Node 22.20. The monitor is an additional
+operations tool; it does not alter the frozen competition release evidence or qualify a
+later source/video revision.
+
+An operator must first verify the exact application origin, existing Access application
+audience, existing project incarnations, current minimum authority revisions and
+declared release digest against independent retained deployment and protected readback
+evidence. The monitor does not discover resources. The release digest is an operator-declared association, not a provider module or running Durable Object source
+verification. Use an existing private Access cache file whose basename is `<application-hostname>-<exact-Access-audience>-token`; log in or renew a session separately when needed.
+The owned configuration and explicit execution flag are operator consent to send that
+existing token only to the exact selected HTTPS origin. The hostname-and-audience-bound cache name
+and expected issuer/audience prefilter prevent common scope mistakes; they are not
+cryptographic proof that an arbitrary origin is owned. Review the origin independently
+before execution. The monitor never runs `cloudflared`, Wrangler authentication or an
+interactive challenge.
+
+Create an owned `0600` JSON configuration with exactly this shape, replacing all example
+values with the independently verified existing scope. Paths must be absolute and
+canonical (including any `/private` prefix on macOS temporary paths); symlinked
+cache/config paths are refused. No configuration or cache is copied into the report.
+
+```json
+{
+  "schemaVersion": 1,
+  "origin": "https://application.example.invalid",
+  "releaseDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "access": {
+    "tokenFile": "/absolute/private/application.example.invalid-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb-token",
+    "issuer": "https://team.cloudflareaccess.com",
+    "audience": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "principalId": "https://team.cloudflareaccess.com#verified-human-subject",
+    "tenantId": "verified-tenant"
+  },
+  "expectedMaintenance": false,
+  "expectedGate": "CLOSED",
+  "requireDrained": true,
+  "samples": 1,
+  "intervalMs": 5000,
+  "projects": [
+    {
+      "scope": {
+        "schemaVersion": 1,
+        "tenantId": "verified-tenant",
+        "projectId": "existing-project",
+        "projectIncarnation": "verified-incarnation"
+      },
+      "minimumRevision": "1"
+    }
+  ]
+}
+```
+
+```sh
+node scripts/monitor-pilot.mjs --execute-read-only \
+  --config /absolute/private/monitor-config.json \
+  --spool /absolute/private/new-monitor-spool
+```
+
+The spool's parent must already exist; a new spool is created `0700`. An existing spool
+must be owned, private and canonical. Choose a new spool after changing configuration;
+an existing configuration digest mismatch is refused before any network read. At most
+four exact project IDs, six samples, 26 requests, 20 seconds per complete response, 128
+KiB per response and 180 seconds of network sampling are allowed. Samples are spaced
+5–30 seconds apart. Reads are serial, redirects are refused and there are no automatic
+retries. Once a target yields UNKNOWN, its remaining declared samples are skipped and
+its earlier result remains UNKNOWN. Config bytes are limited to 16 KiB, each retained
+report to 128 KiB, alert state to 256 KiB and the spool to 128 runs/256 correlations.
+Export reviewed evidence and deliberately provision a new spool before these local
+limits; the tool never rotates or deletes it.
+
+Unsigned cached-token claims are only a destination/expiry prefilter. The application
+verifies the Access credential and returns the exact human identity before any project
+read. The monitor checks the signed issuance/authentication timestamp shape and requires
+the server-verified session to be unexpired before each operations request. The authority
+also applies each project's current authorization policy. Collaboration-migrated native
+projects require the current human owner and a recent session even for admin operations
+GETs: issuance within 900 seconds, plus authentication time within 900 seconds when
+present. A legacy project may accept an older unexpired human admin session. A successful
+session GET does not prove project operations access. An exact bounded HTTP 403
+`error.code: RECENT_SESSION_REQUIRED` becomes an actionable `UNKNOWN`, skips that
+target's remaining samples and recommends ordinary owner-session refresh outside this
+CLI. Arbitrary error messages are never retained. Refresh is not proof of strict
+provider reauthentication. The authority rechecks membership on each operations read.
+Principal and incarnation headers bind the configured scope. This does not establish
+provider step-up or immediate provider-session revocation, which remain separate
+qualification gaps.
+
+The report uses `PASS_SCOPED`, `ALERT`, `STOP` or `UNKNOWN`, with exit statuses 0, 1, 2
+and 3 respectively. `UNKNOWN` takes precedence when a stop condition and missing
+evidence coexist. A `PASS_SCOPED` result means only that these fresh operations
+observations met the configured expectations and the named local thresholds. Readiness
+remains `UNVERIFIED`. A response older than 30 seconds, future/invalid timestamp,
+revision regression, changed scope, missing current capacity contract, denied access,
+scope-change conflict, evaluator uncertainty, stream bound or deadline becomes
+`UNKNOWN`. A flag mismatch, unresolved publication, cleanup recovery hold, required
+drain failure or inclusive stop threshold recommends stopping new work. The monitor
+never closes admission on an operator's behalf; use the separately authorized safety
+flow and retain the original command/job/publication identities for reconciliation.
+
+Capacity, queue, outbox and callback thresholds use the table below. Generation
+registration time is not directly exposed: the reported occupied age explicitly uses the
+current runtime's fixed 30-second execution deadline minus 30 seconds. Reassess that
+association when runtime semantics change. A young running job with no frozen callback
+is legitimate; an undelivered stopped/stopping job with no freeze timestamp has unknown
+callback age. Frozen or delivered callbacks do not establish termination and fixture
+closure. The scheduler's ordinary operations view lists only currently occupied
+generations; it is not a completed job inventory. Recent recovery journals are bounded
+diagnostics, not an absence of past faults. The monitor does not establish runner
+dispatch/model outcome reconciliation from outbox counts.
+
+Each report records hashed target/correlation identities, safe fixed finding codes,
+remediation, bounded numeric counters, response sizes and finite request latency p50/p95
+with sample count, separately for all authorized reads and operations-only reads. Failed
+reads remain in the respective latency samples; they are not queue-admission, workload
+completion or receipt latency measurements. Access tokens, raw response/error bodies,
+origins, principal/project IDs, source, prompts and model output are never retained.
+Reports and alert state remain private operational evidence.
+
+The `alerts.json` spool correlates repeated conditions, records escalation and marks a
+condition cleared only after all requested samples for that exact scope are fresh and
+fully interpretable. Partial or unknown observations do not clear older alerts. Original
+per-run reports remain retained even after a later clear. Local writes use exclusive
+private files, file sync, atomic replacement and parent-directory sync. A
+`.monitor.lock` is never automatically removed after an interruption or retention
+failure. Preserve the `STARTED_UNKNOWN` run, reconcile whether any read completed,
+inspect local filesystem health, and have the operator review the lock before moving it
+aside. A retention failure is not an acknowledged successful monitoring run. The spool
+is a local operator inbox; external delivery, an accountable on-call destination and a
+tested response workflow are not configured by this command.
+
+Projection/D1 lag, dead-letter Queue backlog, provider invoice attribution, physical
+container resource return, runner/model outcome reconciliation, R2 request/byte volume
+and external notification delivery remain explicitly unobserved. Inspect those through
+separately bounded, authenticated provider or original-evidence tools. A clean
+operations sample cannot close those gates or establish sustained production acceptance.
+The report also explicitly leaves `deployedReleaseIdentity`,
+`strictProviderReauthentication` and `providerSessionRevocation` unobserved.
+Native workload timing/fault and recovery drills below still require their own retained
+evidence.
+
 ## Named pilot limits and stop actions
 
 These are **operator thresholds** unless the enforcement column says otherwise. Close admission before investigating a stop condition. Preserve the exact pending command, job and publication identities; do not reissue a new intent after a timeout.

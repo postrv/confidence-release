@@ -1,5 +1,7 @@
 # Team tools and attribution
 
+**Primary contributors:** [Laurence Avent (@postrv)](https://github.com/postrv) and [Quentin Cody (@quentincody)](https://github.com/quentincody).
+
 Confidence combines two tools created by the competition team with its own
 permission, evaluation and release authority. **Narsil was created by Laurence
 Avent ([postrv](https://github.com/postrv)); Interlinked CLI was created by teammate

@@ -1,6 +1,10 @@
 Confidence Agent Collaboration Platform
 Copyright 2026 Confidence contributors
 
+Primary contributors:
+Laurence Avent (@postrv) — https://github.com/postrv
+Quentin Cody (@quentincody) — https://github.com/quentincody
+
 Original source in this repository is licensed under Apache-2.0.
 Third-party packages retain their own licenses. Dependency versions and
 integrity hashes are recorded in package-lock.json and Cargo.lock.

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "kind": "reviewed-clean-public-source-export",
-  "sourceCommit": "4fc8bfcb24415412d854962713b2ecc3f3bbeeef",
-  "sourceTree": "9f678889b0d3654bd624c32ba3bbca13ca644e16",
+  "sourceCommit": "9a067a0491dc9ec56ec34fe66d647729c0ccdbac",
+  "sourceTree": "0739636db2c10b7060159a1affdcea5354e17fa6",
   "intendedRepositoryUrl": "https://github.com/postrv/confidence-release",
   "published": false,
   "judgeAccessVerified": false,
-  "policyDigest": "sha256:5fa5827baf4aa53886158769812e062689eb37960c319e1d4210eafe5078cf31",
+  "policyDigest": "sha256:89edb8f78a59dcb78a7c9f30285bb5a9493a16e075cf1cc94aa1df8fe1b0e900",
   "files": [
     {
       "path": ".dockerignore",
@@ -59,23 +59,23 @@
     {
       "path": "NOTICE",
       "mode": "100644",
-      "sourceDigest": "sha256:b0c9bde51b8c5c07f75a1071ed86dec5b5d88479738fdf5e955f8ce067453c88",
-      "outputDigest": "sha256:b0c9bde51b8c5c07f75a1071ed86dec5b5d88479738fdf5e955f8ce067453c88",
-      "bytes": 1972,
+      "sourceDigest": "sha256:65f8fa3c7f384263fe8d4bbb3bb833a71b21379249e5549737e4740b71a738f5",
+      "outputDigest": "sha256:65f8fa3c7f384263fe8d4bbb3bb833a71b21379249e5549737e4740b71a738f5",
+      "bytes": 2113,
       "action": "include"
     },
     {
       "path": "README.md",
       "mode": "100644",
-      "sourceDigest": "sha256:2d76595bbab5ce7ba79287be3bdf3feebef7088559d2645e16a57e9e81bda2a0",
-      "outputDigest": "sha256:127168698850632a95fe80df27a8035404ceda5cee947ee650e7b4ff5bf40bcb",
-      "bytes": 5168,
+      "sourceDigest": "sha256:120e3480f46b67be5ca808a9aab6dbd85fc5ba9ab064a37b76cb5b306ee19ca4",
+      "outputDigest": "sha256:03a6be6d5061c30cb083509b64654be2df9be925884c5e3f24197c6e780f1db3",
+      "bytes": 5316,
       "action": "transform",
       "transformations": [
         {
           "kind": "reviewed-public-summary-overlay",
           "input": "overlays/README.md",
-          "inputDigest": "sha256:29d6825e420ea7e1d57f02c53167b0884e242576b1a190d0e46295509768dbc2"
+          "inputDigest": "sha256:56740d8f977ec85ce8582e5f5132302dbc5441c1aa1eca54c21a56d3a7d23f25"
         }
       ]
     },
@@ -1054,7 +1054,7 @@
       "path": "docs/ONBOARDING.md",
       "mode": "100644",
       "sourceDigest": "sha256:871f9967335bef47739fa6fce22205e62401f67d676fd8599ba616d0e6bfaa72",
-      "outputDigest": "sha256:c772748ec1e4a81e35599d17540fd325928ddb65d9610ac9a169c0c0379f8e1d",
+      "outputDigest": "sha256:1fcb5d0ab88b4033395430b2a62fc07bb0d17a75b1346d600ab0c091f8b25893",
       "bytes": 4794,
       "action": "transform",
       "transformations": [
@@ -1068,9 +1068,9 @@
     {
       "path": "docs/PILOT_OPERATIONS.md",
       "mode": "100644",
-      "sourceDigest": "sha256:51a7828342a86fd1e6763502fdf81a8172fe1211d0a5753f9312781d00567727",
-      "outputDigest": "sha256:4d4ab68e04a834b8425ee648dbde15c4aff6c0f67030d9a77f1cb9cd013c9c00",
-      "bytes": 16165,
+      "sourceDigest": "sha256:7fda9825501fd0164323d4785730e74367745f19b39f14f3edff7c22160da9b1",
+      "outputDigest": "sha256:95b134791f3deff9ad8be136b302d9316a236bbe36cba73ad64d082f8caabf05",
+      "bytes": 25481,
       "action": "transform",
       "transformations": [
         {
@@ -1264,9 +1264,9 @@
     {
       "path": "docs/TEAM_TOOLS.md",
       "mode": "100644",
-      "sourceDigest": "sha256:7eb1efc31710c991e648aa8892dc15796a37e9ac2e55a0e2f427a020e12599fc",
-      "outputDigest": "sha256:7eb1efc31710c991e648aa8892dc15796a37e9ac2e55a0e2f427a020e12599fc",
-      "bytes": 7138,
+      "sourceDigest": "sha256:8b6a0ebec7ac4b4cec55efcc747ff8068b5afb381bd17b506d55f321c5e27911",
+      "outputDigest": "sha256:8b6a0ebec7ac4b4cec55efcc747ff8068b5afb381bd17b506d55f321c5e27911",
+      "bytes": 7286,
       "action": "include"
     },
     {
@@ -1654,7 +1654,7 @@
       "path": "docs/judge-packet/RUN.md",
       "mode": "100644",
       "sourceDigest": "sha256:466c64f2b30e888ab22022dc4b3df6cc88c794ce981eb937ab8348df94d1e247",
-      "outputDigest": "sha256:f684924ee6ed83d9f807b7e7d20ccb48d401d4bb33cefce5855efd25951e862a",
+      "outputDigest": "sha256:b93cbd3a0110ceb34e566162b1ea8687b0a87df2a5d1043590e9298580ba2eef",
       "bytes": 3968,
       "action": "transform",
       "transformations": [
@@ -3956,6 +3956,22 @@
       "action": "include"
     },
     {
+      "path": "scripts/monitor-pilot.mjs",
+      "mode": "100644",
+      "sourceDigest": "sha256:4dfbc7f43ffb263315e72abfb1f8e1e76c285d5577195c9a83972ec21fed1d75",
+      "outputDigest": "sha256:4dfbc7f43ffb263315e72abfb1f8e1e76c285d5577195c9a83972ec21fed1d75",
+      "bytes": 35813,
+      "action": "include"
+    },
+    {
+      "path": "scripts/monitor-pilot.test.mjs",
+      "mode": "100644",
+      "sourceDigest": "sha256:abe59d0b0392f5507b0f58c18391eac73fc170d625af166b4481e69d85062b77",
+      "outputDigest": "sha256:abe59d0b0392f5507b0f58c18391eac73fc170d625af166b4481e69d85062b77",
+      "bytes": 30003,
+      "action": "include"
+    },
+    {
       "path": "scripts/pi-smoke.ts",
       "mode": "100644",
       "sourceDigest": "sha256:95fa731d2d62f5cbdd8766d29f75916ae860ebb9789af5d48b6871e5a250e211",
@@ -4473,6 +4489,14 @@
       "sourceDigest": "sha256:dc779638be8ac03fa4c979cb0f05ab49a9c64f95c35b740b7c33fabfa97d043c",
       "outputDigest": "sha256:dc779638be8ac03fa4c979cb0f05ab49a9c64f95c35b740b7c33fabfa97d043c",
       "bytes": 17113,
+      "action": "include"
+    },
+    {
+      "path": "tests/integration/operator-monitor.test.ts",
+      "mode": "100644",
+      "sourceDigest": "sha256:be0c7cc1430e52731d094533acf3a8243f1b44e1c377f034193e9d3ea475baad",
+      "outputDigest": "sha256:be0c7cc1430e52731d094533acf3a8243f1b44e1c377f034193e9d3ea475baad",
+      "bytes": 167,
       "action": "include"
     },
     {
@@ -5390,9 +5414,9 @@
     },
     {
       "path": "NOTICE",
-      "sourceDigest": "sha256:b0c9bde51b8c5c07f75a1071ed86dec5b5d88479738fdf5e955f8ce067453c88",
+      "sourceDigest": "sha256:65f8fa3c7f384263fe8d4bbb3bb833a71b21379249e5549737e4740b71a738f5",
       "license": "third-party-notices",
-      "reason": "Existing attribution and third-party notice text is retained byte-for-byte; installed dependencies remain governed by their own licenses."
+      "reason": "User-requested primary contributor credit is explicit; existing copyright and third-party license notice text remains intact. Installed dependencies retain their own licenses."
     }
   ],
   "limitations": [
