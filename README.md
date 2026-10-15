@@ -2,6 +2,8 @@
 
 Confidence connects parallel agent work to an exact, reviewable release decision: immutable contributions, behavioral interaction evidence, repair that preserves useful goals, human review of frozen source, conditional Git publication, and a portable signed receipt.
 
+**Primary contributors:** [Laurence Avent (@postrv)](https://github.com/postrv) and [Quentin Cody (@quentincody)](https://github.com/quentincody).
+
 This is the reviewed source distribution for [postrv/confidence-release](https://github.com/postrv/confidence-release). Its [source manifest](PUBLIC_SOURCE_MANIFEST.json) records the original source commit/tree, every distributed file, deliberate documentation transformations and exclusions. The clean public Git history differs from the original private development history. Export preparation alone does not establish publication, external access or a submitted competition entry.
 
 ## Run locally
