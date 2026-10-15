@@ -124,7 +124,7 @@ export async function startServer(options: { port?: number; dataDir?: string; ho
       let filename = resolve(distribution, relative); if (!filename.startsWith(distribution + '/')) { response.writeHead(403).end(); return; }
       try { if (!(await stat(filename)).isFile()) filename = join(distribution, 'index.html'); } catch { filename = join(distribution, 'index.html'); }
       try {
-        const body = await readFile(filename); const mime: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.wasm': 'application/wasm', '.svg': 'image/svg+xml', '.png': 'image/png' };
+        const body = await readFile(filename); const mime: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.wasm': 'application/wasm', '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon' };
         response.writeHead(200, { 'content-type': mime[extname(filename)] || 'application/octet-stream', 'x-content-type-options': 'nosniff' }); response.end(body);
       } catch { response.writeHead(200, { 'content-type': 'text/html' }); response.end('<!doctype html><title>Confidence</title><p>Local API is ready. Build the interface with npm run build:web, then reload.</p>'); }
     } catch (error) { json(response, error instanceof PlatformError ? error.status : /NOT_FOUND/.test(String(error)) ? 404 : /BODY_LIMIT/.test(String(error)) ? 413 : 409, { error: String((error as Error).message), retry: 'Refresh authoritative state; reuse a command ID only for the identical request.' }); }

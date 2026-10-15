@@ -21,6 +21,22 @@ export class CollaborationTestAuthority extends TestAuthority {
     }
     return rows;
   }
+  /** Local fixture only: preserve one pending invitation's lifetime while aging its history. */
+  async ageInvitationToPastExpiry(input: { invitationId: string }): Promise<{ changedRows: number; invitationId?: string; createdAt?: number; expiresAt?: number; observedAt?: number }> {
+    if (!input || Object.keys(input).join(',') !== 'invitationId' || typeof input.invitationId !== 'string'
+      || !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(input.invitationId)) return { changedRows: 0 };
+    return this.ctx.storage.transactionSync(() => {
+      const retained = this.ctx.storage.sql.exec<{ created_at: number; expires_at: number }>("SELECT created_at,expires_at FROM invitations WHERE id=? AND state='PENDING'", input.invitationId).toArray()[0];
+      const observedAt = Math.floor(Date.now() / 1000);
+      if (!retained || !Number.isSafeInteger(retained.created_at) || !Number.isSafeInteger(retained.expires_at)
+        || retained.expires_at <= observedAt || retained.expires_at <= retained.created_at) return { changedRows: 0 };
+      const expiresAt = observedAt - 1, createdAt = expiresAt - (retained.expires_at - retained.created_at);
+      if (!Number.isSafeInteger(createdAt) || createdAt < 0) return { changedRows: 0 };
+      const changedRows = this.ctx.storage.sql.exec("UPDATE invitations SET created_at=?,expires_at=? WHERE id=? AND state='PENDING' AND created_at=? AND expires_at=? RETURNING id",
+        createdAt, expiresAt, input.invitationId, retained.created_at, retained.expires_at).toArray().length;
+      return { changedRows, invitationId: input.invitationId, createdAt, expiresAt, observedAt };
+    });
+  }
   async seedLegacyMigrationState(input: { subjects: string[]; reviewer: string; owner: string }): Promise<unknown> {
     const authority = this as any, project = authority.project(), expiresAt = Math.floor(Date.now() / 1000) + 600;
     if (input.subjects.length !== 6 || input.subjects.some(subject => !subject.startsWith('https://identity.owned.test#'))) throw Error('OWNED_SUBJECTS_REQUIRED');
@@ -46,6 +62,11 @@ export default {
       const stub = env.PROJECTS.getByName(`${env.AUTH_TENANT_ID}/${env.DEFAULT_PROJECT_ID}`) as DurableObjectStub<CollaborationTestAuthority>;
       if (path === '/_test/seed') return Response.json(await stub.seedOwner(await request.json()));
       if (path === '/_test/inspect') return Response.json(await stub.inspectCollaboration());
+      if (path === '/_test/expire-invitation') {
+        if (request.method !== 'POST') return Response.json({ changedRows: 0 }, { status: 405 });
+        const result = await stub.ageInvitationToPastExpiry(await request.json());
+        return Response.json(result, { status: result.changedRows === 1 ? 200 : 409 });
+      }
       if (path === '/_test/migration-state') return Response.json(await stub.seedLegacyMigrationState(await request.json()));
       if (path === '/_test/evidence') return stub.api('evidence', await request.json());
       if (path === '/_test/drain') return Response.json(await stub.drain());
