@@ -6,7 +6,7 @@ Deadline: **14 October 2026, 23:59 PDT**, equivalent to **15 October, 07:59 BST*
 
 The form asks for team/contact/location/attendee details, project vision, Cloudflare usage, source URL and run instructions. Video formats: MP4, WebM or MOV, maximum 2 GiB. Its confirmations and final submit action belong to the human entrant. [Official form](https://www.cloudflare.com/git-competition/submit/)
 
-The owner already reported an organizer-approved location exception on 5 October; its private correspondence remains outside the packet. Carry that authorization forward without exposing personal material or reopening the waived independent live-person rehearsal. General published rules remain unchanged. Historical plan (retained private reference; unavailable in this source distribution) and [current public-source handover](../PUBLIC_SUBMISSION_HANDOVER.md)
+The published rules include legal residents of the United Kingdom. The entrant must personally confirm all eligibility conditions; private organizer correspondence remains outside the packet. The waived distinct-human rehearsal stays unclaimed. [Official eligibility, section 3](https://www.cloudflare.com/documents/build-next-gen-git-platform-competition-terms.pdf) and [current public-source handover](../PUBLIC_SUBMISSION_HANDOVER.md)
 
 ## Prepared locally
 
@@ -19,12 +19,18 @@ The owner already reported an organizer-approved location exception on 5 October
 - [x] Separate fresh tools-enabled automatic-completion companion, nine independently verified checker signatures, actual tool-input associations and normal restoration; original comparison unchanged.
 - [x] No paid calls, Cloudflare changes, new publication or automatic submission made by packet preparation; the improved narration uses local neural inference.
 
+## Verified source delivery — 15 October 2026
+
+- [x] A reviewed clean [public repository](https://github.com/postrv/confidence-release) is available. Anonymous verification matched all 598 files/modes at the snapshot in the [delivery record](../evidence/current-release-2026-10-15.json), including LICENSE, NOTICE, locks, run instructions and examples.
+- [x] Both PR and main CI runs passed all four checks in both repositories for that delivery; exact test/runtime/export identities remain separate.
+- [x] The existing pilot states and receipt survived the model-index and favicon updates. Finite observations do not establish broader production readiness.
+
 ## Before the entrant submits
 
 - [ ] Associate the final submitted source revision with its applicable tests, rendered UI and exact runtime state; preserve the baseline rehearsal as dated evidence.
-- [ ] Verify the intended source URL is accessible to judges, including LICENSE, NOTICE, locks, run instructions, examples and sanitized reports. Current repository is private; local clone success is not external access proof.
+- [ ] Recheck the final submitted source/report links from the intended judge context after any team changes. The verified public snapshot above does not prevalidate a future revision.
 - [ ] Review final source/history and video for credentials, personal emails, private operator paths, sessions and keys. Do not publish ignored `.pilot`, local state, raw model sessions or organizer correspondence.
-- [x] Finish the actual 5-10 minute video and record its observed source/file hash/duration/size. The preferred [neural successor](neural-narration-ledger.json) is a 480-second, 28,996,394-byte H.264/AAC MP4 with unchanged video/content. The [original completed ledger](completed-capture-ledger.json), original planned ledger, original MP4 and uncut footage remain unchanged.
+- [ ] Receive and select the team's replacement 5-10 minute video, then record its actual source/file identity, duration, size and checks. The retained [neural backup](neural-narration-ledger.json) is a verified 480-second, 28,996,394-byte H.264/AAC MP4; it is not selected as the final upload. Original ledgers, MP4 and uncut footage remain unchanged.
 - [ ] The entrant watches the actual submitted file start to finish and checks the uploaded copy's captions, source identities, audio and playback. Automatic full decoding, six sampled browser playback positions and 19 frame checks passed; these are not a claimed human full-watch or an upload confirmation.
 - [ ] Verify source/report/video links from the intended judge-access context. The private pilot is supplemental, not a required paid or authenticated reproduction path.
 - [ ] Enter factual team/attendee details, vision and Cloudflare usage manually; the entrant reviews and accepts the form's confirmations/terms.

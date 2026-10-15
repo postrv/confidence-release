@@ -2,7 +2,7 @@
 
 Confidence turns parallel agent work into an explainable, reviewable and independently verifiable release decision. Start with the concrete wrong value after a successful write, then follow the repair that preserves useful caching and accessible status.
 
-This packet was prepared on **12 October 2026**. It contains a working local reproduction, signed synthetic verifier example, an actual eight-minute narrated demonstration with measured delivery records, claim boundaries and a submission checklist. It is not a submission receipt or proof that judges can currently access the private repository. No production publication was repeated to prepare it.
+The original packet was prepared on **12 October 2026**; source delivery was updated on **15 October**. It contains an account-free local reproduction, signed synthetic verifier example, a retained eight-minute backup demonstration, claim boundaries and a submission checklist. The [public repository](https://github.com/postrv/confidence-release) is available, and the [current delivery record](../evidence/current-release-2026-10-15.json) identifies its verified snapshot. A replacement video is awaited from the team; final selection and manual competition entry remain pending.
 
 ## Start here
 
@@ -13,8 +13,8 @@ This packet was prepared on **12 October 2026**. It contains a working local rep
 | Understand the Cloudflare result | [Retained publication checkpoint](../PILOT_RELEASE_GATE_F508454.md) and [current release status](../RELEASE_STATUS.md) |
 | Inspect the tools-enabled comparison | [Measured report](../../experiments/authoring-tools/LIVE_COMPARISON_2026-10-12.md) and [sanitized data](../../experiments/authoring-tools/live-comparison-2026-10-12.json) |
 | Inspect automatic completion after the recovery fix | [Separate native confirmation](../TOOLS_RECOVERY_CONFIRMATION_2026-10-12.md), signed-check digest index (retained private reference; unavailable in this source distribution) and release association (retained private reference; unavailable in this source distribution) |
-| Inspect the finished demonstration | [Video delivery record](DEMO_DELIVERY.md) and [measured capture ledger](completed-capture-ledger.json) |
-| Use the improved narration | [Neural successor provenance](neural-narration-ledger.json); identical video stream and content, with separately checked new audio |
+| Inspect the retained backup demonstration | [Video delivery record](DEMO_DELIVERY.md) and [measured capture ledger](completed-capture-ledger.json) |
+| Inspect backup narration provenance | [Neural successor provenance](neural-narration-ledger.json); identical video stream and content, with separately checked new audio |
 | Understand benchmarks, throughput and tool creators | [Benchmark guide](../BENCHMARKS.md), [throughput calculations](../THROUGHPUT.md), [evidence map](../EVIDENCE.md) and [team tools](../TEAM_TOOLS.md) |
 | Prepare the final manual submission | [Eight-minute script](DEMO_SCRIPT.md), [original planned ledger](capture-ledger.json), [submission checklist](SUBMISSION_CHECKLIST.md) |
 | Check what is and is not claimed | [Evidence and boundaries](CLAIMS.md) |
@@ -42,6 +42,6 @@ The original comparison remains unchanged, including its controller failure and 
 
 Original project source is [Apache-2.0](../../LICENSE), with [NOTICE](../../NOTICE). Retain both, `package-lock.json`, `Cargo.lock` and the repository's third-party notices in the source handoff. Dependencies keep their own licenses. This packet distributes source and JSON examples, not bundled `node_modules`, model weights or prebuilt third-party binaries. A binary distribution needs the corresponding third-party notices; this packet is not an exhaustive license-clearance opinion.
 
-The preferred video is the neural-narration successor described in the [delivery record](DEMO_DELIVERY.md); original footage, original delivery metadata and dated evidence remain retained. Narration is a locally synthesized stock voice, not a live agent session or the entrant. No paid model calls or Cloudflare actions were made for the replacement.
+The neural-narration recording in the [delivery record](DEMO_DELIVERY.md) is the retained backup while the team prepares a replacement. Original footage, delivery metadata and dated evidence remain intact. Backup narration is a locally synthesized stock voice; its preparation used local inference and made no paid provider call or Cloudflare change.
 
-The repository remains private at preparation time. A local clone demonstrates reproducibility on this machine, not external judge access. Source access, the entrant's complete viewing/upload check and manual submission remain separate checklist items. The [public-source handover](../PUBLIC_SUBMISSION_HANDOVER.md) defines the later reviewed export; archived private development/operator material is not automatically part of that public package.
+Anonymous verification matched the published source snapshot recorded in the [15 October delivery record](../evidence/current-release-2026-10-15.json), including license, notices, file bytes and Git modes. Final team changes and the replacement video require their own checks. The [public-source handover](../PUBLIC_SUBMISSION_HANDOVER.md) covers successor exports; human complete viewing, uploaded-copy checks and manual submission remain entrant tasks.

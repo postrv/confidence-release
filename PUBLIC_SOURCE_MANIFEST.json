@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "kind": "reviewed-clean-public-source-export",
-  "sourceCommit": "85e4a1a348745ccd44946214e90a674ecf0e6d0d",
-  "sourceTree": "16982351f7d09431ec22831615c1ab0bc25e4bf4",
+  "sourceCommit": "d9fa50f4fc9bc8e215a765aeb566ee8b90142f86",
+  "sourceTree": "8ca93f71143563db3c84ae9722da35db66866504",
   "intendedRepositoryUrl": "https://github.com/postrv/confidence-release",
   "published": false,
   "judgeAccessVerified": false,
-  "policyDigest": "sha256:a30e445a73387803a422cff9b492e9d4864ff1d78cc42b48b031d5038acd5c43",
+  "policyDigest": "sha256:54642122cd331c088307e64129f7a85950d8527b38acdeec99203777fd946165",
   "files": [
     {
       "path": ".dockerignore",
@@ -1027,9 +1027,9 @@
     {
       "path": "docs/MODEL_USAGE_RECONCILIATION.md",
       "mode": "100644",
-      "sourceDigest": "sha256:b2489e42bf3e8f24405477a46dcb98095d4e01afed1afac61149f7c6c4df1eca",
-      "outputDigest": "sha256:b2489e42bf3e8f24405477a46dcb98095d4e01afed1afac61149f7c6c4df1eca",
-      "bytes": 9364,
+      "sourceDigest": "sha256:266d0796eef68edf5b10d63b1e556b83ce15a5e75829829dfea964d3e5b57bcc",
+      "outputDigest": "sha256:266d0796eef68edf5b10d63b1e556b83ce15a5e75829829dfea964d3e5b57bcc",
+      "bytes": 9852,
       "action": "include"
     },
     {
@@ -1069,8 +1069,8 @@
     {
       "path": "docs/ONBOARDING.md",
       "mode": "100644",
-      "sourceDigest": "sha256:871f9967335bef47739fa6fce22205e62401f67d676fd8599ba616d0e6bfaa72",
-      "outputDigest": "sha256:25d1d8cf278fe7634ae744784d63c5821ecd3985bfc6378efe199bf47fdbb253",
+      "sourceDigest": "sha256:1ba9e8b36858e3557e404142497716c3ad4a05284718775048e97cc5144d9831",
+      "outputDigest": "sha256:59de715fbaa121959132b865f70f982f9ba390d6c83277ce20d3c6d49ca50293",
       "bytes": 4794,
       "action": "transform",
       "transformations": [
@@ -1084,9 +1084,9 @@
     {
       "path": "docs/PILOT_OPERATIONS.md",
       "mode": "100644",
-      "sourceDigest": "sha256:7fda9825501fd0164323d4785730e74367745f19b39f14f3edff7c22160da9b1",
-      "outputDigest": "sha256:95b134791f3deff9ad8be136b302d9316a236bbe36cba73ad64d082f8caabf05",
-      "bytes": 25481,
+      "sourceDigest": "sha256:40a7af0100cb87fb8a8e5ec7c0044c61b963e6e8ecffdeba3641c8368aeba401",
+      "outputDigest": "sha256:4ce4e74b8c538b1bb739f60709076249387069109a058c73e91ffa8f60cc8666",
+      "bytes": 28129,
       "action": "transform",
       "transformations": [
         {
@@ -1200,9 +1200,9 @@
     {
       "path": "docs/PUBLIC_SUBMISSION_HANDOVER.md",
       "mode": "100644",
-      "sourceDigest": "sha256:07012da7145b1ab916c84cfc8f6c802f4779022221afc1343e142e758948e397",
-      "outputDigest": "sha256:b71073f58920f28ee6ca26901b68ea39765e6c083e908b027063490aea5f0266",
-      "bytes": 9289,
+      "sourceDigest": "sha256:0d97811614455b628b5ec017004a8d3f9e80f021a7e20f9da16a1befee76a183",
+      "outputDigest": "sha256:c56a35efab8d11241af923a237cc41b077eebc2de66538f54e429c8ea273c481",
+      "bytes": 9507,
       "action": "transform",
       "transformations": [
         {
@@ -1232,9 +1232,9 @@
     {
       "path": "docs/RELEASE_STATUS.md",
       "mode": "100644",
-      "sourceDigest": "sha256:548040911eaf896682e1355c7d0c5e19b4e23b5fc8d56e3e4225910bf879aef6",
-      "outputDigest": "sha256:2b0674beda3bf2bdcf1fe1baded9a05c0cf84e67097c583a476347f11c1e0d04",
-      "bytes": 18393,
+      "sourceDigest": "sha256:b7337778ce11f3299ad44db0a0d9498b16dd2663bd3a784595c4c595b0f814f9",
+      "outputDigest": "sha256:2698552dd2e677441acb78109e2dbf64478e37ce464395b5aff296b0fe62defa",
+      "bytes": 20669,
       "action": "transform",
       "transformations": [
         {
@@ -1262,9 +1262,9 @@
     {
       "path": "docs/TEAM_HANDOFF.md",
       "mode": "100644",
-      "sourceDigest": "sha256:db77eac23c1f55e22fa6d63aafc5ee1ceef0f83de1aef50a682e3547822e2ba8",
-      "outputDigest": "sha256:47323fc6b58049eb208b0ea75a5da5a084debba3b794ca393ce0fb58687b152c",
-      "bytes": 7651,
+      "sourceDigest": "sha256:291144158ff0300812dbb3bcf20eabab371591f9a83f46880044ef6184d86a03",
+      "outputDigest": "sha256:025624a5eab88a2cefb2f59e41d8f59189e29acce1f2239984b4323012ecb118",
+      "bytes": 9074,
       "action": "transform",
       "transformations": [
         {
@@ -1613,11 +1613,27 @@
       ]
     },
     {
+      "path": "docs/evidence/current-release-2026-10-15.json",
+      "mode": "100644",
+      "sourceDigest": "sha256:b6e8c824d025b1d6d370b9ee82cd22673e028a65e37245ed643d71fb85223a86",
+      "outputDigest": "sha256:b6e8c824d025b1d6d370b9ee82cd22673e028a65e37245ed643d71fb85223a86",
+      "bytes": 7073,
+      "action": "include"
+    },
+    {
       "path": "docs/evidence/integration-release-2026-10-14.json",
       "mode": "100644",
       "sourceDigest": "sha256:c5665e8d2be9fe949da28cfa48d64d4fc893ddf3bf43385ec66748bc1ad12fc8",
       "outputDigest": "sha256:c5665e8d2be9fe949da28cfa48d64d4fc893ddf3bf43385ec66748bc1ad12fc8",
       "bytes": 4320,
+      "action": "include"
+    },
+    {
+      "path": "docs/evidence/operational-continuity-2026-10-15.json",
+      "mode": "100644",
+      "sourceDigest": "sha256:be7f5474613dd30bfcc4b7c185f0d233fe2849b48d5df882b7a3214656924c1a",
+      "outputDigest": "sha256:be7f5474613dd30bfcc4b7c185f0d233fe2849b48d5df882b7a3214656924c1a",
+      "bytes": 10390,
       "action": "include"
     },
     {
@@ -1637,9 +1653,9 @@
     {
       "path": "docs/judge-packet/DEMO_DELIVERY.md",
       "mode": "100644",
-      "sourceDigest": "sha256:eca791881f02d2ecd30e64c8e0faeafe440773a733b1db4a18151af6bdf3ddf5",
-      "outputDigest": "sha256:2440ad847eaceaf615b3afb99c4dd235c2b60ef3e70dc02f422221515a35e33c",
-      "bytes": 7012,
+      "sourceDigest": "sha256:d35c10e26ebfe04f030ef466e748d550d69dc363b34135e0ce33311fb138e5c4",
+      "outputDigest": "sha256:8cf13962218cce745f1776a11280e5c56e963f1f3f72a2c7d5b935d5802a9116",
+      "bytes": 7475,
       "action": "transform",
       "transformations": [
         {
@@ -1659,9 +1675,9 @@
     {
       "path": "docs/judge-packet/README.md",
       "mode": "100644",
-      "sourceDigest": "sha256:21acdd732af632ee5c1d345e66eaa3351a3ca0f92b1e58fc660995c21826c3cd",
-      "outputDigest": "sha256:32adfedf5916fe4bdc4855731125dcdf81aa5fda0aa1b967e94c82d7f1b6043c",
-      "bytes": 6417,
+      "sourceDigest": "sha256:55d61c70b0f9687c522ea41db659dfbdc1509cbc7e9936fb34ace9c251153909",
+      "outputDigest": "sha256:69c61e826baa0d7853b2161b26bf69cc0a49b3bb81f3ea147b6d7364a94545ca",
+      "bytes": 6622,
       "action": "transform",
       "transformations": [
         {
@@ -1686,7 +1702,7 @@
       "path": "docs/judge-packet/RUN.md",
       "mode": "100644",
       "sourceDigest": "sha256:466c64f2b30e888ab22022dc4b3df6cc88c794ce981eb937ab8348df94d1e247",
-      "outputDigest": "sha256:4b1d1330168587c7ce0fd8fd1ea8b291810b71cc3ed924e13576ac703042bb2a",
+      "outputDigest": "sha256:a7ea3efb960209dab5ad334a10cda5a42848370b30b34137e419071391117fd9",
       "bytes": 3968,
       "action": "transform",
       "transformations": [
@@ -1700,16 +1716,10 @@
     {
       "path": "docs/judge-packet/SUBMISSION_CHECKLIST.md",
       "mode": "100644",
-      "sourceDigest": "sha256:8880cab1347b8e43573f42d3c9970c0051dbb6e30b708aa9a27116452b7f3b57",
-      "outputDigest": "sha256:da014ccec3a6ed729bec38183c0dc42f7b38cfabb9a6df1ebcac8afea8006640",
-      "bytes": 4717,
-      "action": "transform",
-      "transformations": [
-        {
-          "kind": "private-reference-disclosure",
-          "targetDigest": "sha256:3b42a58b1b4bc22314f6885a0cfcd309c09ae43fea16ee922f14fc7a67a39ecb"
-        }
-      ]
+      "sourceDigest": "sha256:d7a65b2d638568840999edec6d5e4166efadf2c25bd9841b2a0446a47f6a2a53",
+      "outputDigest": "sha256:d7a65b2d638568840999edec6d5e4166efadf2c25bd9841b2a0446a47f6a2a53",
+      "bytes": 5288,
+      "action": "include"
     },
     {
       "path": "docs/judge-packet/capture-ledger.json",
@@ -2185,6 +2195,62 @@
       "sourceDigest": "sha256:85e1a23205d50cdf3bd8caea34bcbcaf99eb3f9c5957133ddf7c5750b87223e5",
       "outputDigest": "sha256:85e1a23205d50cdf3bd8caea34bcbcaf99eb3f9c5957133ddf7c5750b87223e5",
       "bytes": 9752,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery-fixture/tsconfig.host.json",
+      "mode": "100644",
+      "sourceDigest": "sha256:0e49e44c756c68e24ab3ead4d3e0b7f112b410552be773f9eff6000ee39aca5d",
+      "outputDigest": "sha256:0e49e44c756c68e24ab3ead4d3e0b7f112b410552be773f9eff6000ee39aca5d",
+      "bytes": 201,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery-fixture/tsconfig.json",
+      "mode": "100644",
+      "sourceDigest": "sha256:afe2ace437eb5531e3f4e2a546f85d2f6bc6403fba89bfc57b9eeef40c3368b9",
+      "outputDigest": "sha256:afe2ace437eb5531e3f4e2a546f85d2f6bc6403fba89bfc57b9eeef40c3368b9",
+      "bytes": 217,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery-fixture/worker.ts",
+      "mode": "100644",
+      "sourceDigest": "sha256:59fa508f1b1c7d2de7fc83f88a3bf4c9c79f36ab9f8d0a5e40f01d85fc817690",
+      "outputDigest": "sha256:59fa508f1b1c7d2de7fc83f88a3bf4c9c79f36ab9f8d0a5e40f01d85fc817690",
+      "bytes": 8780,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery-fixture/wrangler.jsonc",
+      "mode": "100644",
+      "sourceDigest": "sha256:698cc3b3d6fae4dd875636caa3eccbf6c3dea04a80a855ae620841ce99ff0cfe",
+      "outputDigest": "sha256:698cc3b3d6fae4dd875636caa3eccbf6c3dea04a80a855ae620841ce99ff0cfe",
+      "bytes": 1061,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery-runtime.test.ts",
+      "mode": "100644",
+      "sourceDigest": "sha256:d5a541b3e7dcec6760e45af8198d22c209e74595ed14776a10d9c72841f25265",
+      "outputDigest": "sha256:d5a541b3e7dcec6760e45af8198d22c209e74595ed14776a10d9c72841f25265",
+      "bytes": 13160,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery.test.ts",
+      "mode": "100644",
+      "sourceDigest": "sha256:0f762a1b782b22780189412dee02f922ab7412ed951d4ebe2688bcc9d04c8d00",
+      "outputDigest": "sha256:0f762a1b782b22780189412dee02f922ab7412ed951d4ebe2688bcc9d04c8d00",
+      "bytes": 22233,
+      "action": "include"
+    },
+    {
+      "path": "infra/authority-recovery.ts",
+      "mode": "100644",
+      "sourceDigest": "sha256:2e54c60ccf05d3854df69ecb58dc26578d18d3d5d6ee519779c6fdf0868ec420",
+      "outputDigest": "sha256:2e54c60ccf05d3854df69ecb58dc26578d18d3d5d6ee519779c6fdf0868ec420",
+      "bytes": 23320,
       "action": "include"
     },
     {

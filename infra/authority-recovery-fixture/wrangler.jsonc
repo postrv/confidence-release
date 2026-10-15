@@ -1,0 +1,52 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "confidence-authority-recovery-local-only-never-deploy",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SOURCES",
+        "class_name": "RecoverySource"
+      },
+      {
+        "name": "TARGETS",
+        "class_name": "RecoveryTarget"
+      }
+    ]
+  },
+  "exports": {
+    "RecoverySource": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    },
+    "RecoveryTarget": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  },
+  "r2_buckets": [
+    {
+      "binding": "SOURCE_OBJECTS",
+      "bucket_name": "owned-local-recovery-source"
+    },
+    {
+      "binding": "TARGET_OBJECTS",
+      "bucket_name": "owned-local-recovery-target"
+    }
+  ],
+  "rules": [
+    {
+      "type": "CompiledWasm",
+      "globs": [
+        "**/*.wasm"
+      ],
+      "fallthrough": true
+    }
+  ]
+}

@@ -188,6 +188,24 @@ The report also explicitly leaves `deployedReleaseIdentity`,
 Native workload timing/fault and recovery drills below still require their own retained
 evidence.
 
+## Dated provider continuity observation
+
+A separate **15 October 2026** inspection of the current isolated test and closed pilot compared all **262 events across six captured authority prefixes** with D1 canonical rows and inbox digests. Both named event/dead-letter Queue pairs reported zero best-effort backlog; complete provider inventories reported stopped instances. Source, exact counts, timestamps, original proof digests and limitations are in the [selected continuity summary](evidence/operational-continuity-2026-10-15.json). This qualifies those finite observations. Sustained delivery, physical infrastructure release, provider invoices and external alert delivery remain open.
+
+## Owned-store recovery conformance
+
+The [nonproduction recovery adapter](../infra/authority-recovery.ts) and its [SQLite](../infra/authority-recovery.test.ts) and [actual local workerd lifecycle](../infra/authority-recovery-runtime.test.ts) tests exercise complete current application schemas, immutable object references, original command/model/publication identities and signing-key access. Run them after the normal kernel build:
+
+```sh
+node --import tsx --test infra/authority-recovery.test.ts infra/authority-recovery-runtime.test.ts
+```
+
+The existing `npm run test:infra` also discovers both suites. The runtime test runs dedicated host/Worker typechecks and a local fixture dry-run. Its synthetic stores cover restore, actual process reconstruction, one fixed reconciliation wake and manual production-handler delivery without another publication dispatch. Automatic timer delivery is suppressed. The fixture is explicitly test-only and must never be deployed.
+
+Version 1 accepts a compatible current schema, JSON-only KV and a complete owned object inventory within declared bounds, including a 16 MiB encoded backup. It requires a separately retained commitment and an independently held external fence; it exports no private signing key and never reopens admission. Partial writes retain uncertainty and cannot authorize implicit target reuse. Unsupported data fails closed.
+
+This is a local conformance harness. A production recovery procedure still needs native restore/PITR evidence, external old-writer and broker fencing, independently available objects and signing keys, key-management drills and measured recovery objectives. Cloudflare's [SQLite PITR API](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/#pitr-point-in-time-recovery-api) covers the object's SQL and KV history; external objects, Git effects and credentials need their own recovery association. The selected summary keeps those limits explicit.
+
 ## Named pilot limits and stop actions
 
 These are **operator thresholds** unless the enforcement column says otherwise. Close admission before investigating a stop condition. Preserve the exact pending command, job and publication identities; do not reissue a new intent after a timeout.

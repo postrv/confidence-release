@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "kind": "sanitized-current-release-summary",
+  "preparedAt": "2026-10-15T02:47:40.823723+00:00",
+  "qualificationScope": "FINITE_CLOSED_PILOT",
+  "broaderProductionReadiness": "UNVERIFIED",
+  "primaryContributors": [
+    {
+      "name": "Laurence Avent",
+      "github": "postrv"
+    },
+    {
+      "name": "Quentin Cody",
+      "github": "quentincody"
+    }
+  ],
+  "runtimeSource": {
+    "testedCommit": "85e4a1a348745ccd44946214e90a674ecf0e6d0d",
+    "mergedCommit": "7662fabce5e782ef0ccf221c7829e1a21c58effc",
+    "tree": "16982351f7d09431ec22831615c1ab0bc25e4bf4",
+    "testedAndMergedTreesEqual": true,
+    "pinnedRuntimeInputs": 183,
+    "unchangedImmutableImageInputRows": 17,
+    "checkerImplementationDigest": "sha256:7d9b014b021c60df51059ae1d96f6e98fabd7349d23b4f321532247d2cc0085f"
+  },
+  "ci": {
+    "privateDevelopmentReferences": {
+      "availability": "Private development source and CI require separate repository access.",
+      "pr": "https://github.com/postrv/confidence/pull/22",
+      "prRun": "https://github.com/postrv/confidence/actions/runs/38668839575",
+      "mainRun": "https://github.com/postrv/confidence/actions/runs/38670037606"
+    },
+    "publicPr": "https://github.com/postrv/confidence-release/pull/2",
+    "publicPrRun": "https://github.com/postrv/confidence-release/actions/runs/38669209893",
+    "publicMainRun": "https://github.com/postrv/confidence-release/actions/runs/38669913032",
+    "checksPassedPerRun": 4,
+    "allFourRunsSucceeded": true
+  },
+  "deployment": {
+    "isolated": {
+      "releaseDigest": "sha256:5f01f82dc74819d8b9f2f20c2970a9c0d997982e3bbc884a102e0ff2acb4df72",
+      "acknowledgedStages": 11,
+      "providerChecksPassed": 44,
+      "assetAndAccessGetsPassed": 6,
+      "model": null,
+      "piEnabled": false,
+      "publicationEnabled": false
+    },
+    "pilot": {
+      "releaseDigest": "sha256:a7710f2cf7ac5b88d449af6fb5ef33b807759bd6e0d4d7b8b989e35cef18524d",
+      "acknowledgedStages": 11,
+      "providerChecksPassed": 44,
+      "assetAndAccessGetsPassed": 6,
+      "model": "@cf/zai-org/glm-5.3",
+      "reasoningEffort": "low",
+      "narsilContext": "always",
+      "interlinkedPreview": "feedback",
+      "publicationEnabled": false,
+      "maintenance": false,
+      "weftServiceBound": false
+    },
+    "staticAssets": {
+      "verifiedEntities": [
+        "index.html",
+        "favicon.svg",
+        "favicon.ico"
+      ],
+      "entityBytesMimeAndSecurityHeadersExact": true,
+      "anonymousAccessChallengesPerEnvironment": 3,
+      "nativeBrowserFaviconObserved": true
+    },
+    "newModelCalls": 0,
+    "newSigningKeys": 0,
+    "automaticRetries": 0
+  },
+  "pilotPreservation": {
+    "beforeGets": 23,
+    "afterGets": 23,
+    "nativeProjects": 4,
+    "publicationHead": "15456806a501b267e36ce660e1c10c95333df9cd",
+    "projectRevisionsAndIncarnationsPreserved": true,
+    "logicalStateMembershipBudgetAndSignedBytesPreserved": true,
+    "legacyModelReservations": 16,
+    "legacyOutcomes": "LEGACY_UNINDEXED",
+    "historicalCostsInvented": false,
+    "allPublicationGates": "CLOSED",
+    "heldBudget": "0",
+    "evaluatorOccupiedGenerations": 0,
+    "receiptVerificationFacetsPassed": 6,
+    "observationAtomicAcrossServices": false
+  },
+  "finiteMonitor": {
+    "isolatedGets": 3,
+    "pilotGets": 13,
+    "allHttpStatus": 200,
+    "findings": 0,
+    "alerts": 0,
+    "priorReportsAndUnknownAlertsPreserved": true,
+    "readiness": "UNVERIFIED",
+    "externalNotificationConfigured": false
+  },
+  "publicDistributionAsObserved": {
+    "repository": "https://github.com/postrv/confidence-release",
+    "commit": "20eb4639350bd9810ff5982a335d2a3b091c7809",
+    "tree": "b1a83f19cb7c85963de7c38b1877b450993fd92d",
+    "manifestDigest": "sha256:d38245b53a0a609ae8913f2e481d5dcb4eb75cc5ab9dcf2ab0726e3401f9e086",
+    "filesIncludingManifest": 598,
+    "regularBytes": 6779270,
+    "anonymousGets": 5,
+    "independentChecks": 5703,
+    "allFileBytesAndModesMatched": true,
+    "reconstructedTreeMatched": true,
+    "licenseAndNoticePreserved": true,
+    "quentinEffectiveRole": "write",
+    "existingRequiredValidateProtectionPreserved": true,
+    "tagV010Commit": "3263af3f1d2ea1ddb7a6555160be72896590730d",
+    "tagV010AndFourMaterialAssetsUnchanged": true
+  },
+  "separateNativeModelIndexObservation": {
+    "sourceCommit": "4fc8bfcb24415412d854962713b2ecc3f3bbeeef",
+    "completedAt": "2026-10-14T23:54:55.470495+00:00",
+    "providerResponses": 1,
+    "modelReservations": 1,
+    "model": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+    "indexedDispatchResponseAndUsageVerified": true,
+    "oneNonemptyNativePageAndEmptyTerminalCursor": true,
+    "completeRequestResponseObjectLinks": true,
+    "individualProtectedEvaluationJobs": 1,
+    "logicalCleanup": "TOMBSTONED",
+    "isolatedNoModelProfileRestored": true,
+    "providerInvoiceVerified": false
+  },
+  "submission": {
+    "submitted": false,
+    "manualEntryRequired": true,
+    "finalVideoSelected": false,
+    "replacementVideoAwaitedFromTeam": true,
+    "retainedBackupVideo": {
+      "filename": "confidence-judge-demo-2026-10-12-neural.mp4",
+      "sha256": "e48fb7f8e98ae6453751d938c3c30b6863654ceb5ba9cdb69f46eb278d683a00",
+      "durationSeconds": 480,
+      "bytes": 28996394,
+      "humanCompleteViewingClaimed": false
+    }
+  },
+  "privateEvidenceDigests": {
+    "isolatedRollout": "sha256:487f7fba0c40ea79f8148b95562dd81df85027cdcc5b846335b2a094ad30d8ff",
+    "pilotRollout": "sha256:3cd624bb7b6970ae5608cc69b7d0fa3839ee39d3cadb045809f88d5e4e747184",
+    "independentStatePreservation": "sha256:8394bef2a5767d60ec3e3a948f00ccaca2f27777a98d3d9163bfb3b88494271b",
+    "finiteMonitorQualification": "sha256:33b7e321f0421955f75bd484f78ae3d76c34c18db477868b1ef6b13c311e5a22",
+    "distributionAndMainCi": "sha256:a969631827d539efc7932bbf7f3548b307bab304934017cb6d3027429d32e4b6",
+    "nativeModelIndexQualification": "sha256:999873e5d91b3081e8ab4c3cf5e6e511c76c80198844a12ec97a811443aafb20"
+  },
+  "limitations": [
+    "This is a selected summary; raw operator exports, private identities, resource names, authentication material and private Weft source are excluded. Digests do not make those originals publicly retrievable.",
+    "Finite provider module/binding and asset readbacks do not prove sustained native workload operation, callback-failure recovery, underlying physical resource release or provider invoice attribution.",
+    "The one-call native model-index observation used its own earlier source and isolated project; it is not a new model run on the branding release or a nine-job/three-agent soak.",
+    "Authority database/key disaster recovery and tested external alert delivery remain separate unqualified gates.",
+    "Current human-class credentials and exact-source authorization checks do not attest human presence; final review and competition agreements remain human actions.",
+    "The original receipt, synthetic public example, historical video and public release tag retain their distinct source/trust identities. No automated competition entry is performed."
+  ]
+}

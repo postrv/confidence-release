@@ -1,12 +1,10 @@
 # Read-only Workers AI usage reconciliation
 
-## Deployment and pending source boundary
+## Deployed accounting and observed scope
 
-The verified deployed baseline remains `f5cb312e85cc90ff8fa827c6496c5d6a9773d6bf`.
-The immutable call index and paginated accounting read described below are
-pending source changes as of **15 October 2026**. They require their own final
-source checks, release association and deployment observation. This document
-does not claim that they are already running on Cloudflare.
+The immutable call index and paginated accounting read are deployed as of **15 October 2026**. The current [release status](RELEASE_STATUS.md) and [selected delivery record](evidence/current-release-2026-10-15.json) bind tested runtime source `85e4a1a` and its identical-tree merge `7662fab` to the isolated and pilot rollouts.
+
+A separate finite native qualification on source `4fc8bfcb24415412d854962713b2ecc3f3bbeeef` used one isolated DeepSeek response. It verified immutable dispatch/response facts, independently linked request/response objects, usage metadata, one nonempty cursor page and an empty terminal cursor, then restored the no-model profile and drained the project. Broader pagination and lost-fact acknowledgements have local test evidence. This one-call observation does not establish an invoice, sustained operation or every provider route.
 
 For future reservations, the authority atomically registers an indexed call
 alongside its existing reservation. Each `DISPATCH` or `RESPONSE` phase is
@@ -27,7 +25,7 @@ dispatched reservations are not backfilled with invented outcomes: they remain
 amounts remain unchanged. A separate bounded reconciliation can inspect their
 original R2 evidence; absence of an index entry is not evidence of zero cost.
 
-The pending read-only `GET /v1/projects/{projectId}/model-calls` route requires
+The deployed read-only `GET /v1/projects/{projectId}/model-calls` route requires
 a verified human administrator (the verified owner in collaboration mode).
 It requires the exact `incarnation` query value, accepts canonical `after`
 cursors and a `limit` from 1 to 100, and returns at most 128 KiB with an explicit
