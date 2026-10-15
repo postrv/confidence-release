@@ -1,6 +1,8 @@
 # Public submission handover
 
-This guide prepares a later clean public source release. **The repository is still private; no public repository, history rewrite, visibility change or competition submission is performed by this handover.** Archiving old documents is organization within the private source, not a privacy review or permission to publish them.
+A reviewed [clean public source repository](https://github.com/postrv/confidence-release) is published. The [15 October delivery record](evidence/current-release-2026-10-15.json) identifies the independently verified snapshot and its source correspondence. The private development repository and history are preserved separately; the original public `v0.1.0` tag/assets remain frozen.
+
+This guide now governs successor exports and final submission. Final changes and a replacement video are awaited from the team, including Quentin. Final source/video qualification, human viewing, entrant agreements and manual competition entry remain pending.
 
 ## Preserve the important work
 
@@ -16,13 +18,13 @@ The public package must make the strongest work easy to find: the complete paral
 | Unmodified synthetic receipt/trust/checkpoint files and their provenance | Account-free independent verification with explicit synthetic trust; do not redact signed bytes |
 | Source, fixtures, tests, reference models, dependency locks and accepted license/notices | Complete runnable implementation and the evidence needed to inspect it |
 
-The [chief historical publication record](PILOT_RELEASE_GATE_F508454.md) is retained in the private handover, with the original candidate, receipt identity and stage-specific observations. It contains operator-history/path references and depends on private raw exports. A later public version must deliberately select reviewed summaries and disclose inaccessible raw evidence; do not imply judges can independently retrieve an unavailable production receipt. Preserve the unchanged original privately.
+The [historical publication record](PILOT_RELEASE_GATE_F508454.md) retains its original candidate, receipt identity and stage-specific observations. The public distribution discloses selected summaries and unavailable private evidence through its manifest. Keep the original private reports and signed bytes unchanged; a summary digest does not give judges access to the underlying production exports.
 
 ## Choose the export boundary
 
 Freeze a real source commit and tree before choosing files. Record the source commit, proposed export inventory, per-file SHA-256, permissions and any deliberate transformations. The handover began at `ff33d6f43534e46d9297a1983a7d54febe7e3636`, tree `dcb7992e054fdbc769ab1b97b025e86ae76eb4cd`; that does not predeclare the eventual submission commit.
 
-| Material | Default treatment for the later public export |
+| Material | Treatment for each reviewed successor export |
 | --- | --- |
 | Runtime/build/test source, reproducible fixtures, package/Cargo locks, Rust pin | Include after content review; keep generated state out |
 | Current judge-facing docs and sanitized evidence JSON | Include only after final privacy, attribution and link review |

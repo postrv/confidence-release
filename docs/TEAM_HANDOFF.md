@@ -1,5 +1,15 @@
 # Competition team handoff
 
+## Current handoff — 15 October 2026
+
+**Primary contributors: Laurence Avent (@postrv) and Quentin Cody (@quentincody).** The [public repository](https://github.com/postrv/confidence-release) is published, with anonymous byte/mode verification of the observed distribution. Both repositories passed protected PR and main CI. The README, diagrams and compact artwork are live; the matching favicon passed isolated validation and is deployed to the pilot. Quentin has effective write/push access, with the existing required `validate` protection preserved.
+
+The [current release status](RELEASE_STATUS.md) and [selected delivery record](evidence/current-release-2026-10-15.json) bind the actual runtime, source, public export and finite preservation checks. Four existing pilot projects and the original receipt remain intact. Model-call indexing is deployed; legacy outcomes remain unknown where evidence is unavailable. Broader operating-envelope, recovery and on-call acceptance remains open.
+
+Final changes and a replacement video are awaited from the team, including Quentin. No final video is selected and no competition entry has been submitted. Requalify the final source/video, then have the entrant personally review the file and complete the manual entry. The original `v0.1.0` tag/assets and eight-minute backup recording remain unchanged.
+
+## Retained preparation baseline
+
 14 October successor: PR #18 and PR #19 (retained private reference; unavailable in this source distribution) are merged and validated through the isolated test and pilot rollout as platform `f5cb312`. Laurence's real Access admission and scoped separate-machine agent exchange are complete. Exact pinned Weft acquisition and finite local qualification passed; the native pilot still has Weft unbound and full-repository execution unregistered. Start with the [latest release status](RELEASE_STATUS.md) and [sanitized integration summary](evidence/integration-release-2026-10-14.json). The source and observations below remain the retained 12 October preparation baseline.
 
 Updated 12 October 2026. This is the retained pilot preparation brief. The former 10 October working handoff is preserved in the development archive (retained private reference; unavailable in this source distribution); its pending migration and deployment statements are historical.
@@ -39,9 +49,9 @@ The observed live episodes demonstrate both tools in the loop, not individual ca
 
 The [packet run path](judge-packet/RUN.md) needs no Cloudflare account, model credential or paid call. It is a local scripted journey under the host OS identity, using predetermined edits and synthetic approval. Its signed example remains unmodified, with separately selectable synthetic public trust and a signature-tamper negative control. Production trust and receipt bytes are distinct.
 
-The finished eight-minute recording shows actual local footage with explicitly labelled retained Cloudflare evidence. A voiceover replacement is a presentation successor, not new execution evidence: retain the original delivery record and record the final replacement's file digest, duration, size, audio checks and attribution. Follow [video delivery](judge-packet/DEMO_DELIVERY.md) for the observed artifacts rather than guessing a final filename or hash.
+The retained eight-minute backup recording shows actual local footage with explicitly labelled retained Cloudflare evidence. A voiceover replacement is a presentation successor, not new execution evidence: retain the original delivery record and record the final replacement's file digest, duration, size, audio checks and attribution. Follow [video delivery](judge-packet/DEMO_DELIVERY.md) for the observed artifacts rather than guessing a final filename or hash.
 
-The repository remains private. A clean public repository is a later, explicitly reviewed export, not a visibility toggle or a copy of private Git history. The [public submission handover](PUBLIC_SUBMISSION_HANDOVER.md) defines the inventory, privacy/license review, evidence preservation, exact-source validation and judge-access checks still needed.
+A reviewed [clean public distribution](https://github.com/postrv/confidence-release) is now available, with its own Git history and source manifest. The private development history and raw operator material remain separate. The [public submission handover](PUBLIC_SUBMISSION_HANDOVER.md) defines how to qualify any successor export and the final video.
 
 ## Remaining product boundaries
 
@@ -55,7 +65,7 @@ The repository remains private. A clean public repository is a later, explicitly
 ## Next handover actions
 
 1. Freeze the chosen source revision and final video; associate their actual tests and delivery records without relabelling old runtime observations.
-2. Prepare the later clean public export using a reviewed file inventory, keeping private state, correspondence, credentials and raw model sessions excluded.
+2. Refresh the existing clean public export for any final team changes using a reviewed inventory; preserve private state, correspondence, credentials and raw model sessions outside it.
 3. Rehearse that exact export from a clean checkout and verify the signed example offline; preserve any failures separately.
 4. Check the intended source, report and uploaded video links from the judge-access context.
 5. The entrant reviews the final file and manually completes the [submission checklist](judge-packet/SUBMISSION_CHECKLIST.md), including the final terms and submission confirmation.

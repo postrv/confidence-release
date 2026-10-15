@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "kind": "sanitized-finite-operational-continuity-and-local-recovery-summary",
+  "preparedAt": "2026-10-15T03:22:30.179065+00:00",
+  "broaderProductionReadiness": "UNVERIFIED",
+  "runtimeSource": {
+    "testedCommit": "85e4a1a348745ccd44946214e90a674ecf0e6d0d",
+    "mergedCommit": "7662fabce5e782ef0ccf221c7829e1a21c58effc",
+    "tree": "16982351f7d09431ec22831615c1ab0bc25e4bf4",
+    "newDeploymentPerformedForThisInspection": false
+  },
+  "finiteProviderInspection": {
+    "status": "FINITE_CONTINUITY_PASS",
+    "completedAt": "2026-10-15T03:11:16.679Z",
+    "totalRequests": 79,
+    "ordinaryStateGets": 12,
+    "providerGets": 54,
+    "parameterizedD1SelectPosts": 13,
+    "eventsCompared": 262,
+    "profiles": [
+      {
+        "environment": "isolated",
+        "startedAt": "2026-10-15T03:09:02.830Z",
+        "completedAt": "2026-10-15T03:09:29.792Z",
+        "requests": 35,
+        "authorityPrefixes": [
+          {
+            "scopeDigest": "sha256:26af6f532320f56a197112c0d173bb3ada55aa108a1bad1e1445c1ceadc6194f",
+            "authorityRevision": "1",
+            "authoritySequence": 2,
+            "d1Watermark": 2,
+            "eventsCompared": 2,
+            "lagEvents": 0,
+            "canonicalPayloadAndInboxDigestsEqual": true,
+            "authorityBracketsStable": true
+          },
+          {
+            "scopeDigest": "sha256:68205b879d4690762e3ed2496013c35375031b1823a3b607f18ad60d03f338a2",
+            "authorityRevision": "16",
+            "authoritySequence": 15,
+            "d1Watermark": 15,
+            "eventsCompared": 15,
+            "lagEvents": 0,
+            "canonicalPayloadAndInboxDigestsEqual": true,
+            "authorityBracketsStable": true
+          }
+        ],
+        "namedQueueBacklogs": [
+          {
+            "role": "events",
+            "bestEffort": true,
+            "messages": 0,
+            "bytes": 0
+          },
+          {
+            "role": "dead-letter",
+            "bestEffort": true,
+            "messages": 0,
+            "bytes": 0
+          }
+        ],
+        "providerContainerInventory": [
+          {
+            "role": "runner",
+            "status": "PASS",
+            "completeUnfilteredPagination": true,
+            "instancePages": 1,
+            "instances": 1,
+            "nonterminalOrUnknownCount": 0,
+            "stateCounts": {
+              "stopped": 1
+            }
+          },
+          {
+            "role": "evaluator",
+            "status": "PASS",
+            "completeUnfilteredPagination": true,
+            "instancePages": 1,
+            "instances": 1,
+            "nonterminalOrUnknownCount": 0,
+            "stateCounts": {
+              "stopped": 1
+            }
+          }
+        ],
+        "originalReportDigest": "sha256:09bd33ad1f76acc03e87c4f83a577001e9a8355da0b1be5625fc025e8d3eb6d9"
+      },
+      {
+        "environment": "pilot",
+        "startedAt": "2026-10-15T03:09:44.169Z",
+        "completedAt": "2026-10-15T03:10:43.682Z",
+        "requests": 44,
+        "authorityPrefixes": [
+          {
+            "scopeDigest": "sha256:b2e0e31648b4289cb0b3e78dcb2bdb04f1c1aef4c14ec99e47b4caca4511a84f",
+            "authorityRevision": "110",
+            "authoritySequence": 125,
+            "d1Watermark": 125,
+            "eventsCompared": 125,
+            "lagEvents": 0,
+            "canonicalPayloadAndInboxDigestsEqual": true,
+            "authorityBracketsStable": true
+          },
+          {
+            "scopeDigest": "sha256:f64e58bde6a8668412c50d3debe5aa31e3646bae2fbec04221da7b39eb0506f4",
+            "authorityRevision": "39",
+            "authoritySequence": 40,
+            "d1Watermark": 40,
+            "eventsCompared": 40,
+            "lagEvents": 0,
+            "canonicalPayloadAndInboxDigestsEqual": true,
+            "authorityBracketsStable": true
+          },
+          {
+            "scopeDigest": "sha256:d1619f6be92885bada833691af90d5dcf4c5d82b0e331215cb4b6a3502827a14",
+            "authorityRevision": "52",
+            "authoritySequence": 53,
+            "d1Watermark": 53,
+            "eventsCompared": 53,
+            "lagEvents": 0,
+            "canonicalPayloadAndInboxDigestsEqual": true,
+            "authorityBracketsStable": true
+          },
+          {
+            "scopeDigest": "sha256:a9044625aca17eef27831c1b6bc9bebc83e6b694dba11b4934a404f9f4292b79",
+            "authorityRevision": "27",
+            "authoritySequence": 27,
+            "d1Watermark": 27,
+            "eventsCompared": 27,
+            "lagEvents": 0,
+            "canonicalPayloadAndInboxDigestsEqual": true,
+            "authorityBracketsStable": true
+          }
+        ],
+        "namedQueueBacklogs": [
+          {
+            "role": "events",
+            "bestEffort": true,
+            "messages": 0,
+            "bytes": 0
+          },
+          {
+            "role": "dead-letter",
+            "bestEffort": true,
+            "messages": 0,
+            "bytes": 0
+          }
+        ],
+        "providerContainerInventory": [
+          {
+            "role": "runner",
+            "status": "PASS",
+            "completeUnfilteredPagination": true,
+            "instancePages": 1,
+            "instances": 19,
+            "nonterminalOrUnknownCount": 0,
+            "stateCounts": {
+              "stopped": 19
+            }
+          },
+          {
+            "role": "evaluator",
+            "status": "PASS",
+            "completeUnfilteredPagination": true,
+            "instancePages": 1,
+            "instances": 98,
+            "nonterminalOrUnknownCount": 0,
+            "stateCounts": {
+              "stopped": 98
+            }
+          }
+        ],
+        "originalReportDigest": "sha256:329f3230d94c726f1f6e674a5a443db21942eb2ca658a2c21a028a2e8551fca8"
+      }
+    ],
+    "mutations": 0,
+    "modelCalls": 0,
+    "queuePullsOrAcknowledgements": 0,
+    "automaticRetries": 0,
+    "atomicAcrossServices": false,
+    "initialCredentialLifetimeUnknownRetained": true,
+    "existingOAuthRenewedSeparatelyWithSameScopes": true,
+    "originalAggregateDigest": "sha256:f2a8b35587ac51c8d813365e5b7a5e391b0dd6a7d9558876288a0654499294dc"
+  },
+  "localRecoveryConformance": {
+    "profile": "owned-authority-recovery-conformance-v1",
+    "originalSourceCommit": "10171ef977b637a8e09326a5f416531d50d4a112",
+    "strengthenedRestartSourceCommit": "78f06c2c4e317d8865ec387b4062265920313456",
+    "sourceFileDigests": {
+      "infra/authority-recovery.ts": "sha256:2e54c60ccf05d3854df69ecb58dc26578d18d3d5d6ee519779c6fdf0868ec420",
+      "infra/authority-recovery.test.ts": "sha256:0f762a1b782b22780189412dee02f922ab7412ed951d4ebe2688bcc9d04c8d00",
+      "infra/authority-recovery-runtime.test.ts": "sha256:d5a541b3e7dcec6760e45af8198d22c209e74595ed14776a10d9c72841f25265",
+      "infra/authority-recovery-fixture/worker.ts": "sha256:59fa508f1b1c7d2de7fc83f88a3bf4c9c79f36ab9f8d0a5e40f01d85fc817690",
+      "infra/authority-recovery-fixture/wrangler.jsonc": "sha256:698cc3b3d6fae4dd875636caa3eccbf6c3dea04a80a855ae620841ce99ff0cfe",
+      "infra/authority-recovery-fixture/tsconfig.json": "sha256:afe2ace437eb5531e3f4e2a546f85d2f6bc6403fba89bfc57b9eeef40c3368b9",
+      "infra/authority-recovery-fixture/tsconfig.host.json": "sha256:0e49e44c756c68e24ab3ead4d3e0b7f112b410552be773f9eff6000ee39aca5d"
+    },
+    "nodeVersion": "v22.20.0",
+    "groupsPassed": 12,
+    "groupsFailed": 0,
+    "realNodeSqliteGroups": 11,
+    "actualLocalWorkerdLifecycleGroups": 1,
+    "dedicatedTypechecks": 2,
+    "fixtureWorkerDryRunPassed": true,
+    "allPreexistingTrackedSourceUnchanged": true,
+    "testedProperties": [
+      "All current authority, catalog and project-hub tables, rowids and all three application autoincrement counters are included.",
+      "Owned JSON-only KV and complete local object inventory are retained; alarm metadata is captured without blindly rearming the old alarm.",
+      "Independent backup commitment, exact compatible schema, object hashes and fresh random signing challenges reject altered or incomplete inputs.",
+      "The same 16 MiB encoded-wrapper bound applies to capture and restore; unsupported values and incomplete inventories fail closed.",
+      "Dropped object/KV/marker writes and lost final fencing retain uncertainty and refuse implicit target reuse.",
+      "Actual authority reconstruction adds one fixed original-publication reconciliation wake and arms an alarm; manually invoking the production handler delivers that same row once.",
+      "The restored OPEN row cannot override the separately held maintenance fence. Original command identities, dispatched model call, held/settled amounts and uncertain publication survive without another publication dispatch or inference."
+    ],
+    "nativeTimerDeliveryTested": false,
+    "nativeCloudflarePitrTested": false,
+    "externalOldWriterFenceImplemented": false,
+    "productionRestoreRouteAdded": false,
+    "realSigningKeysExportedOrRotated": false,
+    "providerOrModelCalls": 0,
+    "originalProofDigest": "sha256:0d0e62eefe777c09bae25be415b64b00396e0d0b58488ef3bd9bb4fa4821b117",
+    "strengthenedProofDigest": "sha256:de27f7811ebdcbf027959ee3fdb997ecc42f7b048284945efed1a0a8b3065300",
+    "retainedInitialAssertionFailure": true
+  },
+  "limitations": [
+    "This selected summary excludes credentials, account/resource identifiers, private paths, raw project exports and private Weft source. Original-record digests do not make those records publicly retrievable.",
+    "D1 comparisons cover the exact captured contiguous event prefixes. Authority head brackets were stable, but service and pagination observations are non-atomic.",
+    "Queue metrics are best-effort and provider-reported stopped containers do not prove invoice attribution or physical infrastructure release.",
+    "The recovery harness is nonproduction local conformance with owned stores, synthetic signers and fake external effects. Native PITR/restore, real key recovery/rotation, old-writer fencing and measured RPO/RTO remain unqualified.",
+    "Automatic timer delivery is suppressed in the local fixture; the production alarm handler is invoked explicitly. No native callback-failure or sustained three-agent operating-envelope qualification is inferred.",
+    "Tested external notification delivery, final team source/video selection, human complete viewing and manual competition entry remain separate unfinished work."
+  ]
+}

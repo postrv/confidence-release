@@ -1,8 +1,12 @@
-# Finished demonstration delivery
+# Demonstration delivery records
 
-## Current neural narration
+## Final video selection pending
 
-The preferred delivery is now **`confidence-judge-demo-2026-10-12-neural.mp4`**: the same eight-minute walkthrough and spoken content, with a locally rendered neural voice replacing macOS Daniel. The original MP4, capture and measured ledger are preserved below. This is a presentation successor, not another coding run, new footage, production publication or external-access proof.
+As of **15 October 2026**, a replacement video and final source changes are awaited from the team. No final file is selected. The measured recording below remains an unchanged backup on the [frozen v0.1.0 release](https://github.com/postrv/confidence-release/releases/tag/v0.1.0). A replacement needs its own source/file identity, duration, size, codec, audio/privacy checks and human complete viewing before manual submission.
+
+## Retained neural narration backup
+
+The retained backup is **`confidence-judge-demo-2026-10-12-neural.mp4`**: the same eight-minute walkthrough and spoken content, with a locally rendered neural voice replacing macOS Daniel. The original MP4, capture and measured ledger are preserved below. This is a presentation successor, not another coding run, new footage, production publication or external-access proof.
 
 | Measured item | Successor |
 | --- | --- |

@@ -1,6 +1,20 @@
-# Release status — 14 October 2026
+# Release status — 15 October 2026
 
-## Latest verified integration baseline
+## Current verified deployment
+
+The current closed-pilot runtime is tested source `85e4a1a348745ccd44946214e90a674ecf0e6d0d`, merged as `7662fabce5e782ef0ccf221c7829e1a21c58effc`, with identical tree `16982351f7d09431ec22831615c1ab0bc25e4bf4`. Both private and public PR/main CI runs passed all four checks. The isolated test and pilot each completed eleven acknowledged deployment stages, 44 provider checks and six exact asset/Access checks. The new SVG/ICO favicon is observed in the pilot browser.
+
+The model-call index and paginated admin accounting read are deployed. A separate one-call isolated qualification verified dispatch/response facts, linked objects, native cursor behavior and provider-reported usage on source `4fc8bfcb24415412d854962713b2ecc3f3bbeeef`, then restored the no-model isolated profile. Sixteen historical pilot reservations remain `LEGACY_UNINDEXED`; no outcome or cost was invented. See [model accounting](MODEL_USAGE_RECONCILIATION.md).
+
+The [public source repository](https://github.com/postrv/confidence-release) is available. Anonymous verification matched all 598 files and Git modes at observed public commit `20eb4639350bd9810ff5982a335d2a3b091c7809`; the original `v0.1.0` tag and its four material assets remain unchanged. Laurence Avent and Quentin Cody are the primary contributors, and Quentin has effective write access. The [selected delivery record](evidence/current-release-2026-10-15.json) separates these observations and their original identities.
+
+The four existing native projects, memberships, budgets, source closures and signed receipt were preserved by 23 protected GETs before and after rollout, with independent six-facet native verification. Maintenance is off, publication gates remain CLOSED, publication is disabled and Weft is unbound. New release-bound finite monitors passed; broader production readiness remains `UNVERIFIED`. The declared three-agent operating envelope, native callback failure, authority/key recovery, external alert delivery and provider billing/resource-return gates require their own evidence.
+
+A later finite provider inspection matched all 262 events across six captured authority prefixes with D1 and found zero reported queue backlog and complete stopped-container inventories. The separate local owned-store recovery harness passed twelve groups, including actual workerd reconstruction and fixed-identity reconciliation. These [dated observations](evidence/operational-continuity-2026-10-15.json) retain their own sources and limits; native disaster recovery, timer delivery, billing and sustained acceptance remain open.
+
+The team is awaiting final source changes and a replacement video. The retained eight-minute recording is a backup; no final video or manual competition entry is claimed.
+
+## Retained 14 October integration baseline
 
 PR #18 and PR #19 (retained private reference; unavailable in this source distribution) are merged. The latest verified pilot rollout uses platform commit `f5cb312e85cc90ff8fa827c6496c5d6a9773d6bf`, tree `58e2428d34f168802a3f8a0612ced44ff197b43b`, identical to tested integration commit `5891b5679db04a4d61e316f86c23d46c7cf21b6c`. Protected PR and post-merge main CI passed. The isolated five-Worker test and the pilot's maintenance/restoration stages passed all 44 provider checks. Each pilot stage also passed 62 protected checks across all four existing native projects.
 
@@ -8,7 +22,7 @@ Stored project data, memberships, budgets, trust and receipts were preserved. Ei
 
 Laurence's real Access admission, personal scoped agent connection, separate-machine pinned-Weft acquisition and attributed discussion results are now observed. Four finite local qualification lanes passed against the exact Weft pin on Node 22.22.0 with locked dependencies and install scripts disabled. The release rehearsal uses synthetic release identities and approval; full-repository execution remains unregistered with 22 qualification blockers. No confidential Weft source or credentials are distributed. The [sanitized integration summary](evidence/integration-release-2026-10-14.json) preserves source/CI associations, counts, private-record digests and these boundaries; older reports below retain their original identities and observations.
 
-Production and submission close-out work is being validated separately. Pending source changes add an immutable index for future model calls, durable exact-fact retry and a bounded paginated accounting GET for verified human administrators. Metadata links independently checked request/response objects without exposing private prompt or response text; recovery does not redispatch inference, refund a reservation or manufacture outcomes for the 16 legacy dispatched calls. The read-only reconciler follows complete indexed links or retains its bounded legacy discovery path; incomplete coverage stays unknown, and provider token-rate estimates remain distinct from invoices. See [model usage reconciliation](MODEL_USAGE_RECONCILIATION.md). These changes are not yet claimed deployed. Their final source checks and public export, rendered interface, operational observations and uploaded video need separate association; the integration baseline does not predeclare that outcome.
+The later model-index and branding rollouts are recorded above. This integration baseline retains its original source and qualification scope; it does not absorb later observations.
 
 ## Retained 12 October evidence
 
@@ -27,7 +41,8 @@ local scripted enrollment, not the pilot's production receipt.
 
 | Identity | Last verified value | Meaning |
 | --- | --- | --- |
-| Latest verified deployed platform | `f5cb312e85cc90ff8fa827c6496c5d6a9773d6bf` | The 14 October integration baseline above; same tested tree as `5891b567`. |
+| Current verified deployed platform | `85e4a1a348745ccd44946214e90a674ecf0e6d0d` | Tested runtime source; merged as `7662fab` with identical tree `16982351f7d09431ec22831615c1ab0bc25e4bf4`. The 15 October delivery record binds deployment and public distribution. |
+| Historical 14 October integration | `f5cb312e85cc90ff8fa827c6496c5d6a9773d6bf` | Same tested tree as `5891b567`; its original integration observations are retained above. |
 | Historical recovery/onboarding platform | `4fd4a6cd32f60b17d7b5d8d0f1995490a0f28d8b` | Protected merge of reviewed `680a5ef373d1904d463b155d74a99190ec04ab8e`; identical tree `42cfb0ebbfd502558164b0fcf6521f7b8c670c06` was packaged and deployed. All four confirmation/restoration stages passed 44/44 readback; protected PR and post-merge CI passed. |
 | Historical project/import platform | `39c8c58ecc7585dfc3417a216019893ebd2ff845` | Original import rollout and saved-check preservation follow-up. Its dated import/browser observations remain evidence for their declared inputs. |
 | Published pilot candidate | `15456806a501b267e36ce660e1c10c95333df9cd` | Source published once to the pilot's canonical Artifacts ref and covered by receipt 1. It is not the platform source commit. |

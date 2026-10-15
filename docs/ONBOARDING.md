@@ -2,7 +2,7 @@
 
 Confidence helps concurrent agents contribute to one release while keeping proposed work, passing checks, human approval and observed publication distinct. Start with a local walkthrough; it needs no Cloudflare account or model credential.
 
-This is a reviewed clean public source distribution, with a separate Git history from the private development repository. The [source manifest](../PUBLIC_SOURCE_MANIFEST.json) records original commit `85e4a1a348745ccd44946214e90a674ecf0e6d0d`, tree `16982351f7d09431ec22831615c1ab0bc25e4bf4`, selected summaries and excluded private evidence. Historical reports retain their original dates and source identities. They do not establish fresh qualification of this export.
+This is a reviewed clean public source distribution, with a separate Git history from the private development repository. The [source manifest](../PUBLIC_SOURCE_MANIFEST.json) records original commit `d9fa50f4fc9bc8e215a765aeb566ee8b90142f86`, tree `8ca93f71143563db3c84ae9722da35db66866504`, selected summaries and excluded private evidence. Historical reports retain their original dates and source identities. They do not establish fresh qualification of this export.
 
 ## The first 15 minutes
 
