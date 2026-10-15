@@ -160,8 +160,26 @@ try {
   const revokedInvite = await invitation('guest', 'viewer');
   await command('owner', 'revoke-invitation', { invitationId: revokedInvite.invitationId });
   await command('guest', 'accept-invitation', revokedInvite, 404, { label: 'Revoked invitation remains unavailable' });
-  const expiredInvite = await invitation('guest', 'viewer', 'owner', 1);
-  await new Promise(resolve => setTimeout(resolve, 1100));
+  const expiredInvite = await invitation('guest', 'viewer');
+  await command('guest', 'inspect-invitation', expiredInvite, 200, { label: 'Invitation is available before fixture aging' });
+  const beforeAging = (await (await runtime.fetch('/_test/inspect')).json() as any).invitations as any[];
+  const originalInvite = beforeAging.find(row => row.id === expiredInvite.invitationId)!;
+  const expire = (invitationId: string) => runtime.fetch('/_test/expire-invitation', { method: 'POST', body: JSON.stringify({ invitationId }) });
+  assert.equal((await runtime.fetch('/_test/expire-invitation')).status, 405, 'Fixture aging requires POST');
+  const extraField = await runtime.fetch('/_test/expire-invitation', { method: 'POST', body: JSON.stringify({ invitationId: expiredInvite.invitationId, expiresAt: 0 }) });
+  assert.equal(extraField.status, 409); assert.deepEqual(await extraField.json(), { changedRows: 0 }, 'Fixture aging accepts no arbitrary timestamp');
+  for (const invitationId of [randomUUID(), revokedInvite.invitationId, reviewInvite.invitationId]) {
+    const refused = await expire(invitationId); assert.equal(refused.status, 409);
+    assert.deepEqual(await refused.json(), { changedRows: 0 }, 'Missing, revoked and accepted invitations cannot be aged');
+  }
+  const agedResponse = await expire(expiredInvite.invitationId); assert.equal(agedResponse.status, 200);
+  const aged = await agedResponse.json() as { changedRows: number; invitationId: string; createdAt: number; expiresAt: number; observedAt: number };
+  assert.equal(aged.changedRows, 1); assert.equal(aged.invitationId, expiredInvite.invitationId);
+  assert.ok(aged.createdAt < aged.expiresAt && aged.expiresAt < aged.observedAt);
+  assert.equal(aged.expiresAt - aged.createdAt, originalInvite.expires_at - originalInvite.created_at, 'Fixture aging preserves the admitted positive lifetime');
+  const afterAging = (await (await runtime.fetch('/_test/inspect')).json() as any).invitations as any[];
+  assert.deepEqual(afterAging.filter(row => row.id !== expiredInvite.invitationId), beforeAging.filter(row => row.id !== expiredInvite.invitationId));
+  assert.deepEqual(afterAging.find(row => row.id === expiredInvite.invitationId), { ...originalInvite, created_at: aged.createdAt, expires_at: aged.expiresAt }, 'Only the exact invitation history timestamps change');
   await command('guest', 'accept-invitation', expiredInvite, 404, { label: 'Expired invitation cannot be accepted' });
   checks.push('Last-owner guard, recipient consent, explicit revocation and expiration are authoritative');
 

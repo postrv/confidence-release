@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="title description">
+  <title id="title">Confidence</title>
+  <desc id="description">Three parallel orange paths converge on one green verified receipt.</desc>
+  <rect width="32" height="32" rx="8" fill="#111315"/>
+  <path d="M6 8h3c5 0 5 8 11 8M6 16h14M6 24h3c5 0 5-8 11-8" fill="none" stroke="#f48120" stroke-width="3" stroke-linecap="round"/>
+  <rect x="20" y="10" width="10" height="12" rx="3" fill="#8bdfaf"/>
+  <path d="m22.5 16 1.7 1.7 3.3-3.5" fill="none" stroke="#111315" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

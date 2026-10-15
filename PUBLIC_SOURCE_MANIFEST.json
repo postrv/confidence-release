@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "kind": "reviewed-clean-public-source-export",
-  "sourceCommit": "9a067a0491dc9ec56ec34fe66d647729c0ccdbac",
-  "sourceTree": "0739636db2c10b7060159a1affdcea5354e17fa6",
+  "sourceCommit": "85e4a1a348745ccd44946214e90a674ecf0e6d0d",
+  "sourceTree": "16982351f7d09431ec22831615c1ab0bc25e4bf4",
   "intendedRepositoryUrl": "https://github.com/postrv/confidence-release",
   "published": false,
   "judgeAccessVerified": false,
-  "policyDigest": "sha256:89edb8f78a59dcb78a7c9f30285bb5a9493a16e075cf1cc94aa1df8fe1b0e900",
+  "policyDigest": "sha256:a30e445a73387803a422cff9b492e9d4864ff1d78cc42b48b031d5038acd5c43",
   "files": [
     {
       "path": ".dockerignore",
@@ -67,24 +67,24 @@
     {
       "path": "README.md",
       "mode": "100644",
-      "sourceDigest": "sha256:120e3480f46b67be5ca808a9aab6dbd85fc5ba9ab064a37b76cb5b306ee19ca4",
-      "outputDigest": "sha256:03a6be6d5061c30cb083509b64654be2df9be925884c5e3f24197c6e780f1db3",
-      "bytes": 5316,
+      "sourceDigest": "sha256:c041ccba79a30d5d2bbedc6262664e15de76a5a7d9994bd335bad0809ee0044b",
+      "outputDigest": "sha256:d71ec58a6b9aedc9513506ce735e63a3b04e67b99d5aa6284e709ab0ddc48943",
+      "bytes": 10463,
       "action": "transform",
       "transformations": [
         {
           "kind": "reviewed-public-summary-overlay",
           "input": "overlays/README.md",
-          "inputDigest": "sha256:56740d8f977ec85ce8582e5f5132302dbc5441c1aa1eca54c21a56d3a7d23f25"
+          "inputDigest": "sha256:2641ae2e465e16d245f66d058ab06d6aa35a7b0f00833f41b501f2a12e93731a"
         }
       ]
     },
     {
       "path": "apps/web/index.html",
       "mode": "100644",
-      "sourceDigest": "sha256:ad2c3a15c54a13524323bc89e51c3ebb84e6cd7a758ed3455a9e3a867c2d7758",
-      "outputDigest": "sha256:ad2c3a15c54a13524323bc89e51c3ebb84e6cd7a758ed3455a9e3a867c2d7758",
-      "bytes": 923,
+      "sourceDigest": "sha256:694ffdfc765d722dd507cd83334cc112faec22f919ac96f4fe04d172ab0d7549",
+      "outputDigest": "sha256:694ffdfc765d722dd507cd83334cc112faec22f919ac96f4fe04d172ab0d7549",
+      "bytes": 1070,
       "action": "include"
     },
     {
@@ -93,6 +93,22 @@
       "sourceDigest": "sha256:2f071330b8114057ffb2d998bb085146b07f999857d6dece8051b439fcafbcca",
       "outputDigest": "sha256:2f071330b8114057ffb2d998bb085146b07f999857d6dece8051b439fcafbcca",
       "bytes": 247,
+      "action": "include"
+    },
+    {
+      "path": "apps/web/public/favicon.ico",
+      "mode": "100644",
+      "sourceDigest": "sha256:d7aae78f354ae519064a496d8eb9bf17ccdc640e95e86d7097a696fd447cd52a",
+      "outputDigest": "sha256:d7aae78f354ae519064a496d8eb9bf17ccdc640e95e86d7097a696fd447cd52a",
+      "bytes": 2232,
+      "action": "include"
+    },
+    {
+      "path": "apps/web/public/favicon.svg",
+      "mode": "100644",
+      "sourceDigest": "sha256:9b7c20d3b2d086b594d0b5211cf9025fa7d0db983b7684d9f2952c818c974377",
+      "outputDigest": "sha256:9b7c20d3b2d086b594d0b5211cf9025fa7d0db983b7684d9f2952c818c974377",
+      "bytes": 666,
       "action": "include"
     },
     {
@@ -1054,7 +1070,7 @@
       "path": "docs/ONBOARDING.md",
       "mode": "100644",
       "sourceDigest": "sha256:871f9967335bef47739fa6fce22205e62401f67d676fd8599ba616d0e6bfaa72",
-      "outputDigest": "sha256:1fcb5d0ab88b4033395430b2a62fc07bb0d17a75b1346d600ab0c091f8b25893",
+      "outputDigest": "sha256:25d1d8cf278fe7634ae744784d63c5821ecd3985bfc6378efe199bf47fdbb253",
       "bytes": 4794,
       "action": "transform",
       "transformations": [
@@ -1563,6 +1579,22 @@
       ]
     },
     {
+      "path": "docs/assets/README.md",
+      "mode": "100644",
+      "sourceDigest": "sha256:739b026beae55dedba3862228f837109145cb181c09ffa09f8ad8d3954e0ae94",
+      "outputDigest": "sha256:739b026beae55dedba3862228f837109145cb181c09ffa09f8ad8d3954e0ae94",
+      "bytes": 1639,
+      "action": "include"
+    },
+    {
+      "path": "docs/assets/confidence-hero.webp",
+      "mode": "100644",
+      "sourceDigest": "sha256:c3a0f854e754966362767def0e766fec4571e76577740e0f2e14372706d7a507",
+      "outputDigest": "sha256:c3a0f854e754966362767def0e766fec4571e76577740e0f2e14372706d7a507",
+      "bytes": 150582,
+      "action": "include"
+    },
+    {
       "path": "docs/blake3-feasibility.md",
       "mode": "100644",
       "sourceDigest": "sha256:4539176d8e941a2dec821626bd88dcf936ba721dca4af43e66e99e1774b919bc",
@@ -1654,7 +1686,7 @@
       "path": "docs/judge-packet/RUN.md",
       "mode": "100644",
       "sourceDigest": "sha256:466c64f2b30e888ab22022dc4b3df6cc88c794ce981eb937ab8348df94d1e247",
-      "outputDigest": "sha256:b93cbd3a0110ceb34e566162b1ea8687b0a87df2a5d1043590e9298580ba2eef",
+      "outputDigest": "sha256:4b1d1330168587c7ce0fd8fd1ea8b291810b71cc3ed924e13576ac703042bb2a",
       "bytes": 3968,
       "action": "transform",
       "transformations": [
@@ -2212,6 +2244,14 @@
       "action": "include"
     },
     {
+      "path": "infra/collaboration-invitation-expiry.test.ts",
+      "mode": "100644",
+      "sourceDigest": "sha256:4f709d6faf73e84adec2ca3e3f2da17891a111594eb2c88d4674109a4f424c5c",
+      "outputDigest": "sha256:4f709d6faf73e84adec2ca3e3f2da17891a111594eb2c88d4674109a4f424c5c",
+      "bytes": 4661,
+      "action": "include"
+    },
+    {
       "path": "infra/collaboration-migration-check.ts",
       "mode": "100644",
       "sourceDigest": "sha256:1a953d6b12639994eb5922fd8d2378605e7a2e40a62975c773701046f595a776",
@@ -2222,9 +2262,9 @@
     {
       "path": "infra/collaboration-runtime-check.ts",
       "mode": "100644",
-      "sourceDigest": "sha256:0c47b1e4d4fa1296be787117f60bfb96b0f0de16c0d48e4b90902399d6b076ba",
-      "outputDigest": "sha256:0c47b1e4d4fa1296be787117f60bfb96b0f0de16c0d48e4b90902399d6b076ba",
-      "bytes": 56305,
+      "sourceDigest": "sha256:9accff59990437656083052e144953fdd604c65ed7ea1ada411626b64f7169b5",
+      "outputDigest": "sha256:9accff59990437656083052e144953fdd604c65ed7ea1ada411626b64f7169b5",
+      "bytes": 58518,
       "action": "include"
     },
     {
@@ -3094,9 +3134,9 @@
     {
       "path": "infra/test-collaboration/worker.ts",
       "mode": "100644",
-      "sourceDigest": "sha256:56c78ae81c3bd323a41d1a01c834e3aac7cf11e7a298da3a33330ec828bd7de5",
-      "outputDigest": "sha256:56c78ae81c3bd323a41d1a01c834e3aac7cf11e7a298da3a33330ec828bd7de5",
-      "bytes": 4663,
+      "sourceDigest": "sha256:28d9ea2b9ec9a0a3891ca6261d141b42cf54faf307cbc83c90a86c465fe6c135",
+      "outputDigest": "sha256:28d9ea2b9ec9a0a3891ca6261d141b42cf54faf307cbc83c90a86c465fe6c135",
+      "bytes": 6654,
       "action": "include"
     },
     {
@@ -4230,9 +4270,9 @@
     {
       "path": "services/server.ts",
       "mode": "100644",
-      "sourceDigest": "sha256:4fb4de93725f132105ece377089835b741b5baf308ad39fa4881bbe03037f6e4",
-      "outputDigest": "sha256:4fb4de93725f132105ece377089835b741b5baf308ad39fa4881bbe03037f6e4",
-      "bytes": 15260,
+      "sourceDigest": "sha256:b5fe1ce482811b6b8fa7d30b653214b7535e10d806806d87666e2d444ae15ba0",
+      "outputDigest": "sha256:b5fe1ce482811b6b8fa7d30b653214b7535e10d806806d87666e2d444ae15ba0",
+      "bytes": 15284,
       "action": "include"
     },
     {
